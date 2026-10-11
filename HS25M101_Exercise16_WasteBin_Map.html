@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0ea0a98f1c854b59f521ba20ed33e52b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_0ea0a98f1c854b59f521ba20ed33e52b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0ea0a98f1c854b59f521ba20ed33e52b = L.map(
+                "map_0ea0a98f1c854b59f521ba20ed33e52b",
+                {
+                    center: [13.712146693577598, 79.59102334263247],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5b8a1ffe91e011f6c20d5c19e8b9becc = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri World Imagery",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5b8a1ffe91e011f6c20d5c19e8b9becc.addTo(map_0ea0a98f1c854b59f521ba20ed33e52b);
+        
+    
+        function geo_json_2ec566f6a38ea646f1aa78ffdac1287e_pointToLayer(feature, latlng) {
+            var opts = {
+  "stroke": true,
+  "color": "#3388ff",
+  "weight": 1,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.8,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 6,
+};
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_2ec566f6a38ea646f1aa78ffdac1287e_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_2ec566f6a38ea646f1aa78ffdac1287e = L.geoJson(null, {
+                onEachFeature: geo_json_2ec566f6a38ea646f1aa78ffdac1287e_onEachFeature,
+            
+                pointToLayer: geo_json_2ec566f6a38ea646f1aa78ffdac1287e_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_2ec566f6a38ea646f1aa78ffdac1287e_add (data) {
+            geo_json_2ec566f6a38ea646f1aa78ffdac1287e
+                .addData(data);
+        }
+            geo_json_2ec566f6a38ea646f1aa78ffdac1287e_add({"bbox": [79.58614500033971, 13.706047845604914, 79.5949415503523, 13.718647753551485], "features": [{"bbox": [79.59282420732377, 13.717191748609068, 79.59282420732377, 13.717191748609068], "geometry": {"coordinates": [79.59282420732377, 13.717191748609068, 0.0], "type": "Point"}, "id": "0", "properties": {"color": "#377eb8", "note": "Not segregated", "timestamp": "2026-09-02 17:24:16.416000+00:00", "title": "Dustbin in front of tech hub", "uuid": "{8396ddde-fb5b-4e2e-befa-d784c77f000b}"}, "type": "Feature"}, {"bbox": [79.59133479562435, 13.718647753551485, 79.59133479562435, 13.718647753551485], "geometry": {"coordinates": [79.59133479562435, 13.718647753551485, 0.0], "type": "Point"}, "id": "1", "properties": {"color": "#377eb8", "note": "Too much garbage ", "timestamp": "2026-09-02 17:30:57.842000+00:00", "title": "Dumping area", "uuid": "{43d87642-9c5d-4adb-8a1e-339731ddfe9d}"}, "type": "Feature"}, {"bbox": [79.58717058329844, 13.718043385171038, 79.58717058329844, 13.718043385171038], "geometry": {"coordinates": [79.58717058329844, 13.718043385171038, 0.0], "type": "Point"}, "id": "2", "properties": {"color": "#377eb8", "note": "Not segregated ", "timestamp": "2026-09-02 17:43:14.477000+00:00", "title": "In front Malhar hostel", "uuid": "{d3540b6e-8605-48fc-9715-0d1e20b5e871}"}, "type": "Feature"}, {"bbox": [79.5869798919714, 13.717628747293993, 79.5869798919714, 13.717628747293993], "geometry": {"coordinates": [79.5869798919714, 13.717628747293993, 0.0], "type": "Point"}, "id": "3", "properties": {"color": "#377eb8", "note": "Not segregated ", "timestamp": "2026-09-02 17:45:55.305000+00:00", "title": "In between malhar and des hostel", "uuid": "{5d054c20-8ccb-45d3-a792-89688c372b44}"}, "type": "Feature"}, {"bbox": [79.5867304714194, 13.717783849919828, 79.5867304714194, 13.717783849919828], "geometry": {"coordinates": [79.5867304714194, 13.717783849919828, 0.0], "type": "Point"}, "id": "4", "properties": {"color": "#377eb8", "note": "Not segregated ", "timestamp": "2026-09-02 17:47:57.991000+00:00", "title": "Entrance Gate of des hostel ", "uuid": "{48e347d5-fd82-414f-beee-69dab217d0a3}"}, "type": "Feature"}, {"bbox": [79.5865085740731, 13.717368571053044, 79.5865085740731, 13.717368571053044], "geometry": {"coordinates": [79.5865085740731, 13.717368571053044, 0.0], "type": "Point"}, "id": "5", "properties": {"color": "#377eb8", "note": "Not segregated ", "timestamp": "2026-09-02 17:49:37.977000+00:00", "title": "In front of des", "uuid": "{2ea9403e-8ca1-4c99-9511-c5fc36a23057}"}, "type": "Feature"}, {"bbox": [79.58640452979795, 13.716655649018103, 79.58640452979795, 13.716655649018103], "geometry": {"coordinates": [79.58640452979795, 13.716655649018103, 0.0], "type": "Point"}, "id": "6", "properties": {"color": "#377eb8", "note": "Non segregated ", "timestamp": "2026-09-02 17:51:58.147000+00:00", "title": "North mess staff residence ", "uuid": "{0b23ae45-dd02-45ae-9790-556bced26183}"}, "type": "Feature"}, {"bbox": [79.58714116404872, 13.717156272261391, 79.58714116404872, 13.717156272261391], "geometry": {"coordinates": [79.58714116404872, 13.717156272261391, 0.0], "type": "Point"}, "id": "7", "properties": {"color": "#377eb8", "note": "Non-segregated ", "timestamp": "2026-09-02 17:54:51.269000+00:00", "title": "North mess entrance ", "uuid": "{0f04a663-ede6-4297-be89-fc91d46899a1}"}, "type": "Feature"}, {"bbox": [79.58745334246933, 13.717771063747572, 79.58745334246933, 13.717771063747572], "geometry": {"coordinates": [79.58745334246933, 13.717771063747572, 0.0], "type": "Point"}, "id": "8", "properties": {"color": "#377eb8", "note": "Non- segregated ", "timestamp": "2026-09-02 17:57:38.102000+00:00", "title": "Malhar entrance ", "uuid": "{ae379cce-100c-498c-960f-f820d0edd83b}"}, "type": "Feature"}, {"bbox": [79.58614500033971, 13.716551875823699, 79.58614500033971, 13.716551875823699], "geometry": {"coordinates": [79.58614500033971, 13.716551875823699, 0.0], "type": "Point"}, "id": "9", "properties": {"color": "#377eb8", "note": "Non segregated ", "timestamp": "2026-09-02 18:05:59.937000+00:00", "title": "Another side of mess staff residence ", "uuid": "{3024f8a9-1727-4900-9e3c-fe4a950055f3}"}, "type": "Feature"}, {"bbox": [79.5862037146062, 13.71486113950237, 79.5862037146062, 13.71486113950237], "geometry": {"coordinates": [79.5862037146062, 13.71486113950237, 0.0], "type": "Point"}, "id": "10", "properties": {"color": "#377eb8", "note": "Non segregated ", "timestamp": "2026-09-02 18:11:09.145000+00:00", "title": "Sport\u0027s utility building ", "uuid": "{d73f04b5-8e49-47e9-98da-a405b82fd81b}"}, "type": "Feature"}, {"bbox": [79.58619104792463, 13.714907280831277, 79.58619104792463, 13.714907280831277], "geometry": {"coordinates": [79.58619104792463, 13.714907280831277, 0.0], "type": "Point"}, "id": "11", "properties": {"color": "#377eb8", "note": "Non segregated ", "timestamp": "2026-09-02 18:11:53.727000+00:00", "title": "Sport\u0027s utility building ", "uuid": "{d84890db-bfad-438c-9350-de29ccfb413e}"}, "type": "Feature"}, {"bbox": [79.58651999447737, 13.71468826006153, 79.58651999447737, 13.71468826006153], "geometry": {"coordinates": [79.58651999447737, 13.71468826006153, 0.0], "type": "Point"}, "id": "12", "properties": {"color": "#377eb8", "note": "Non segregated ", "timestamp": "2026-09-02 18:13:22.051000+00:00", "title": "New Tennis court ", "uuid": "{c5f0817c-52d9-4028-999a-2469b6a346c0}"}, "type": "Feature"}, {"bbox": [79.58687307580522, 13.714050219528392, 79.58687307580522, 13.714050219528392], "geometry": {"coordinates": [79.58687307580522, 13.714050219528392, 0.0], "type": "Point"}, "id": "13", "properties": {"color": "#377eb8", "note": "Non segregated ", "timestamp": "2026-09-02 18:15:48.367000+00:00", "title": "New Tennis court ", "uuid": "{42b2e823-8b85-40a4-a7aa-986ded7d79a7}"}, "type": "Feature"}, {"bbox": [79.58816075450476, 13.71281940124174, 79.58816075450476, 13.71281940124174], "geometry": {"coordinates": [79.58816075450476, 13.71281940124174, 0.0], "type": "Point"}, "id": "14", "properties": {"color": "#377eb8", "note": "Non-segregated ", "timestamp": "2026-09-02 18:20:39.466000+00:00", "title": "Near Director\u0027s bunglow ", "uuid": "{c0edc63d-b97e-4abc-aa6c-4df32ca5b271}"}, "type": "Feature"}, {"bbox": [79.59161597665869, 13.711992164966375, 79.59161597665869, 13.711992164966375], "geometry": {"coordinates": [79.59161597665869, 13.711992164966375, 0.0], "type": "Point"}, "id": "15", "properties": {"color": "#377eb8", "note": "Non-segregated ", "timestamp": "2026-09-02 18:29:34.560000+00:00", "title": "Director\u0027s circle", "uuid": "{140202a1-ddd6-4bb0-8b2a-211f42e75629}"}, "type": "Feature"}, {"bbox": [79.59234009656178, 13.709830082837103, 79.59234009656178, 13.709830082837103], "geometry": {"coordinates": [79.59234009656178, 13.709830082837103, 0.0], "type": "Point"}, "id": "16", "properties": {"color": "#377eb8", "note": "Dry Waste bin", "timestamp": "2026-09-02 18:37:14.272000+00:00", "title": "Outside faculty quarter 2", "uuid": "{f25bc074-31da-4afd-965b-934ade6d682a}"}, "type": "Feature"}, {"bbox": [79.59233566518785, 13.709848609615825, 79.59233566518785, 13.709848609615825], "geometry": {"coordinates": [79.59233566518785, 13.709848609615825, 0.0], "type": "Point"}, "id": "17", "properties": {"color": "#377eb8", "note": "Non-segregated ", "timestamp": "2026-09-02 18:37:48.941000+00:00", "title": "Outside faculty quarters ", "uuid": "{8011261f-db19-4c44-b04d-ec3c0ad5a7ae}"}, "type": "Feature"}, {"bbox": [79.59321142999907, 13.710005850933985, 79.59321142999907, 13.710005850933985], "geometry": {"coordinates": [79.59321142999907, 13.710005850933985, 0.0], "type": "Point"}, "id": "18", "properties": {"color": "#377eb8", "note": "Non-segregated ", "timestamp": "2026-09-02 18:40:20.617000+00:00", "title": "Sport\u0027s complex", "uuid": "{2c98abc5-cd63-4aaf-b650-7b5c46f1265e}"}, "type": "Feature"}, {"bbox": [79.59309544974776, 13.709731642621145, 79.59309544974776, 13.709731642621145], "geometry": {"coordinates": [79.59309544974776, 13.709731642621145, 0.0], "type": "Point"}, "id": "19", "properties": {"color": "#377eb8", "note": "Non-segregated ", "timestamp": "2026-09-02 18:45:33.429000+00:00", "title": "Outside sports complex ", "uuid": "{3c698df3-caa2-4b6b-9f6d-474ad21f7e95}"}, "type": "Feature"}, {"bbox": [79.59326944031157, 13.709448401353342, 79.59326944031157, 13.709448401353342], "geometry": {"coordinates": [79.59326944031157, 13.709448401353342, 0.0], "type": "Point"}, "id": "20", "properties": {"color": "#377eb8", "note": "Segregated ", "timestamp": "2026-09-02 18:52:02.129000+00:00", "title": "Outside basketball court ", "uuid": "{fa1a31bc-949f-483d-930b-2043d4c61f68}"}, "type": "Feature"}, {"bbox": [79.59392327432595, 13.708917103286021, 79.59392327432595, 13.708917103286021], "geometry": {"coordinates": [79.59392327432595, 13.708917103286021, 0.0], "type": "Point"}, "id": "21", "properties": {"color": "#377eb8", "note": null, "timestamp": "2026-09-02 18:54:24.689000+00:00", "title": null, "uuid": "{72d0b273-611b-43b0-8a6e-2757657e5086}"}, "type": "Feature"}, {"bbox": [79.59172538199509, 13.712829567757128, 79.59172538199509, 13.712829567757128], "geometry": {"coordinates": [79.59172538199509, 13.712829567757128, 0.0], "type": "Point"}, "id": "22", "properties": {"color": "#377eb8", "note": "Non segregated ", "timestamp": "2026-09-03 13:47:39.844000+00:00", "title": "Near circle", "uuid": "{cc7a5021-ee36-475a-bbec-f3870b0a65a6}"}, "type": "Feature"}, {"bbox": [79.59487474247891, 13.708235314989844, 79.59487474247891, 13.708235314989844], "geometry": {"coordinates": [79.59487474247891, 13.708235314989844, 0.0], "type": "Point"}, "id": "23", "properties": {"color": "#377eb8", "note": "Green bin ", "timestamp": "2026-09-05 07:08:06.826000+00:00", "title": "Cafeteria ", "uuid": "{4aad5992-5abf-4079-bc61-b5648cbd13fe}"}, "type": "Feature"}, {"bbox": [79.59483039794884, 13.7081303695767, 79.59483039794884, 13.7081303695767], "geometry": {"coordinates": [79.59483039794884, 13.7081303695767, 0.0], "type": "Point"}, "id": "24", "properties": {"color": "#377eb8", "note": "Non-segregated ", "timestamp": "2026-09-05 07:10:51.329000+00:00", "title": "Outside cafeteria ", "uuid": "{2b40a936-bb68-438a-b445-3119c186d2ac}"}, "type": "Feature"}, {"bbox": [79.59102625356321, 13.714933939843371, 79.59102625356321, 13.714933939843371], "geometry": {"coordinates": [79.59102625356321, 13.714933939843371, 0.0], "type": "Point"}, "id": "25", "properties": {"color": "#377eb8", "note": "Non-segregated ", "timestamp": "2026-09-05 14:30:29.233000+00:00", "title": "Outside LHC", "uuid": "{f73a32f2-8988-4677-af6d-37863dcc94f4}"}, "type": "Feature"}, {"bbox": [79.59179649780431, 13.715741935193389, 79.59179649780431, 13.715741935193389], "geometry": {"coordinates": [79.59179649780431, 13.715741935193389, 0.0], "type": "Point"}, "id": "26", "properties": {"color": "#377eb8", "note": null, "timestamp": "2026-09-05 14:35:43.808000+00:00", "title": null, "uuid": "{5c29dbc3-9c8b-4cd1-9fc5-c1bf78b142cd}"}, "type": "Feature"}, {"bbox": [79.59179924993191, 13.715689898875302, 79.59179924993191, 13.715689898875302], "geometry": {"coordinates": [79.59179924993191, 13.715689898875302, 0.0], "type": "Point"}, "id": "27", "properties": {"color": "#377eb8", "note": "Non-segregated ", "timestamp": "2026-09-05 14:36:53.223000+00:00", "title": "Outside AB1", "uuid": "{1e9d3cb2-bd53-4690-95fc-54e3fb3ec6af}"}, "type": "Feature"}, {"bbox": [79.5949415503523, 13.706582894040706, 79.5949415503523, 13.706582894040706], "geometry": {"coordinates": [79.5949415503523, 13.706582894040706, 0.0], "type": "Point"}, "id": "28", "properties": {"color": "#377eb8", "note": null, "timestamp": "2026-09-06 08:05:20.007000+00:00", "title": null, "uuid": "{e4733978-b206-4590-b919-fa61abc226b6}"}, "type": "Feature"}, {"bbox": [79.59493220299964, 13.706571349556764, 79.59493220299964, 13.706571349556764], "geometry": {"coordinates": [79.59493220299964, 13.706571349556764, 0.0], "type": "Point"}, "id": "29", "properties": {"color": "#377eb8", "note": "Non-segregated ", "timestamp": "2026-09-06 08:05:32.280000+00:00", "title": "Outside health centre", "uuid": "{43be737c-367d-4315-811c-49c1f6d8ef10}"}, "type": "Feature"}, {"bbox": [79.59420852440871, 13.706806671330968, 79.59420852440871, 13.706806671330968], "geometry": {"coordinates": [79.59420852440871, 13.706806671330968, 0.0], "type": "Point"}, "id": "30", "properties": {"color": "#377eb8", "note": "Waste bin", "timestamp": "2026-09-06 08:08:09.264000+00:00", "title": "Outside lab", "uuid": "{be8ab1d4-ef28-4147-b73d-549bd35c0738}"}, "type": "Feature"}, {"bbox": [79.59449859410849, 13.706047845604914, 79.59449859410849, 13.706047845604914], "geometry": {"coordinates": [79.59449859410849, 13.706047845604914, 0.0], "type": "Point"}, "id": "31", "properties": {"color": "#377eb8", "note": "Non-segregated ", "timestamp": "2026-09-06 08:08:54.481000+00:00", "title": "South gate entrance ", "uuid": "{ce473649-020e-4d3f-b1b9-55189414aed4}"}, "type": "Feature"}, {"bbox": [79.5928056315516, 13.70716810400812, 79.5928056315516, 13.70716810400812], "geometry": {"coordinates": [79.5928056315516, 13.70716810400812, 0.0], "type": "Point"}, "id": "32", "properties": {"color": "#377eb8", "note": "Non segregated ", "timestamp": "2026-09-06 08:15:53.241000+00:00", "title": "Nearby faculty quarters ", "uuid": "{5d685d77-7d89-4843-910c-7a3e2d755045}"}, "type": "Feature"}, {"bbox": [79.59291917572894, 13.707300090651243, 79.59291917572894, 13.707300090651243], "geometry": {"coordinates": [79.59291917572894, 13.707300090651243, 0.0], "type": "Point"}, "id": "33", "properties": {"color": "#377eb8", "note": "Dry bin", "timestamp": "2026-09-06 08:18:28.870000+00:00", "title": "Nearby grocery store ", "uuid": "{027d97c3-9d08-4fe6-88b1-5de033733c65}"}, "type": "Feature"}, {"bbox": [79.59299610999999, 13.707358510000002, 79.59299610999999, 13.707358510000002], "geometry": {"coordinates": [79.59299610999999, 13.707358510000002, 37.03302001953125], "type": "Point"}, "id": "34", "properties": {"color": "#377eb8", "note": "Wet bin", "timestamp": "2026-09-06 08:31:16.736000+00:00", "title": "Outside grocery 2", "uuid": "{321deda2-3f29-487e-9640-db96d3f4d981}"}, "type": "Feature"}, {"bbox": [79.5929100795942, 13.70722570876501, 79.5929100795942, 13.70722570876501], "geometry": {"coordinates": [79.5929100795942, 13.70722570876501, 0.0], "type": "Point"}, "id": "35", "properties": {"color": "#377eb8", "note": "Dry waste", "timestamp": "2026-09-06 08:42:18.919000+00:00", "title": "Grocery store bin 1", "uuid": "{e5e3cbed-c581-41b3-b413-efdf7e1bbfc5}"}, "type": "Feature"}, {"bbox": [79.59294330890009, 13.707371026776487, 79.59294330890009, 13.707371026776487], "geometry": {"coordinates": [79.59294330890009, 13.707371026776487, 0.0], "type": "Point"}, "id": "36", "properties": {"color": "#377eb8", "note": "Wet waste bin", "timestamp": "2026-09-06 08:44:29.420000+00:00", "title": "Vegetable shop ", "uuid": "{34b35d33-1132-4fce-8116-1c511f94f7e6}"}, "type": "Feature"}, {"bbox": [79.59263440898826, 13.708320264095475, 79.59263440898826, 13.708320264095475], "geometry": {"coordinates": [79.59263440898826, 13.708320264095475, 0.0], "type": "Point"}, "id": "37", "properties": {"color": "#377eb8", "note": "Dry waste bin", "timestamp": "2026-09-06 08:49:25.269000+00:00", "title": "Way to faculty quarters ", "uuid": "{4b7b612e-597e-4a27-93fb-a7615b57e0b5}"}, "type": "Feature"}, {"bbox": [79.59388230228092, 13.708889477052264, 79.59388230228092, 13.708889477052264], "geometry": {"coordinates": [79.59388230228092, 13.708889477052264, 0.0], "type": "Point"}, "id": "38", "properties": {"color": "#377eb8", "note": "Dry waste ", "timestamp": "2026-09-06 08:56:51.796000+00:00", "title": "Way to kedar hostel ", "uuid": "{84a14424-8f26-45c5-be6b-13516ea568cd}"}, "type": "Feature"}, {"bbox": [79.59416552758373, 13.707718817464578, 79.59416552758373, 13.707718817464578], "geometry": {"coordinates": [79.59416552758373, 13.707718817464578, 0.0], "type": "Point"}, "id": "39", "properties": {"color": "#377eb8", "note": null, "timestamp": "2026-09-06 10:54:49.705000+00:00", "title": null, "uuid": "{4ca0ba10-9289-49c3-b1cb-d9bd79dae454}"}, "type": "Feature"}, {"bbox": [79.59486240711044, 13.708110805581123, 79.59486240711044, 13.708110805581123], "geometry": {"coordinates": [79.59486240711044, 13.708110805581123, 0.0], "type": "Point"}, "id": "40", "properties": {"color": "#377eb8", "note": "Wet waste", "timestamp": "2026-09-06 10:57:48.793000+00:00", "title": "Caf", "uuid": "{b1ac9254-2bd6-48bd-adad-5dfe941d867c}"}, "type": "Feature"}, {"bbox": [79.59482450468003, 13.70818332187475, 79.59482450468003, 13.70818332187475], "geometry": {"coordinates": [79.59482450468003, 13.70818332187475, 0.0], "type": "Point"}, "id": "41", "properties": {"color": "#377eb8", "note": "Dry waste", "timestamp": "2026-09-06 10:58:41.628000+00:00", "title": "Saloon", "uuid": "{2fa5d69c-e7cb-4b92-b20c-c6b42d3d5c32}"}, "type": "Feature"}, {"bbox": [79.59011410000001, 13.71429661, 79.59011410000001, 13.71429661], "geometry": {"coordinates": [79.59011410000001, 13.71429661, 20.9132080078125], "type": "Point"}, "id": "42", "properties": {"color": "#377eb8", "note": "Dry waste", "timestamp": "2026-09-06 11:12:46.158000+00:00", "title": "Outside department entrance ", "uuid": "{4dfde3d3-aecb-47c9-9f9f-ba6a061ba14e}"}, "type": "Feature"}, {"bbox": [79.58960976566634, 13.714540088893163, 79.58960976566634, 13.714540088893163], "geometry": {"coordinates": [79.58960976566634, 13.714540088893163, 0.0], "type": "Point"}, "id": "43", "properties": {"color": "#377eb8", "note": "Dry waste", "timestamp": "2026-09-06 11:15:01.135000+00:00", "title": "LHC bus stop ", "uuid": "{444d31bd-b7ff-4b75-9bc8-8a627564ac97}"}, "type": "Feature"}, {"bbox": [79.58927625035119, 13.71497796502137, 79.58927625035119, 13.71497796502137], "geometry": {"coordinates": [79.58927625035119, 13.71497796502137, 0.0], "type": "Point"}, "id": "44", "properties": {"color": "#377eb8", "note": "Dry waste ", "timestamp": "2026-09-06 11:16:47.001000+00:00", "title": "Way to North mess bin1", "uuid": "{d51c626e-0db9-4528-bada-a06f0a808222}"}, "type": "Feature"}, {"bbox": [79.58859201813544, 13.715489418134089, 79.58859201813544, 13.715489418134089], "geometry": {"coordinates": [79.58859201813544, 13.715489418134089, 0.0], "type": "Point"}, "id": "45", "properties": {"color": "#377eb8", "note": "Dry waste", "timestamp": "2026-09-06 11:19:02.695000+00:00", "title": "Way to North mess bin 2", "uuid": "{fdc25738-dd34-4477-b970-dfe7d6ca7d40}"}, "type": "Feature"}, {"bbox": [79.58849563708634, 13.716475529831895, 79.58849563708634, 13.716475529831895], "geometry": {"coordinates": [79.58849563708634, 13.716475529831895, 0.0], "type": "Point"}, "id": "46", "properties": {"color": "#377eb8", "note": "Dry waste ", "timestamp": "2026-09-06 11:21:19.032000+00:00", "title": "Way to North mess bin 3", "uuid": "{e76faa62-982a-4860-8106-8e7020457d05}"}, "type": "Feature"}], "type": "FeatureCollection"});
+        geo_json_2ec566f6a38ea646f1aa78ffdac1287e.setStyle(function(feature) {return feature.properties.style;});
+
+        
+    
+    geo_json_2ec566f6a38ea646f1aa78ffdac1287e.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["title", "note", "timestamp"];
+    let aliases = ["Location", "Observation", "Recorded At"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i].toLocaleString()}</th>
+            
+            <td>${handleObject(layer.feature.properties[v]).toLocaleString()}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_2ec566f6a38ea646f1aa78ffdac1287e.addTo(map_0ea0a98f1c854b59f521ba20ed33e52b);
+        
+    
+            var layer_control_cc18ecbc6940c8a34700d4a668e0adef_layers = {
+                base_layers : {
+                    "Satellite" : tile_layer_5b8a1ffe91e011f6c20d5c19e8b9becc,
+                },
+                overlays :  {
+                    "Waste Bins" : geo_json_2ec566f6a38ea646f1aa78ffdac1287e,
+                },
+            };
+            let layer_control_cc18ecbc6940c8a34700d4a668e0adef = L.control.layers(
+                layer_control_cc18ecbc6940c8a34700d4a668e0adef_layers.base_layers,
+                layer_control_cc18ecbc6940c8a34700d4a668e0adef_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_0ea0a98f1c854b59f521ba20ed33e52b);
+
+        
+    
+            tile_layer_5b8a1ffe91e011f6c20d5c19e8b9becc.addTo(map_0ea0a98f1c854b59f521ba20ed33e52b);
+        
+    
+            geo_json_2ec566f6a38ea646f1aa78ffdac1287e.addTo(map_0ea0a98f1c854b59f521ba20ed33e52b);
+        
+</script>
+</html>
