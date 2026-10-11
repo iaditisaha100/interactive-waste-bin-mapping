@@ -168,6 +168,9 @@ attachments = gpd.read_file(GPKG, layer="notes_attachments")
 if points.crs is None or points.crs.to_epsg() != 4326:
     points = points.to_crs(epsg=4326)
 
+# Folium expects longitude and latitude. Drop the unused Z from QField.
+points["geometry"] = points.geometry.force_2d()
+
 photos = (
     attachments.dropna(subset=["media"])
     .groupby("note_uuid")["media"]
@@ -225,23 +228,45 @@ folium.TileLayer(
     name="Satellite imagery",
 ).add_to(m)
 
+# GeoJson wants plain columns. Keep the three tooltip fields plus the
+# popup text, and drop list columns such as the photograph paths.
+map_points = points[
+    [
+        "title_label",
+        "note_label",
+        "recorded_label",
+        "category",
+        "collector",
+        "geometry",
+    ]
+].copy()
+map_points["popup_html"] = points.apply(popup_html, axis=1)
+
 for category, color in CATEGORY_COLORS.items():
-    subset = points[points["category"] == category]
+    subset = map_points[map_points["category"] == category]
     if subset.empty:
         continue
     group = folium.FeatureGroup(name=f"{category} ({len(subset)})")
-    for _, row in subset.iterrows():
-        folium.CircleMarker(
-            location=[row["lat"], row["lon"]],
+    folium.GeoJson(
+        subset,
+        marker=folium.CircleMarker(
             radius=7,
             color="#ffffff",
             weight=1,
             fill=True,
             fill_color=color,
             fill_opacity=0.92,
-            tooltip=f"{row['title_label']} — {row['collector']}",
-            popup=folium.Popup(popup_html(row), max_width=320),
-        ).add_to(group)
+        ),
+        tooltip=folium.GeoJsonTooltip(
+            fields=["title_label", "note_label", "recorded_label"],
+            aliases=["Location", "Observation", "Recorded"],
+        ),
+        popup=folium.GeoJsonPopup(
+            fields=["popup_html"],
+            labels=False,
+            parse_html=False,
+        ),
+    ).add_to(group)
     group.add_to(m)
 
 legend_rows = "".join(
@@ -362,8 +387,6 @@ page = f"""<!DOCTYPE html>
       <li>The scale bar and full-screen control sit on the map.</li>
     </ul>
 
-    <h2>Question 2</h2>
-    <p>Question 2 will be added on this page alongside the map above.</p>
   </main>
 </body>
 </html>
