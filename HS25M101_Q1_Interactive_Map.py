@@ -49,9 +49,9 @@ COLLECTOR = "Aditi Saha"
 
 # QField keeps the JPEG files beside the project, not inside the GeoPackage.
 PHOTO_SEARCH_DIRS = [
+    ROOT / "DCIM",
     ROOT / "HS25M101" / "DCIM",
     ROOT / "HS25M101",
-    ROOT / "DCIM",
     PHOTO_DIR,
 ]
 
@@ -86,15 +86,24 @@ def waste_category(note):
 
 
 def find_photo(media_path):
-    """Return the local JPEG for a QField media path, if it is on disk."""
+    """Return the local JPEG for a QField media path, if it is on disk.
+
+    Matching is by the exact file name recorded in notes_attachments
+    (for example JPEG_20260902172440181.jpg). Case is ignored so the
+    same name is found on Windows and on the hosted site.
+    """
     if media_path is None or (isinstance(media_path, float) and pd.isna(media_path)):
         return None
     rel = Path(str(media_path))
-    candidates = [rel, Path(rel.name)]
+    wanted = {rel.as_posix().lower(), rel.name.lower()}
     for folder in PHOTO_SEARCH_DIRS:
-        for candidate in candidates:
-            path = folder / candidate
-            if path.is_file():
+        if not folder.is_dir():
+            continue
+        for path in folder.rglob("*"):
+            if not path.is_file():
+                continue
+            relative = path.relative_to(folder).as_posix().lower()
+            if relative in wanted or path.name.lower() in wanted:
                 return path
     return None
 
