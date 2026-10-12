@@ -1,0 +1,73 @@
+{
+  "city": "Greater Mumbai",
+  "year": 2020,
+  "no2_city_mean_mol_m2": 8.608881074232696e-05,
+  "no2_p75_mol_m2": 0.00010418775104853574,
+  "pop65_total": 731666.3031366683,
+  "pop65_in_highest_no2_quartile": 238327.92965052294,
+  "share_pop65_in_highest_no2_quartile_percent": 32.573309530424766,
+  "high_no2_rule": "Pixels >= city-wide 75th percentile of 2020 mean tropospheric NO2",
+  "boundary_source": "dataset/Mumbai_boundary.geojson (GREATER MUMBAI ULB; SBM / ramSeraph urban release)",
+  "monthly_mean_no2": [
+    {
+      "month": 1,
+      "label": "Jan",
+      "mean_no2_mol_m2": 0.00012122771002100347
+    },
+    {
+      "month": 2,
+      "label": "Feb",
+      "mean_no2_mol_m2": 0.0001344614113413094
+    },
+    {
+      "month": 3,
+      "label": "Mar",
+      "mean_no2_mol_m2": 6.880824049356434e-05
+    },
+    {
+      "month": 4,
+      "label": "Apr",
+      "mean_no2_mol_m2": 3.1167083747727884e-05
+    },
+    {
+      "month": 5,
+      "label": "May",
+      "mean_no2_mol_m2": 2.528248632513494e-05
+    },
+    {
+      "month": 6,
+      "label": "Jun",
+      "mean_no2_mol_m2": 3.3787137553019465e-05
+    },
+    {
+      "month": 7,
+      "label": "Jul",
+      "mean_no2_mol_m2": 2.6177846744314662e-05
+    },
+    {
+      "month": 8,
+      "label": "Aug",
+      "mean_no2_mol_m2": 3.2956713088002256e-05
+    },
+    {
+      "month": 9,
+      "label": "Sep",
+      "mean_no2_mol_m2": 5.6979418709488174e-05
+    },
+    {
+      "month": 10,
+      "label": "Oct",
+      "mean_no2_mol_m2": 9.034704234676807e-05
+    },
+    {
+      "month": 11,
+      "label": "Nov",
+      "mean_no2_mol_m2": 0.00010548495940183935
+    },
+    {
+      "month": 12,
+      "label": "Dec",
+      "mean_no2_mol_m2": 0.0001679684995766481
+    }
+  ]
+}

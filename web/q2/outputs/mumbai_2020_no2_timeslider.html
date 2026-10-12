@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mumbai 2020 monthly NO2 time slider</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 16px; background: #f4f7f8; color: #10262f; }
+    img { max-width: 100%; border: 1px solid #c9d6dc; border-radius: 8px; background: white; }
+    input[type=range] { width: min(640px, 100%); }
+  </style>
+</head>
+<body>
+  <h2>Greater Mumbai — monthly mean tropospheric NO2 (2020)</h2>
+  <p>Drag the slider to change month. Colour scale is fixed across months.</p>
+  <p><b>Month: <span id="label">Jan 2020</span></b></p>
+  <input id="slider" type="range" min="1" max="12" value="1" step="1">
+  <div style="margin-top:12px"><img id="frame" alt="Monthly NO2 map"></div>
+  <script>
+    const names = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const slider = document.getElementById("slider");
+    const frame = document.getElementById("frame");
+    const label = document.getElementById("label");
+    function update() {
+      const m = String(slider.value).padStart(2, "0");
+      frame.src = "monthly_frames/no2_2020_" + m + ".png";
+      label.textContent = names[Number(slider.value) - 1] + " 2020";
+    }
+    slider.addEventListener("input", update);
+    update();
+  </script>
+</body>
+</html>

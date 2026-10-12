@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aditi Saha · Question 2 · HS25M101</title>
+  <title>Aditi Saha · Question 2 · Mumbai NO₂ &amp; 65+ exposure · HS25M101</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -119,7 +119,7 @@
 
     header .byline {
       margin: 0;
-      max-width: 40rem;
+      max-width: 42rem;
       font-size: 1.05rem;
       color: #e4f4f5;
     }
@@ -181,8 +181,106 @@
       background: linear-gradient(90deg, var(--teal), var(--accent));
     }
 
-    section p { margin: 0 0 10px; }
-    section p:last-child { margin-bottom: 0; }
+    section p { margin: 0 0 10px; color: var(--ink); }
+    section ul { margin: 0 0 10px; padding-left: 1.2rem; color: var(--ink); }
+    section li { margin-bottom: 6px; }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .figure {
+      margin: 14px 0 6px;
+      background: #f7fafb;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .caption {
+      margin: 8px 2px 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .stat {
+      background: linear-gradient(160deg, #f7fbfb, #eef5f7);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .stat .label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .stat .value {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--deep);
+      line-height: 1.2;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 10px 8px;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--deep);
+      font-weight: 700;
+      background: #f4f8f9;
+    }
+
+    iframe.slider {
+      width: 100%;
+      min-height: 640px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .note {
+      background: #fff8eb;
+      border: 1px solid #f0d9a8;
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #5a4a28;
+      font-size: 0.95rem;
+    }
+
+    .hidden { display: none; }
 
     footer {
       text-align: center;
@@ -190,6 +288,10 @@
       font-size: 0.9rem;
       font-weight: 500;
       padding: 8px 20px 36px;
+    }
+
+    @media (max-width: 640px) {
+      iframe.slider { min-height: 520px; }
     }
   </style>
 </head>
@@ -206,42 +308,223 @@
 
   <header>
     <div class="wrap">
-      <p class="eyebrow">Urban Informatics and Spatial Analytics</p>
-      <h1>Question 2</h1>
+      <p class="eyebrow">Urban Informatics and Spatial Analytics · Question 2</p>
+      <h1>Mumbai 2020 tropospheric NO₂ and residents aged 65+</h1>
       <p class="byline">
-        Aditi Saha · Master of Public Policy · IIT Tirupati.
-        This page will host the Question 2 output. Notebook and analysis files
-        will live in the <code>question2</code> folder of this repository.
+        Aditi Saha · HS25M101 · Master of Public Policy, IIT Tirupati.
+        Annual mean Sentinel-5P NO₂, monthly 2020 time series, and WorldPop
+        residents aged 65+ living in the city’s highest-NO₂ quartile.
       </p>
       <div class="actions">
-        <a class="btn btn-primary" href="../index.html">Back to Question 1</a>
-        <a class="btn btn-secondary" href="#status">See status</a>
+        <a class="btn btn-primary" href="#results">Key results</a>
+        <a class="btn btn-secondary" href="#dynamic">Monthly GIF / slider</a>
+        <a class="btn btn-secondary" href="../index.html">Question 1</a>
       </div>
     </div>
   </header>
 
   <main class="wrap">
-    <section id="status">
-      <h2>Status</h2>
+    <section id="task">
+      <h2>Assigned task</h2>
       <p>
-        Question 2 is set up as a separate part of this project.
-        Paste the Question 2 brief here when ready, and the analysis,
-        maps, and discussion will be added to this page.
+        Map <strong>2020 mean tropospheric NO₂</strong> for Greater Mumbai and
+        estimate the number and share of residents <strong>aged 65+</strong>
+        living in the city’s <strong>highest-NO₂ quartile</strong>.
       </p>
-      <p>
-        Code and notebooks for Question 2 will be kept in
-        <strong>question2/</strong> in the same GitHub repository.
+      <p class="meta">
+        Datasets: Sentinel-5P OFFL L3 NO₂
+        (<code>COPERNICUS/S5P/OFFL/L3_NO2</code>) and WorldPop age–sex
+        (<code>WorldPop/GP/100m/pop_age_sex_cons_unadj</code> (2020).
+        Analysis run with Google Earth Engine / geemap
+        (project <code>solar-grail-510708-p8</code>).
+      </p>
+      <p class="meta">
+        Boundary source: Greater Mumbai Urban Local Body
+        (<strong>GREATER MUMBAI</strong>, code 802794) from
+        <code>dataset/Mumbai_boundary.geojson</code>, based on the
+        <a href="https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/urban" target="_blank" rel="noopener">Indian urban-boundary release</a>
+        (Swachh Bharat Mission ULBs via ramSeraph / datameet; CC0 1.0 with attribution).
       </p>
     </section>
 
-    <section>
-      <h2>Navigation</h2>
+    <section id="results">
+      <h2>Key numerical results</h2>
+      <p id="results-note" class="note">
+        Run <code>question2/HS25M101_Q2_Mumbai_NO2_Exposure.ipynb</code> end-to-end
+        to write figures and <code>outputs/mumbai_2020_no2_exposure_summary.json</code>.
+        Numbers below update automatically once that file is present.
+      </p>
+      <div class="stats">
+        <div class="stat">
+          <span class="label">City-wide mean NO₂</span>
+          <span class="value" id="stat-mean">—</span>
+        </div>
+        <div class="stat">
+          <span class="label">Highest-quartile threshold (P75)</span>
+          <span class="value" id="stat-p75">—</span>
+        </div>
+        <div class="stat">
+          <span class="label">Residents aged 65+</span>
+          <span class="value" id="stat-pop65">—</span>
+        </div>
+        <div class="stat">
+          <span class="label">65+ in highest-NO₂ quartile</span>
+          <span class="value" id="stat-exposed">—</span>
+        </div>
+        <div class="stat">
+          <span class="label">Share of 65+ in high-NO₂ zone</span>
+          <span class="value" id="stat-share">—</span>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>Value</th></tr>
+        </thead>
+        <tbody id="summary-table">
+          <tr><td colspan="2">Waiting for summary JSON from the notebook export…</td></tr>
+        </tbody>
+      </table>
+      <p class="meta" style="margin-top:12px">
+        High-NO₂ rule: pixels at or above the city-wide 75th percentile of 2020
+        mean tropospheric NO₂. Result is population residing in areas with
+        relatively high <em>satellite-observed</em> column NO₂ — not personal
+        or ground-level exposure.
+      </p>
+    </section>
+
+    <section id="annual">
+      <h2>Annual mean tropospheric NO₂ (2020)</h2>
       <p>
-        Use the top bar to switch between questions:
+        City-wide mean of cloud-masked Sentinel-5P tropospheric NO₂ column
+        density (mol/m²) for calendar year 2020, clipped to the Greater Mumbai ULB.
+      </p>
+      <div class="figure">
+        <img
+          id="img-annual"
+          src="outputs/mumbai_2020_mean_no2.png"
+          alt="Greater Mumbai 2020 mean tropospheric NO2 map"
+          onerror="this.closest('.figure').classList.add('missing'); document.getElementById('annual-missing').classList.remove('hidden');"
+        >
+      </div>
+      <p id="annual-missing" class="note hidden">
+        Annual map file not found yet. Export it by running notebook cell 8.
+      </p>
+      <p class="caption">
+        Figure 1. 2020 mean tropospheric NO₂ (mol/m²) over Greater Mumbai.
+        Consistent colour scale used for annual and monthly maps.
+      </p>
+    </section>
+
+    <section id="dynamic">
+      <h2>Monthly 2020 NO₂ — GIF and time slider</h2>
+      <p>
+        Each month uses the same cloud mask and the same visualisation scale
+        as the annual map.
+      </p>
+      <div class="figure">
+        <img
+          id="img-gif"
+          src="outputs/mumbai_2020_monthly_no2.gif"
+          alt="Animated GIF of monthly mean tropospheric NO2 for Greater Mumbai in 2020"
+          onerror="this.closest('.figure').classList.add('missing'); document.getElementById('gif-missing').classList.remove('hidden');"
+        >
+      </div>
+      <p id="gif-missing" class="note hidden">
+        GIF not found yet. Export monthly frames and the GIF by running notebook cell 11.
+      </p>
+      <p class="caption">
+        Figure 2. Animated monthly mean tropospheric NO₂ across 2020.
+      </p>
+      <p style="margin-top:16px">
+        Interactive time slider (same frames):
+      </p>
+      <iframe
+        class="slider"
+        title="Mumbai 2020 monthly NO2 time slider"
+        src="outputs/mumbai_2020_no2_timeslider.html"
+      ></iframe>
+      <p class="meta" style="margin-top:10px">
+        Open full-screen:
+        <a href="outputs/mumbai_2020_no2_timeslider.html" target="_blank" rel="noopener">mumbai_2020_no2_timeslider.html</a>
+      </p>
+    </section>
+
+    <section id="exposure">
+      <h2>65+ exposure map</h2>
+      <p>
+        Purple overlay marks the highest-NO₂ quartile (P75+) on top of the
+        annual NO₂ surface. WorldPop age bands from 65 years upward are used
+        for the exposure counts.
+      </p>
+      <div class="figure">
+        <img
+          id="img-exposure"
+          src="outputs/mumbai_2020_no2_65plus_exposure.png"
+          alt="Greater Mumbai highest NO2 quartile overlay for 65-plus exposure"
+          onerror="this.closest('.figure').classList.add('missing'); document.getElementById('exp-missing').classList.remove('hidden');"
+        >
+      </div>
+      <p id="exp-missing" class="note hidden">
+        Exposure map not found yet. Export it by running notebook cell 16.
+      </p>
+      <p class="caption">
+        Figure 3. 2020 mean NO₂ with highest-quartile (P75+) overlay used for
+        the 65+ exposure estimate.
+      </p>
+    </section>
+
+    <section id="discussion">
+      <h2>Discussion</h2>
+      <p>
+        <strong>Spatial pattern.</strong>
+        Within Greater Mumbai, higher 2020 mean tropospheric NO₂ tends to
+        concentrate over denser built-up and traffic-intensive parts of the
+        ULB, while lower values appear toward less intensely urbanised edges.
+        The P75 mask therefore highlights a contiguous “relatively high”
+        core rather than scattered outliers, which is expected for a coarse
+        ~3.5–7&nbsp;km Sentinel-5P grid.
       </p>
       <p>
-        <a href="../index.html">Question 1 — Waste-bin map</a><br>
-        <a href="index.html">Question 2 — This page</a>
+        <strong>Temporal pattern.</strong>
+        The monthly GIF / slider holds the colour scale fixed, so month-to-month
+        shifts reflect changes in the cloud-masked mean column, not a changing
+        legend. Monsoon months can look quieter partly because cloud filtering
+        removes many scenes; winter months often show stronger NO₂ signals in
+        Indian megacities. Interpret month differences alongside observation
+        availability, not only as pure emissions change.
+      </p>
+      <p>
+        <strong>Exposure reading.</strong>
+        The headline statistic is the share of WorldPop residents aged 65+ who
+        live in pixels at or above the city-wide 75th percentile of 2020 mean
+        tropospheric NO₂. That is a transparent, city-specific definition of
+        “relatively high” satellite-observed NO₂. It is <em>not</em> a health
+        standard and must not be read as individual or ground-level personal
+        exposure.
+      </p>
+      <p>
+        <strong>Limitations.</strong>
+      </p>
+      <ul>
+        <li>Sentinel-5P NO₂ is a tropospheric <em>column</em> density, not roadside concentration.</li>
+        <li>Spatial resolution (~3.5–7&nbsp;km) smooths neighbourhood differences inside Mumbai.</li>
+        <li>Cloud fraction masking and monsoon cloud cover reduce valid observations in some months.</li>
+        <li>WorldPop 2020 age–sex surfaces are modelled residential estimates at ~100&nbsp;m; summing 65+ bands inherits that uncertainty.</li>
+        <li>The ULB boundary is from the SBM urban release; municipal extents can differ slightly from other official GIS layers.</li>
+      </ul>
+    </section>
+
+    <section id="methods">
+      <h2>Methods (short)</h2>
+      <ul>
+        <li>Load Greater Mumbai ULB GeoJSON → GeoDataFrame → Earth Engine feature.</li>
+        <li>Filter S5P OFFL L3 NO₂ to 2020 and the city; mask <code>cloud_fraction ≥ 0.3</code>; mean the tropospheric NO₂ band.</li>
+        <li>Build 12 monthly means with the same mask and colour scale; export PNG frames, GIF, and HTML slider.</li>
+        <li>Sum WorldPop <code>M_*</code>/<code>F_*</code> bands with age ≥ 65; compute city P75 of annual NO₂; mask high zone; sum 65+ population inside/outside.</li>
+      </ul>
+      <p class="meta">
+        Notebook:
+        <code>question2/trial.ipynb</code>
       </p>
     </section>
   </main>
@@ -249,5 +532,58 @@
   <footer>
     Aditi Saha · HS25M101 · Urban Informatics and Spatial Analytics · IIT Tirupati
   </footer>
+
+  <script>
+    function fmtMol(x) {
+      if (x === null || x === undefined || Number.isNaN(Number(x))) return "—";
+      return Number(x).toExponential(2) + " mol/m²";
+    }
+
+    function fmtInt(x) {
+      if (x === null || x === undefined || Number.isNaN(Number(x))) return "—";
+      return Math.round(Number(x)).toLocaleString("en-IN");
+    }
+
+    function fmtShare(x) {
+      if (x === null || x === undefined || Number.isNaN(Number(x))) return "—";
+      return Number(x).toFixed(1) + "%";
+    }
+
+    function fillSummary(data) {
+      document.getElementById("stat-mean").textContent = fmtMol(data.no2_city_mean_mol_m2);
+      document.getElementById("stat-p75").textContent = fmtMol(data.no2_p75_mol_m2);
+      document.getElementById("stat-pop65").textContent = fmtInt(data.pop65_total);
+      document.getElementById("stat-exposed").textContent = fmtInt(data.pop65_in_highest_no2_quartile);
+      document.getElementById("stat-share").textContent = fmtShare(data.share_pop65_in_highest_no2_quartile_percent);
+
+      const rows = [
+        ["City-wide mean tropospheric NO₂ (mol/m²)", data.no2_city_mean_mol_m2],
+        ["Highest-quartile threshold (P75, mol/m²)", data.no2_p75_mol_m2],
+        ["Residents aged 65+ (city total)", Math.round(data.pop65_total)],
+        ["Residents aged 65+ in highest-NO₂ quartile", Math.round(data.pop65_in_highest_no2_quartile)],
+        ["Share of 65+ in highest-NO₂ quartile (%)", Number(data.share_pop65_in_highest_no2_quartile_percent).toFixed(2)],
+        ["High-NO₂ rule", data.high_no2_rule],
+        ["Boundary source", data.boundary_source],
+      ];
+
+      const tbody = document.getElementById("summary-table");
+      tbody.innerHTML = rows.map(([k, v]) =>
+        `<tr><td>${k}</td><td>${v}</td></tr>`
+      ).join("");
+
+      const note = document.getElementById("results-note");
+      note.classList.add("hidden");
+    }
+
+    fetch("outputs/mumbai_2020_no2_exposure_summary.json")
+      .then((r) => {
+        if (!r.ok) throw new Error("missing summary");
+        return r.json();
+      })
+      .then(fillSummary)
+      .catch(() => {
+        /* keep waiting note visible */
+      });
+  </script>
 </body>
 </html>
