@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aditi Saha · Question 2 · HS25M101</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #e7eef2;
+      --ink: #10262f;
+      --muted: #4d6670;
+      --deep: #0b3d4a;
+      --teal: #147a7f;
+      --sand: #f3ebe0;
+      --card: #ffffff;
+      --line: #c9d6dc;
+      --accent: #e09f3e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(20, 122, 127, 0.16), transparent 32%),
+        radial-gradient(circle at 88% 8%, rgba(224, 159, 62, 0.14), transparent 28%),
+        linear-gradient(180deg, #dfe9ee 0%, var(--bg) 42%, #dde8ec 100%);
+      font-family: "Outfit", sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: var(--teal); font-weight: 500; }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .site-nav {
+      background: rgba(11, 61, 74, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+    }
+
+    .site-nav .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .site-nav .brand {
+      color: #f4fbfb;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .site-nav .links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .site-nav .links a {
+      text-decoration: none;
+      color: #d7ecee;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      border: 1px solid transparent;
+    }
+
+    .site-nav .links a:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+
+    .site-nav .links a.active {
+      background: var(--sand);
+      color: var(--deep);
+    }
+
+    header {
+      background:
+        linear-gradient(135deg, rgba(11, 61, 74, 0.94), rgba(20, 122, 127, 0.88)),
+        linear-gradient(120deg, var(--deep), var(--teal));
+      color: #f4fbfb;
+      padding: 46px 0 38px;
+    }
+
+    header .eyebrow {
+      margin: 0 0 12px;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #c9ecee;
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.9rem, 4.2vw, 2.55rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    header .byline {
+      margin: 0;
+      max-width: 40rem;
+      font-size: 1.05rem;
+      color: #e4f4f5;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--sand);
+      color: var(--deep);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #f4fbfb;
+      border-color: rgba(244, 251, 251, 0.4);
+    }
+
+    main { padding: 28px 0 56px; }
+
+    section {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 28px rgba(16, 38, 47, 0.05);
+    }
+
+    section h2 {
+      margin: 0 0 12px;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--deep);
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 3px;
+      margin-top: 8px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--accent));
+    }
+
+    section p { margin: 0 0 10px; }
+    section p:last-child { margin-bottom: 0; }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 20px 36px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Aditi Saha · HS25M101</a>
+      <div class="links">
+        <a href="../index.html">Question 1</a>
+        <a class="active" href="index.html">Question 2</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">Urban Informatics and Spatial Analytics</p>
+      <h1>Question 2</h1>
+      <p class="byline">
+        Aditi Saha · Master of Public Policy · IIT Tirupati.
+        This page will host the Question 2 output. Notebook and analysis files
+        will live in the <code>question2</code> folder of this repository.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="../index.html">Back to Question 1</a>
+        <a class="btn btn-secondary" href="#status">See status</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="status">
+      <h2>Status</h2>
+      <p>
+        Question 2 is set up as a separate part of this project.
+        Paste the Question 2 brief here when ready, and the analysis,
+        maps, and discussion will be added to this page.
+      </p>
+      <p>
+        Code and notebooks for Question 2 will be kept in
+        <strong>question2/</strong> in the same GitHub repository.
+      </p>
+    </section>
+
+    <section>
+      <h2>Navigation</h2>
+      <p>
+        Use the top bar to switch between questions:
+      </p>
+      <p>
+        <a href="../index.html">Question 1 — Waste-bin map</a><br>
+        <a href="index.html">Question 2 — This page</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Aditi Saha · HS25M101 · Urban Informatics and Spatial Analytics · IIT Tirupati
+  </footer>
+</body>
+</html>

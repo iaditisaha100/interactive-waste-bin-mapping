@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aditi Saha · Waste-bin mapping · IIT Tirupati</title>
+  <title>Aditi Saha · Locations of the recorded waste bins · IIT Tirupati</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -209,6 +209,56 @@
       padding: 8px 20px 36px;
     }
 
+    .site-nav {
+      background: rgba(11, 61, 74, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+    }
+
+    .site-nav .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .site-nav .brand {
+      color: #f4fbfb;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .site-nav .links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .site-nav .links a {
+      text-decoration: none;
+      color: #d7ecee;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      border: 1px solid transparent;
+    }
+
+    .site-nav .links a:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+
+    .site-nav .links a.active {
+      background: var(--sand);
+      color: var(--deep);
+    }
+
     @media (max-width: 700px) {
       .stats { grid-template-columns: 1fr; margin-top: 18px; }
       .map-frame { height: 65vh; min-height: 420px; }
@@ -216,10 +266,19 @@
   </style>
 </head>
 <body>
+  <nav class="site-nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">Aditi Saha · HS25M101</a>
+      <div class="links">
+        <a class="active" href="index.html">Question 1</a>
+        <a href="q2/index.html">Question 2</a>
+      </div>
+    </div>
+  </nav>
   <header>
     <div class="wrap">
       <p class="eyebrow">Urban Informatics and Spatial Analytics</p>
-      <h1>Waste-bin observations at IIT Tirupati</h1>
+      <h1>Locations of the recorded waste bins</h1>
       <p class="byline">
         Aditi Saha · Master of Public Policy · IIT Tirupati.
         Coursework project using QField field data and an interactive Folium web map.
@@ -258,8 +317,8 @@
       <p>
         This assignment builds an interactive web map of waste-bin observations
         collected on the <strong>IIT Tirupati campus</strong> using the
-        <strong>QField</strong> app. Each observation is a point with a location,
-        field note, time, and photograph.
+        <strong>QField</strong> app, showing the locations of the recorded waste bins.
+        Each observation is a point with a location, field note, time, and photograph.
       </p>
       <p>
         The final map is made with <strong>Folium</strong> and hosted online so
@@ -284,6 +343,7 @@
     <section id="map">
       <h2>Interactive map</h2>
       <p>
+        The map shows the locations of the recorded waste bins at IIT Tirupati.
         Points are coloured by segregation status. Hover for the place name and category.
         Click for the field note, collector name, time, and photograph. Use the layer control
         to switch basemaps or turn categories on and off.
@@ -292,7 +352,7 @@
       <iframe
         class="map-frame"
         src="waste-bins.html"
-        title="Interactive map of waste-bin observations at IIT Tirupati"
+        title="Locations of the recorded waste bins at IIT Tirupati"
       ></iframe>
       <p class="map-note">
         Tip: open the full map if you want more screen space for exploring the campus.
