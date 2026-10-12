@@ -43,6 +43,24 @@ def mask_clouds(img):
     return img.updateMask(img.select(CLOUD_BAND).lte(0.2))
 
 
+def add_boundary_outline(rgb, mumbai_ee, width=3):
+    """Dark fill outside the city + white ULB outline."""
+    bg = (
+        ee.Image.constant([7, 13, 20])
+        .toByte()
+        .rename(["vis-red", "vis-green", "vis-blue"])
+    )
+    base = bg.blend(rgb)
+    outline = (
+        ee.Image()
+        .byte()
+        .paint(mumbai_ee, 1, width)
+        .selfMask()
+        .visualize(palette=["ffffff"])
+    )
+    return base.blend(outline)
+
+
 def main():
     ee.Initialize(project=PROJECT_ID)
     print("EE OK")
@@ -65,14 +83,12 @@ def main():
         no2_2020.map(mask_clouds).select(NO2_BAND).mean().clip(mumbai_ee.geometry())
     )
 
+    annual_rgb = add_boundary_outline(annual_no2.visualize(**no2_vis), mumbai_ee)
     annual_path = OUT_DIR / "mumbai_2020_mean_no2.png"
     annual_path.write_bytes(
         requests.get(
-            annual_no2.getThumbURL(
+            annual_rgb.getThumbURL(
                 {
-                    "min": no2_vis["min"],
-                    "max": no2_vis["max"],
-                    "palette": no2_vis["palette"],
                     "region": region,
                     "dimensions": 800,
                     "format": "png",
@@ -113,14 +129,12 @@ def main():
             }
         )
 
+        month_rgb = add_boundary_outline(month_img.visualize(**no2_vis), mumbai_ee)
         raw_path = frames_dir / f"no2_2020_{m:02d}.png"
         raw_path.write_bytes(
             requests.get(
-                month_img.getThumbURL(
+                month_rgb.getThumbURL(
                     {
-                        "min": no2_vis["min"],
-                        "max": no2_vis["max"],
-                        "palette": no2_vis["palette"],
                         "region": region,
                         "dimensions": 700,
                         "format": "png",
@@ -296,8 +310,9 @@ def main():
 
     exposure_rgb = annual_no2.visualize(**no2_vis)
     high_vis = high_no2.visualize(min=0, max=1, palette=[HIGH_NO2_COLOR])
-    exposure_map = (
-        ee.ImageCollection([exposure_rgb, high_vis]).mosaic().clip(mumbai_ee.geometry())
+    exposure_map = add_boundary_outline(
+        ee.ImageCollection([exposure_rgb, high_vis]).mosaic(),
+        mumbai_ee,
     )
     (OUT_DIR / "mumbai_2020_no2_65plus_exposure.png").write_bytes(
         requests.get(
