@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_4d7da0f9923aa50004e9ec8738b6edd8 {
+                #map_54b8100afb9b876f805aed8a32771eee {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,14 +54,31 @@
 <body>
     
     
-            <div class="folium-map" id="map_4d7da0f9923aa50004e9ec8738b6edd8" ></div>
+<div style="position:fixed;top:12px;left:50%;transform:translateX(-50%);
+z-index:9999;background:white;padding:8px 14px;border-radius:6px;
+box-shadow:0 1px 4px rgba(0,0,0,0.3);text-align:center;
+font-family:Arial;font-size:14px">
+<b>Waste-bin observations, IIT Tirupati</b><br>
+<span style="font-size:12px">Collected by Aditi Saha · QField · Sep 2026</span>
+</div>
+    
+<div style="position:fixed;bottom:40px;left:12px;z-index:9999;
+background:white;padding:8px 12px;border-radius:6px;
+box-shadow:0 1px 4px rgba(0,0,0,0.3);font-family:Arial;font-size:12px">
+<b>Legend</b><br>
+<span style="display:inline-block;width:10px;height:10px;
+border-radius:50%;background:#377eb8;margin-right:6px"></span>
+Waste-bin observation
+</div>
+    
+            <div class="folium-map" id="map_54b8100afb9b876f805aed8a32771eee" ></div>
         
 </body>
 <script>
     
     
-            var map_4d7da0f9923aa50004e9ec8738b6edd8 = L.map(
-                "map_4d7da0f9923aa50004e9ec8738b6edd8",
+            var map_54b8100afb9b876f805aed8a32771eee = L.map(
+                "map_54b8100afb9b876f805aed8a32771eee",
                 {
                     center: [13.712146693577598, 79.59102334263247],
                     crs: L.CRS.EPSG3857,
@@ -73,12 +90,13 @@
 
                 }
             );
+            L.control.scale().addTo(map_54b8100afb9b876f805aed8a32771eee);
 
             
 
         
     
-            var tile_layer_c899f1d8a970a28cdb48272f8aa3cd6b = L.tileLayer(
+            var tile_layer_4e7bb70f76a4e3cc2c440d4b1cf6e457 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -95,10 +113,10 @@
             );
         
     
-            tile_layer_c899f1d8a970a28cdb48272f8aa3cd6b.addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+            tile_layer_4e7bb70f76a4e3cc2c440d4b1cf6e457.addTo(map_54b8100afb9b876f805aed8a32771eee);
         
     
-            var tile_layer_85226556a81760d7fede08a035ada819 = L.tileLayer(
+            var tile_layer_36a01e433f2d62917ce13b932e341eb3 = L.tileLayer(
                 "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
                 {
   "minZoom": 0,
@@ -115,33 +133,39 @@
             );
         
     
-            tile_layer_85226556a81760d7fede08a035ada819.addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+            tile_layer_36a01e433f2d62917ce13b932e341eb3.addTo(map_54b8100afb9b876f805aed8a32771eee);
         
     
-            var circle_marker_c8e75d7839aa9f9ba85809f1eddf275a = L.circleMarker(
+            var feature_group_e1b58d528a48013d8e5fb70cd8064f19 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_7f33a78a7fde36d3d73c9a47da89e9a8 = L.circleMarker(
                 [13.717191748609068, 79.59282420732377],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_d5aeb31d78c4db25e2aebbf7790dc951 = L.popup({
+        var popup_922b20439f0c198cec44084f21d20df9 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_4cd09398ad9fc03c8d3effb8956df650 = $(`<div id="html_4cd09398ad9fc03c8d3effb8956df650" style="width: 100.0%; height: 100.0%;"><b>Dustbin in front of tech hub</b><br>Collected by: Aditi Saha<br>Note: Not segregated<br>Recorded at: 2026-09-02 17:24:16.416000+00:00<br><img src='photos/JPEG_20260902172440181.jpg' width='220'></div>`)[0];
-                popup_d5aeb31d78c4db25e2aebbf7790dc951.setContent(html_4cd09398ad9fc03c8d3effb8956df650);
+                var html_bb3ce06bb82f0449dc11abc9a71853ba = $(`<div id="html_bb3ce06bb82f0449dc11abc9a71853ba" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Dustbin in front of tech hub</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Not segregated<br><b>Recorded at:</b> 2026-09-02 17:24:16.416000+00:00<br><img src='photos/JPEG_20260902172440181.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_922b20439f0c198cec44084f21d20df9.setContent(html_bb3ce06bb82f0449dc11abc9a71853ba);
             
         
 
-        circle_marker_c8e75d7839aa9f9ba85809f1eddf275a.bindPopup(popup_d5aeb31d78c4db25e2aebbf7790dc951)
+        circle_marker_7f33a78a7fde36d3d73c9a47da89e9a8.bindPopup(popup_922b20439f0c198cec44084f21d20df9)
         ;
 
         
     
     
-            circle_marker_c8e75d7839aa9f9ba85809f1eddf275a.bindTooltip(
+            circle_marker_7f33a78a7fde36d3d73c9a47da89e9a8.bindTooltip(
                 `<div>
                      Dustbin in front of tech hub
                  </div>`,
@@ -151,30 +175,30 @@
             );
         
     
-            var circle_marker_c29a680fff8ce972c0cecf867857095c = L.circleMarker(
+            var circle_marker_b8e7bf53b72d96d9395ddab247858e97 = L.circleMarker(
                 [13.718647753551485, 79.59133479562435],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_53cb6728f31f9e533d64d27cd69c56f0 = L.popup({
+        var popup_aca5876184155fd38dd76822b71c04b7 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_2dc65563344a5be34f2e84029306f096 = $(`<div id="html_2dc65563344a5be34f2e84029306f096" style="width: 100.0%; height: 100.0%;"><b>Dumping area</b><br>Collected by: Aditi Saha<br>Note: Too much garbage <br>Recorded at: 2026-09-02 17:30:57.842000+00:00<br><img src='photos/JPEG_20260902173133529.jpg' width='220'></div>`)[0];
-                popup_53cb6728f31f9e533d64d27cd69c56f0.setContent(html_2dc65563344a5be34f2e84029306f096);
+                var html_e838f6612aef059f1c071a23632bafcc = $(`<div id="html_e838f6612aef059f1c071a23632bafcc" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Dumping area</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Too much garbage <br><b>Recorded at:</b> 2026-09-02 17:30:57.842000+00:00<br><img src='photos/JPEG_20260902173133529.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_aca5876184155fd38dd76822b71c04b7.setContent(html_e838f6612aef059f1c071a23632bafcc);
             
         
 
-        circle_marker_c29a680fff8ce972c0cecf867857095c.bindPopup(popup_53cb6728f31f9e533d64d27cd69c56f0)
+        circle_marker_b8e7bf53b72d96d9395ddab247858e97.bindPopup(popup_aca5876184155fd38dd76822b71c04b7)
         ;
 
         
     
     
-            circle_marker_c29a680fff8ce972c0cecf867857095c.bindTooltip(
+            circle_marker_b8e7bf53b72d96d9395ddab247858e97.bindTooltip(
                 `<div>
                      Dumping area
                  </div>`,
@@ -184,30 +208,30 @@
             );
         
     
-            var circle_marker_db7e621610beaf08cd7e82054f574d39 = L.circleMarker(
+            var circle_marker_b4fa09752f1b3d4e02a3966c96e42653 = L.circleMarker(
                 [13.718043385171038, 79.58717058329844],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_82209de306e964af4f438a63e1261c9b = L.popup({
+        var popup_af6fcdff2cb33cb764df48cee1054dac = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_d67804574b537dd34becd34927d3e764 = $(`<div id="html_d67804574b537dd34becd34927d3e764" style="width: 100.0%; height: 100.0%;"><b>In front Malhar hostel</b><br>Collected by: Aditi Saha<br>Note: Not segregated <br>Recorded at: 2026-09-02 17:43:14.477000+00:00<br><img src='photos/JPEG_20260902174326739.jpg' width='220'></div>`)[0];
-                popup_82209de306e964af4f438a63e1261c9b.setContent(html_d67804574b537dd34becd34927d3e764);
+                var html_52d53d69a06271403f05c5266bbef9fb = $(`<div id="html_52d53d69a06271403f05c5266bbef9fb" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>In front Malhar hostel</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Not segregated <br><b>Recorded at:</b> 2026-09-02 17:43:14.477000+00:00<br><img src='photos/JPEG_20260902174326739.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_af6fcdff2cb33cb764df48cee1054dac.setContent(html_52d53d69a06271403f05c5266bbef9fb);
             
         
 
-        circle_marker_db7e621610beaf08cd7e82054f574d39.bindPopup(popup_82209de306e964af4f438a63e1261c9b)
+        circle_marker_b4fa09752f1b3d4e02a3966c96e42653.bindPopup(popup_af6fcdff2cb33cb764df48cee1054dac)
         ;
 
         
     
     
-            circle_marker_db7e621610beaf08cd7e82054f574d39.bindTooltip(
+            circle_marker_b4fa09752f1b3d4e02a3966c96e42653.bindTooltip(
                 `<div>
                      In front Malhar hostel
                  </div>`,
@@ -217,30 +241,30 @@
             );
         
     
-            var circle_marker_33e82977c6be698d7f65ae078cfa9ea9 = L.circleMarker(
+            var circle_marker_fc29b4d3cbf5f9e2d588efc9a48952cb = L.circleMarker(
                 [13.717628747293993, 79.5869798919714],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_c12c584f3c9df900953b1a2f9f7a5130 = L.popup({
+        var popup_76651458414ac06a6f27224e3d6b2f66 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_d1a1173f89a722d04d90f25ca9e100e6 = $(`<div id="html_d1a1173f89a722d04d90f25ca9e100e6" style="width: 100.0%; height: 100.0%;"><b>In between malhar and des hostel</b><br>Collected by: Aditi Saha<br>Note: Not segregated <br>Recorded at: 2026-09-02 17:45:55.305000+00:00<br><img src='photos/JPEG_20260902174624390.jpg' width='220'></div>`)[0];
-                popup_c12c584f3c9df900953b1a2f9f7a5130.setContent(html_d1a1173f89a722d04d90f25ca9e100e6);
+                var html_f92dc15f984560b16b0790b279c79da7 = $(`<div id="html_f92dc15f984560b16b0790b279c79da7" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>In between malhar and des hostel</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Not segregated <br><b>Recorded at:</b> 2026-09-02 17:45:55.305000+00:00<br><img src='photos/JPEG_20260902174624390.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_76651458414ac06a6f27224e3d6b2f66.setContent(html_f92dc15f984560b16b0790b279c79da7);
             
         
 
-        circle_marker_33e82977c6be698d7f65ae078cfa9ea9.bindPopup(popup_c12c584f3c9df900953b1a2f9f7a5130)
+        circle_marker_fc29b4d3cbf5f9e2d588efc9a48952cb.bindPopup(popup_76651458414ac06a6f27224e3d6b2f66)
         ;
 
         
     
     
-            circle_marker_33e82977c6be698d7f65ae078cfa9ea9.bindTooltip(
+            circle_marker_fc29b4d3cbf5f9e2d588efc9a48952cb.bindTooltip(
                 `<div>
                      In between malhar and des hostel
                  </div>`,
@@ -250,30 +274,30 @@
             );
         
     
-            var circle_marker_ca86d4c94c986ee34afbdb14b636d3c1 = L.circleMarker(
+            var circle_marker_71902bac8a8e70f7fa705d003d835336 = L.circleMarker(
                 [13.717783849919828, 79.5867304714194],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_f46fa275519325ad21abebd44c290569 = L.popup({
+        var popup_3b4881d20350ae025576003402698c47 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_2124c259cddaee13c0e2d984a1e8bc84 = $(`<div id="html_2124c259cddaee13c0e2d984a1e8bc84" style="width: 100.0%; height: 100.0%;"><b>Entrance Gate of des hostel </b><br>Collected by: Aditi Saha<br>Note: Not segregated <br>Recorded at: 2026-09-02 17:47:57.991000+00:00<br><img src='photos/JPEG_20260902174804565.jpg' width='220'></div>`)[0];
-                popup_f46fa275519325ad21abebd44c290569.setContent(html_2124c259cddaee13c0e2d984a1e8bc84);
+                var html_20a0694a0e47291fbbf40f73d23e0dda = $(`<div id="html_20a0694a0e47291fbbf40f73d23e0dda" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Entrance Gate of des hostel </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Not segregated <br><b>Recorded at:</b> 2026-09-02 17:47:57.991000+00:00<br><img src='photos/JPEG_20260902174804565.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_3b4881d20350ae025576003402698c47.setContent(html_20a0694a0e47291fbbf40f73d23e0dda);
             
         
 
-        circle_marker_ca86d4c94c986ee34afbdb14b636d3c1.bindPopup(popup_f46fa275519325ad21abebd44c290569)
+        circle_marker_71902bac8a8e70f7fa705d003d835336.bindPopup(popup_3b4881d20350ae025576003402698c47)
         ;
 
         
     
     
-            circle_marker_ca86d4c94c986ee34afbdb14b636d3c1.bindTooltip(
+            circle_marker_71902bac8a8e70f7fa705d003d835336.bindTooltip(
                 `<div>
                      Entrance Gate of des hostel 
                  </div>`,
@@ -283,30 +307,30 @@
             );
         
     
-            var circle_marker_d0241a5f4614f3d06d2553f51f67c6e3 = L.circleMarker(
+            var circle_marker_1caa8201a5ebc34df7c5a0fad5273792 = L.circleMarker(
                 [13.717368571053044, 79.5865085740731],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_2e97bb58516392ce77665cf5c0718f3f = L.popup({
+        var popup_37e05f9a1518a64a63539d12a94b62f8 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_2e3b769185064ffd10a7954d1b52f258 = $(`<div id="html_2e3b769185064ffd10a7954d1b52f258" style="width: 100.0%; height: 100.0%;"><b>In front of des</b><br>Collected by: Aditi Saha<br>Note: Not segregated <br>Recorded at: 2026-09-02 17:49:37.977000+00:00<br><img src='photos/JPEG_20260902174945696.jpg' width='220'></div>`)[0];
-                popup_2e97bb58516392ce77665cf5c0718f3f.setContent(html_2e3b769185064ffd10a7954d1b52f258);
+                var html_df4eb9067f1639db5f1f812764ef659a = $(`<div id="html_df4eb9067f1639db5f1f812764ef659a" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>In front of des</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Not segregated <br><b>Recorded at:</b> 2026-09-02 17:49:37.977000+00:00<br><img src='photos/JPEG_20260902174945696.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_37e05f9a1518a64a63539d12a94b62f8.setContent(html_df4eb9067f1639db5f1f812764ef659a);
             
         
 
-        circle_marker_d0241a5f4614f3d06d2553f51f67c6e3.bindPopup(popup_2e97bb58516392ce77665cf5c0718f3f)
+        circle_marker_1caa8201a5ebc34df7c5a0fad5273792.bindPopup(popup_37e05f9a1518a64a63539d12a94b62f8)
         ;
 
         
     
     
-            circle_marker_d0241a5f4614f3d06d2553f51f67c6e3.bindTooltip(
+            circle_marker_1caa8201a5ebc34df7c5a0fad5273792.bindTooltip(
                 `<div>
                      In front of des
                  </div>`,
@@ -316,30 +340,30 @@
             );
         
     
-            var circle_marker_a075a13bf79c9e890871709a75f6ddeb = L.circleMarker(
+            var circle_marker_50333e74ef25246463d5abda95f8840d = L.circleMarker(
                 [13.716655649018103, 79.58640452979795],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_53582170d096edf79d2cfa7643d119a1 = L.popup({
+        var popup_d7cbe8f01a2503836b5c8b6acc90b644 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_79442435a272cdf62c5a8c7520a420c9 = $(`<div id="html_79442435a272cdf62c5a8c7520a420c9" style="width: 100.0%; height: 100.0%;"><b>North mess staff residence </b><br>Collected by: Aditi Saha<br>Note: Non segregated <br>Recorded at: 2026-09-02 17:51:58.147000+00:00<br><img src='photos/JPEG_20260902175206755.jpg' width='220'></div>`)[0];
-                popup_53582170d096edf79d2cfa7643d119a1.setContent(html_79442435a272cdf62c5a8c7520a420c9);
+                var html_657e2a53388f614142d59a35fe9543da = $(`<div id="html_657e2a53388f614142d59a35fe9543da" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>North mess staff residence </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non segregated <br><b>Recorded at:</b> 2026-09-02 17:51:58.147000+00:00<br><img src='photos/JPEG_20260902175206755.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_d7cbe8f01a2503836b5c8b6acc90b644.setContent(html_657e2a53388f614142d59a35fe9543da);
             
         
 
-        circle_marker_a075a13bf79c9e890871709a75f6ddeb.bindPopup(popup_53582170d096edf79d2cfa7643d119a1)
+        circle_marker_50333e74ef25246463d5abda95f8840d.bindPopup(popup_d7cbe8f01a2503836b5c8b6acc90b644)
         ;
 
         
     
     
-            circle_marker_a075a13bf79c9e890871709a75f6ddeb.bindTooltip(
+            circle_marker_50333e74ef25246463d5abda95f8840d.bindTooltip(
                 `<div>
                      North mess staff residence 
                  </div>`,
@@ -349,30 +373,30 @@
             );
         
     
-            var circle_marker_f5ea0ec8a667e93cd6d4304af4a592bf = L.circleMarker(
+            var circle_marker_86ae42a229cd5680327caca4d37c78a2 = L.circleMarker(
                 [13.717156272261391, 79.58714116404872],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_4f7dd27f5749c876cd71dab968876174 = L.popup({
+        var popup_52c55ee12a2f3d772d81916ac37d254a = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_4f72f32c9ffe1d305c504e9337abe1a0 = $(`<div id="html_4f72f32c9ffe1d305c504e9337abe1a0" style="width: 100.0%; height: 100.0%;"><b>North mess entrance </b><br>Collected by: Aditi Saha<br>Note: Non-segregated <br>Recorded at: 2026-09-02 17:54:51.269000+00:00<br><img src='photos/JPEG_20260902175500320.jpg' width='220'></div>`)[0];
-                popup_4f7dd27f5749c876cd71dab968876174.setContent(html_4f72f32c9ffe1d305c504e9337abe1a0);
+                var html_360367b2388bedf55ba76a12b1795310 = $(`<div id="html_360367b2388bedf55ba76a12b1795310" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>North mess entrance </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non-segregated <br><b>Recorded at:</b> 2026-09-02 17:54:51.269000+00:00<br><img src='photos/JPEG_20260902175500320.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_52c55ee12a2f3d772d81916ac37d254a.setContent(html_360367b2388bedf55ba76a12b1795310);
             
         
 
-        circle_marker_f5ea0ec8a667e93cd6d4304af4a592bf.bindPopup(popup_4f7dd27f5749c876cd71dab968876174)
+        circle_marker_86ae42a229cd5680327caca4d37c78a2.bindPopup(popup_52c55ee12a2f3d772d81916ac37d254a)
         ;
 
         
     
     
-            circle_marker_f5ea0ec8a667e93cd6d4304af4a592bf.bindTooltip(
+            circle_marker_86ae42a229cd5680327caca4d37c78a2.bindTooltip(
                 `<div>
                      North mess entrance 
                  </div>`,
@@ -382,30 +406,30 @@
             );
         
     
-            var circle_marker_ebb90bb0b6647eaecc075407a1602882 = L.circleMarker(
+            var circle_marker_64845032ba1b76dd88a7c0f701f27808 = L.circleMarker(
                 [13.717771063747572, 79.58745334246933],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_46f961022e9caad45c7be68e6de2beae = L.popup({
+        var popup_d80f98f30411780c30068a9e23092628 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_912d7e15512e9bc30939ff419b1a55a8 = $(`<div id="html_912d7e15512e9bc30939ff419b1a55a8" style="width: 100.0%; height: 100.0%;"><b>Malhar entrance </b><br>Collected by: Aditi Saha<br>Note: Non- segregated <br>Recorded at: 2026-09-02 17:57:38.102000+00:00<br><img src='photos/JPEG_20260902175756516.jpg' width='220'></div>`)[0];
-                popup_46f961022e9caad45c7be68e6de2beae.setContent(html_912d7e15512e9bc30939ff419b1a55a8);
+                var html_7d1347cb6d7c2b258864f750f1439a31 = $(`<div id="html_7d1347cb6d7c2b258864f750f1439a31" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Malhar entrance </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non- segregated <br><b>Recorded at:</b> 2026-09-02 17:57:38.102000+00:00<br><img src='photos/JPEG_20260902175756516.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_d80f98f30411780c30068a9e23092628.setContent(html_7d1347cb6d7c2b258864f750f1439a31);
             
         
 
-        circle_marker_ebb90bb0b6647eaecc075407a1602882.bindPopup(popup_46f961022e9caad45c7be68e6de2beae)
+        circle_marker_64845032ba1b76dd88a7c0f701f27808.bindPopup(popup_d80f98f30411780c30068a9e23092628)
         ;
 
         
     
     
-            circle_marker_ebb90bb0b6647eaecc075407a1602882.bindTooltip(
+            circle_marker_64845032ba1b76dd88a7c0f701f27808.bindTooltip(
                 `<div>
                      Malhar entrance 
                  </div>`,
@@ -415,30 +439,30 @@
             );
         
     
-            var circle_marker_85dc7b1abf01a575bbf1de3d7a0e33af = L.circleMarker(
+            var circle_marker_1a90b1e64c3e5d51c0daf0f62ebc9567 = L.circleMarker(
                 [13.716551875823699, 79.58614500033971],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_cfbf4b000ea1d51939aa2938813f6045 = L.popup({
+        var popup_6acce5bb1d86365c01faecec97d75a91 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_7b4e7f82345fc02ec4327b3690d5e6c3 = $(`<div id="html_7b4e7f82345fc02ec4327b3690d5e6c3" style="width: 100.0%; height: 100.0%;"><b>Another side of mess staff residence </b><br>Collected by: Aditi Saha<br>Note: Non segregated <br>Recorded at: 2026-09-02 18:05:59.937000+00:00<br><img src='photos/JPEG_20260902180625995.jpg' width='220'></div>`)[0];
-                popup_cfbf4b000ea1d51939aa2938813f6045.setContent(html_7b4e7f82345fc02ec4327b3690d5e6c3);
+                var html_ea1ab0d2b7edec0fb956df71098cf41d = $(`<div id="html_ea1ab0d2b7edec0fb956df71098cf41d" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Another side of mess staff residence </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non segregated <br><b>Recorded at:</b> 2026-09-02 18:05:59.937000+00:00<br><img src='photos/JPEG_20260902180625995.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_6acce5bb1d86365c01faecec97d75a91.setContent(html_ea1ab0d2b7edec0fb956df71098cf41d);
             
         
 
-        circle_marker_85dc7b1abf01a575bbf1de3d7a0e33af.bindPopup(popup_cfbf4b000ea1d51939aa2938813f6045)
+        circle_marker_1a90b1e64c3e5d51c0daf0f62ebc9567.bindPopup(popup_6acce5bb1d86365c01faecec97d75a91)
         ;
 
         
     
     
-            circle_marker_85dc7b1abf01a575bbf1de3d7a0e33af.bindTooltip(
+            circle_marker_1a90b1e64c3e5d51c0daf0f62ebc9567.bindTooltip(
                 `<div>
                      Another side of mess staff residence 
                  </div>`,
@@ -448,30 +472,30 @@
             );
         
     
-            var circle_marker_ecbefa57e3dcb6bb974b772a9d881176 = L.circleMarker(
+            var circle_marker_459f557c4af621575b20cc9ab1ed0c27 = L.circleMarker(
                 [13.71486113950237, 79.5862037146062],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_a0517a7be5a9cda18604d9bfc8dc0533 = L.popup({
+        var popup_94c4b323c9b76bff5876dce00227d7a4 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_6e72606e67066c5226dde1b1bdf528e4 = $(`<div id="html_6e72606e67066c5226dde1b1bdf528e4" style="width: 100.0%; height: 100.0%;"><b>Sport's utility building </b><br>Collected by: Aditi Saha<br>Note: Non segregated <br>Recorded at: 2026-09-02 18:11:09.145000+00:00<br><img src='photos/JPEG_20260902181120583.jpg' width='220'></div>`)[0];
-                popup_a0517a7be5a9cda18604d9bfc8dc0533.setContent(html_6e72606e67066c5226dde1b1bdf528e4);
+                var html_7e006a5e52b7705a0de79583e8ed9f0c = $(`<div id="html_7e006a5e52b7705a0de79583e8ed9f0c" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Sport's utility building </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non segregated <br><b>Recorded at:</b> 2026-09-02 18:11:09.145000+00:00<br><img src='photos/JPEG_20260902181120583.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_94c4b323c9b76bff5876dce00227d7a4.setContent(html_7e006a5e52b7705a0de79583e8ed9f0c);
             
         
 
-        circle_marker_ecbefa57e3dcb6bb974b772a9d881176.bindPopup(popup_a0517a7be5a9cda18604d9bfc8dc0533)
+        circle_marker_459f557c4af621575b20cc9ab1ed0c27.bindPopup(popup_94c4b323c9b76bff5876dce00227d7a4)
         ;
 
         
     
     
-            circle_marker_ecbefa57e3dcb6bb974b772a9d881176.bindTooltip(
+            circle_marker_459f557c4af621575b20cc9ab1ed0c27.bindTooltip(
                 `<div>
                      Sport's utility building 
                  </div>`,
@@ -481,30 +505,30 @@
             );
         
     
-            var circle_marker_737864052f4bc071146bfd5d533ab331 = L.circleMarker(
+            var circle_marker_9e9656fce59cb0ba39c20d4b1bc48cff = L.circleMarker(
                 [13.714907280831277, 79.58619104792463],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_b218265af4394958913ce7df22d6c500 = L.popup({
+        var popup_5de83b48206ab27cdb91ef4266f66681 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_9854ea3eca947de2148c114761f53af8 = $(`<div id="html_9854ea3eca947de2148c114761f53af8" style="width: 100.0%; height: 100.0%;"><b>Sport's utility building </b><br>Collected by: Aditi Saha<br>Note: Non segregated <br>Recorded at: 2026-09-02 18:11:53.727000+00:00<br><img src='photos/JPEG_20260902181206453.jpg' width='220'></div>`)[0];
-                popup_b218265af4394958913ce7df22d6c500.setContent(html_9854ea3eca947de2148c114761f53af8);
+                var html_db13e78e28bf12d94c2acc420e7db2ae = $(`<div id="html_db13e78e28bf12d94c2acc420e7db2ae" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Sport's utility building </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non segregated <br><b>Recorded at:</b> 2026-09-02 18:11:53.727000+00:00<br><img src='photos/JPEG_20260902181206453.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_5de83b48206ab27cdb91ef4266f66681.setContent(html_db13e78e28bf12d94c2acc420e7db2ae);
             
         
 
-        circle_marker_737864052f4bc071146bfd5d533ab331.bindPopup(popup_b218265af4394958913ce7df22d6c500)
+        circle_marker_9e9656fce59cb0ba39c20d4b1bc48cff.bindPopup(popup_5de83b48206ab27cdb91ef4266f66681)
         ;
 
         
     
     
-            circle_marker_737864052f4bc071146bfd5d533ab331.bindTooltip(
+            circle_marker_9e9656fce59cb0ba39c20d4b1bc48cff.bindTooltip(
                 `<div>
                      Sport's utility building 
                  </div>`,
@@ -514,30 +538,30 @@
             );
         
     
-            var circle_marker_702dc4bd79ae7235c7d6cf6741c9bcfd = L.circleMarker(
+            var circle_marker_fac36d5147d52db3cc9ca695f69e96b8 = L.circleMarker(
                 [13.71468826006153, 79.58651999447737],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_1d8ec495274184a32ea2f62ff2499dab = L.popup({
+        var popup_1aae7d087377c0b12cc067baa5be765b = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_ee53033515571ceb4854d336f949c767 = $(`<div id="html_ee53033515571ceb4854d336f949c767" style="width: 100.0%; height: 100.0%;"><b>New Tennis court </b><br>Collected by: Aditi Saha<br>Note: Non segregated <br>Recorded at: 2026-09-02 18:13:22.051000+00:00<br><img src='photos/JPEG_20260902181329445.jpg' width='220'></div>`)[0];
-                popup_1d8ec495274184a32ea2f62ff2499dab.setContent(html_ee53033515571ceb4854d336f949c767);
+                var html_866fb2cc8c9b87f63186b83a3fc6b585 = $(`<div id="html_866fb2cc8c9b87f63186b83a3fc6b585" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>New Tennis court </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non segregated <br><b>Recorded at:</b> 2026-09-02 18:13:22.051000+00:00<br><img src='photos/JPEG_20260902181329445.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_1aae7d087377c0b12cc067baa5be765b.setContent(html_866fb2cc8c9b87f63186b83a3fc6b585);
             
         
 
-        circle_marker_702dc4bd79ae7235c7d6cf6741c9bcfd.bindPopup(popup_1d8ec495274184a32ea2f62ff2499dab)
+        circle_marker_fac36d5147d52db3cc9ca695f69e96b8.bindPopup(popup_1aae7d087377c0b12cc067baa5be765b)
         ;
 
         
     
     
-            circle_marker_702dc4bd79ae7235c7d6cf6741c9bcfd.bindTooltip(
+            circle_marker_fac36d5147d52db3cc9ca695f69e96b8.bindTooltip(
                 `<div>
                      New Tennis court 
                  </div>`,
@@ -547,30 +571,30 @@
             );
         
     
-            var circle_marker_a899a24b9fdf3cc02702b76676f0f170 = L.circleMarker(
+            var circle_marker_6dc24ccbfa1c9022ad5f16cb9e4026b4 = L.circleMarker(
                 [13.714050219528392, 79.58687307580522],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_0018a53f94acbea4af5d6f2acb3c0b8b = L.popup({
+        var popup_7f624b1c390bd0fcdfc89192c3569bc6 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_79a7034ba6bfb891ba5543537a838b7c = $(`<div id="html_79a7034ba6bfb891ba5543537a838b7c" style="width: 100.0%; height: 100.0%;"><b>New Tennis court </b><br>Collected by: Aditi Saha<br>Note: Non segregated <br>Recorded at: 2026-09-02 18:15:48.367000+00:00<br><img src='photos/JPEG_20260902181559240.jpg' width='220'></div>`)[0];
-                popup_0018a53f94acbea4af5d6f2acb3c0b8b.setContent(html_79a7034ba6bfb891ba5543537a838b7c);
+                var html_273ec0adb6b5f8b5da638d33fa446e1e = $(`<div id="html_273ec0adb6b5f8b5da638d33fa446e1e" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>New Tennis court </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non segregated <br><b>Recorded at:</b> 2026-09-02 18:15:48.367000+00:00<br><img src='photos/JPEG_20260902181559240.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_7f624b1c390bd0fcdfc89192c3569bc6.setContent(html_273ec0adb6b5f8b5da638d33fa446e1e);
             
         
 
-        circle_marker_a899a24b9fdf3cc02702b76676f0f170.bindPopup(popup_0018a53f94acbea4af5d6f2acb3c0b8b)
+        circle_marker_6dc24ccbfa1c9022ad5f16cb9e4026b4.bindPopup(popup_7f624b1c390bd0fcdfc89192c3569bc6)
         ;
 
         
     
     
-            circle_marker_a899a24b9fdf3cc02702b76676f0f170.bindTooltip(
+            circle_marker_6dc24ccbfa1c9022ad5f16cb9e4026b4.bindTooltip(
                 `<div>
                      New Tennis court 
                  </div>`,
@@ -580,30 +604,30 @@
             );
         
     
-            var circle_marker_e7f5ea54a98bcbe4abc7ce3ebafedee3 = L.circleMarker(
+            var circle_marker_c8bb3699d45ccc25028ebc8108fcf2de = L.circleMarker(
                 [13.71281940124174, 79.58816075450476],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_66a27e35117a10efe114cd119ed9da05 = L.popup({
+        var popup_3d0b8fd13d9e9d609efb403a7eb7c58d = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_458c9d87e5021b92b766d729339081fd = $(`<div id="html_458c9d87e5021b92b766d729339081fd" style="width: 100.0%; height: 100.0%;"><b>Near Director's bunglow </b><br>Collected by: Aditi Saha<br>Note: Non-segregated <br>Recorded at: 2026-09-02 18:20:39.466000+00:00<br><img src='photos/JPEG_20260902182048544.jpg' width='220'></div>`)[0];
-                popup_66a27e35117a10efe114cd119ed9da05.setContent(html_458c9d87e5021b92b766d729339081fd);
+                var html_8651258d567bd60683a583038858b9ec = $(`<div id="html_8651258d567bd60683a583038858b9ec" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Near Director's bunglow </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non-segregated <br><b>Recorded at:</b> 2026-09-02 18:20:39.466000+00:00<br><img src='photos/JPEG_20260902182048544.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_3d0b8fd13d9e9d609efb403a7eb7c58d.setContent(html_8651258d567bd60683a583038858b9ec);
             
         
 
-        circle_marker_e7f5ea54a98bcbe4abc7ce3ebafedee3.bindPopup(popup_66a27e35117a10efe114cd119ed9da05)
+        circle_marker_c8bb3699d45ccc25028ebc8108fcf2de.bindPopup(popup_3d0b8fd13d9e9d609efb403a7eb7c58d)
         ;
 
         
     
     
-            circle_marker_e7f5ea54a98bcbe4abc7ce3ebafedee3.bindTooltip(
+            circle_marker_c8bb3699d45ccc25028ebc8108fcf2de.bindTooltip(
                 `<div>
                      Near Director's bunglow 
                  </div>`,
@@ -613,30 +637,30 @@
             );
         
     
-            var circle_marker_00016093bf5090af40c24ca269d85ae9 = L.circleMarker(
+            var circle_marker_27a70fa7c751867c2af9d248dd6e413e = L.circleMarker(
                 [13.711992164966375, 79.59161597665869],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_0a854de58b5bcb6cd9039155d31fbdca = L.popup({
+        var popup_f488a2cb53de6b39ea90e94ded616ea4 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_e1f05a7a597809a1d480bf221b657a3e = $(`<div id="html_e1f05a7a597809a1d480bf221b657a3e" style="width: 100.0%; height: 100.0%;"><b>Director's circle</b><br>Collected by: Aditi Saha<br>Note: Non-segregated <br>Recorded at: 2026-09-02 18:29:34.560000+00:00<br><img src='photos/JPEG_20260902182943964.jpg' width='220'></div>`)[0];
-                popup_0a854de58b5bcb6cd9039155d31fbdca.setContent(html_e1f05a7a597809a1d480bf221b657a3e);
+                var html_d41bd402cb19ede4f51f7ef82ba183d1 = $(`<div id="html_d41bd402cb19ede4f51f7ef82ba183d1" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Director's circle</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non-segregated <br><b>Recorded at:</b> 2026-09-02 18:29:34.560000+00:00<br><img src='photos/JPEG_20260902182943964.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_f488a2cb53de6b39ea90e94ded616ea4.setContent(html_d41bd402cb19ede4f51f7ef82ba183d1);
             
         
 
-        circle_marker_00016093bf5090af40c24ca269d85ae9.bindPopup(popup_0a854de58b5bcb6cd9039155d31fbdca)
+        circle_marker_27a70fa7c751867c2af9d248dd6e413e.bindPopup(popup_f488a2cb53de6b39ea90e94ded616ea4)
         ;
 
         
     
     
-            circle_marker_00016093bf5090af40c24ca269d85ae9.bindTooltip(
+            circle_marker_27a70fa7c751867c2af9d248dd6e413e.bindTooltip(
                 `<div>
                      Director's circle
                  </div>`,
@@ -646,30 +670,30 @@
             );
         
     
-            var circle_marker_2b168c40997a5f73e944b0e06d52ea30 = L.circleMarker(
+            var circle_marker_92a3c459db25a17b8a8cd3fb158b0fa1 = L.circleMarker(
                 [13.709830082837103, 79.59234009656178],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_a129f82245c33023c61ffccd16522b9f = L.popup({
+        var popup_8c616dcb2035f7f127daefebe2c037b2 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_68f6c5d05eaaebd11049663104f8a504 = $(`<div id="html_68f6c5d05eaaebd11049663104f8a504" style="width: 100.0%; height: 100.0%;"><b>Outside faculty quarter 2</b><br>Collected by: Aditi Saha<br>Note: Dry Waste bin<br>Recorded at: 2026-09-02 18:37:14.272000+00:00<br><img src='photos/JPEG_20260902183724788.jpg' width='220'></div>`)[0];
-                popup_a129f82245c33023c61ffccd16522b9f.setContent(html_68f6c5d05eaaebd11049663104f8a504);
+                var html_3ecedc1ceefb952539d1a1760bd4607c = $(`<div id="html_3ecedc1ceefb952539d1a1760bd4607c" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Outside faculty quarter 2</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Dry Waste bin<br><b>Recorded at:</b> 2026-09-02 18:37:14.272000+00:00<br><img src='photos/JPEG_20260902183724788.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_8c616dcb2035f7f127daefebe2c037b2.setContent(html_3ecedc1ceefb952539d1a1760bd4607c);
             
         
 
-        circle_marker_2b168c40997a5f73e944b0e06d52ea30.bindPopup(popup_a129f82245c33023c61ffccd16522b9f)
+        circle_marker_92a3c459db25a17b8a8cd3fb158b0fa1.bindPopup(popup_8c616dcb2035f7f127daefebe2c037b2)
         ;
 
         
     
     
-            circle_marker_2b168c40997a5f73e944b0e06d52ea30.bindTooltip(
+            circle_marker_92a3c459db25a17b8a8cd3fb158b0fa1.bindTooltip(
                 `<div>
                      Outside faculty quarter 2
                  </div>`,
@@ -679,30 +703,30 @@
             );
         
     
-            var circle_marker_54b1f54eca1ef47aaaa3d9e1485aa392 = L.circleMarker(
+            var circle_marker_4cecdf870a980dc5b119d2d2dda87093 = L.circleMarker(
                 [13.709848609615825, 79.59233566518785],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_d5c736d787f8c4cf0d85bb7d484bccd1 = L.popup({
+        var popup_de421e1aff67d2bc9ba3a1588e4d5079 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_7683616352cbc0cefd659ec35dc74d43 = $(`<div id="html_7683616352cbc0cefd659ec35dc74d43" style="width: 100.0%; height: 100.0%;"><b>Outside faculty quarters </b><br>Collected by: Aditi Saha<br>Note: Non-segregated <br>Recorded at: 2026-09-02 18:37:48.941000+00:00<br><img src='photos/JPEG_20260902183754684.jpg' width='220'></div>`)[0];
-                popup_d5c736d787f8c4cf0d85bb7d484bccd1.setContent(html_7683616352cbc0cefd659ec35dc74d43);
+                var html_423a09f60a56d4d97c013bb9e9aad175 = $(`<div id="html_423a09f60a56d4d97c013bb9e9aad175" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Outside faculty quarters </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non-segregated <br><b>Recorded at:</b> 2026-09-02 18:37:48.941000+00:00<br><img src='photos/JPEG_20260902183754684.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_de421e1aff67d2bc9ba3a1588e4d5079.setContent(html_423a09f60a56d4d97c013bb9e9aad175);
             
         
 
-        circle_marker_54b1f54eca1ef47aaaa3d9e1485aa392.bindPopup(popup_d5c736d787f8c4cf0d85bb7d484bccd1)
+        circle_marker_4cecdf870a980dc5b119d2d2dda87093.bindPopup(popup_de421e1aff67d2bc9ba3a1588e4d5079)
         ;
 
         
     
     
-            circle_marker_54b1f54eca1ef47aaaa3d9e1485aa392.bindTooltip(
+            circle_marker_4cecdf870a980dc5b119d2d2dda87093.bindTooltip(
                 `<div>
                      Outside faculty quarters 
                  </div>`,
@@ -712,30 +736,30 @@
             );
         
     
-            var circle_marker_add468fc7764ee6c50dda4bdacb885bf = L.circleMarker(
+            var circle_marker_cb2f69055210f7dc4519591e76554b70 = L.circleMarker(
                 [13.710005850933985, 79.59321142999907],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_401a22ae735bdb09d7a2d73fd6d7b360 = L.popup({
+        var popup_dd0c51ae509c28976c31e627224aba18 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_dff38c2d11ab1205027cb2389d50706b = $(`<div id="html_dff38c2d11ab1205027cb2389d50706b" style="width: 100.0%; height: 100.0%;"><b>Sport's complex</b><br>Collected by: Aditi Saha<br>Note: Non-segregated <br>Recorded at: 2026-09-02 18:40:20.617000+00:00<br><img src='photos/JPEG_20260902184410861.jpg' width='220'></div>`)[0];
-                popup_401a22ae735bdb09d7a2d73fd6d7b360.setContent(html_dff38c2d11ab1205027cb2389d50706b);
+                var html_fe363c386ed930fd5b42488914ea108a = $(`<div id="html_fe363c386ed930fd5b42488914ea108a" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Sport's complex</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non-segregated <br><b>Recorded at:</b> 2026-09-02 18:40:20.617000+00:00<br><img src='photos/JPEG_20260902184410861.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_dd0c51ae509c28976c31e627224aba18.setContent(html_fe363c386ed930fd5b42488914ea108a);
             
         
 
-        circle_marker_add468fc7764ee6c50dda4bdacb885bf.bindPopup(popup_401a22ae735bdb09d7a2d73fd6d7b360)
+        circle_marker_cb2f69055210f7dc4519591e76554b70.bindPopup(popup_dd0c51ae509c28976c31e627224aba18)
         ;
 
         
     
     
-            circle_marker_add468fc7764ee6c50dda4bdacb885bf.bindTooltip(
+            circle_marker_cb2f69055210f7dc4519591e76554b70.bindTooltip(
                 `<div>
                      Sport's complex
                  </div>`,
@@ -745,30 +769,30 @@
             );
         
     
-            var circle_marker_b319d6c9e40958fa6700ec2e851a8915 = L.circleMarker(
+            var circle_marker_4dba49c92bb6a18b109169cfda6c01f2 = L.circleMarker(
                 [13.709731642621145, 79.59309544974776],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_ced4567a9dbddc0c185d000506225490 = L.popup({
+        var popup_a1671e8b1ed4c8f138225e1342818576 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_b5a8b2d285addfbd7a7bf062b3a9a6d0 = $(`<div id="html_b5a8b2d285addfbd7a7bf062b3a9a6d0" style="width: 100.0%; height: 100.0%;"><b>Outside sports complex </b><br>Collected by: Aditi Saha<br>Note: Non-segregated <br>Recorded at: 2026-09-02 18:45:33.429000+00:00<br><img src='photos/JPEG_20260902184548487.jpg' width='220'></div>`)[0];
-                popup_ced4567a9dbddc0c185d000506225490.setContent(html_b5a8b2d285addfbd7a7bf062b3a9a6d0);
+                var html_79d6f09125c8341c7ab69e3c5573c8e3 = $(`<div id="html_79d6f09125c8341c7ab69e3c5573c8e3" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Outside sports complex </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non-segregated <br><b>Recorded at:</b> 2026-09-02 18:45:33.429000+00:00<br><img src='photos/JPEG_20260902184548487.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_a1671e8b1ed4c8f138225e1342818576.setContent(html_79d6f09125c8341c7ab69e3c5573c8e3);
             
         
 
-        circle_marker_b319d6c9e40958fa6700ec2e851a8915.bindPopup(popup_ced4567a9dbddc0c185d000506225490)
+        circle_marker_4dba49c92bb6a18b109169cfda6c01f2.bindPopup(popup_a1671e8b1ed4c8f138225e1342818576)
         ;
 
         
     
     
-            circle_marker_b319d6c9e40958fa6700ec2e851a8915.bindTooltip(
+            circle_marker_4dba49c92bb6a18b109169cfda6c01f2.bindTooltip(
                 `<div>
                      Outside sports complex 
                  </div>`,
@@ -778,30 +802,30 @@
             );
         
     
-            var circle_marker_7287f0ff452b4c674c57c02487fd62f5 = L.circleMarker(
+            var circle_marker_c3b2fe849364f91631dd7af90a9494e4 = L.circleMarker(
                 [13.709448401353342, 79.59326944031157],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_c3a7e8f343206866402f75956e2db19d = L.popup({
+        var popup_fdc8ea524b073c50dafba9fb457e1978 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_143fefc100cfc8a0a924e0c18a2200e2 = $(`<div id="html_143fefc100cfc8a0a924e0c18a2200e2" style="width: 100.0%; height: 100.0%;"><b>Outside basketball court </b><br>Collected by: Aditi Saha<br>Note: Segregated <br>Recorded at: 2026-09-02 18:52:02.129000+00:00<br><img src='photos/JPEG_20260902185215657.jpg' width='220'></div>`)[0];
-                popup_c3a7e8f343206866402f75956e2db19d.setContent(html_143fefc100cfc8a0a924e0c18a2200e2);
+                var html_489f872e7d2cb5b08c5a66786f9b743c = $(`<div id="html_489f872e7d2cb5b08c5a66786f9b743c" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Outside basketball court </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Segregated <br><b>Recorded at:</b> 2026-09-02 18:52:02.129000+00:00<br><img src='photos/JPEG_20260902185215657.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_fdc8ea524b073c50dafba9fb457e1978.setContent(html_489f872e7d2cb5b08c5a66786f9b743c);
             
         
 
-        circle_marker_7287f0ff452b4c674c57c02487fd62f5.bindPopup(popup_c3a7e8f343206866402f75956e2db19d)
+        circle_marker_c3b2fe849364f91631dd7af90a9494e4.bindPopup(popup_fdc8ea524b073c50dafba9fb457e1978)
         ;
 
         
     
     
-            circle_marker_7287f0ff452b4c674c57c02487fd62f5.bindTooltip(
+            circle_marker_c3b2fe849364f91631dd7af90a9494e4.bindTooltip(
                 `<div>
                      Outside basketball court 
                  </div>`,
@@ -811,30 +835,30 @@
             );
         
     
-            var circle_marker_d6ff79b1846068148512804104a898b8 = L.circleMarker(
+            var circle_marker_46368d7191016065b8c99cde98bd2f3e = L.circleMarker(
                 [13.708917103286021, 79.59392327432595],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_7d38321a5b172c49a61b532f32d3d631 = L.popup({
+        var popup_fbad0919129d4103d99abae854467ebd = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_bcae88838504144e1f5ea6ff0ec41ada = $(`<div id="html_bcae88838504144e1f5ea6ff0ec41ada" style="width: 100.0%; height: 100.0%;"><b>No title</b><br>Collected by: Aditi Saha<br>Note: No note<br>Recorded at: 2026-09-02 18:54:24.689000+00:00<br>No photograph attached</div>`)[0];
-                popup_7d38321a5b172c49a61b532f32d3d631.setContent(html_bcae88838504144e1f5ea6ff0ec41ada);
+                var html_e3ed438aea580be6494b93d0b800ac4e = $(`<div id="html_e3ed438aea580be6494b93d0b800ac4e" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>No title</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> No note<br><b>Recorded at:</b> 2026-09-02 18:54:24.689000+00:00<br><i>No photograph attached</i></div></div>`)[0];
+                popup_fbad0919129d4103d99abae854467ebd.setContent(html_e3ed438aea580be6494b93d0b800ac4e);
             
         
 
-        circle_marker_d6ff79b1846068148512804104a898b8.bindPopup(popup_7d38321a5b172c49a61b532f32d3d631)
+        circle_marker_46368d7191016065b8c99cde98bd2f3e.bindPopup(popup_fbad0919129d4103d99abae854467ebd)
         ;
 
         
     
     
-            circle_marker_d6ff79b1846068148512804104a898b8.bindTooltip(
+            circle_marker_46368d7191016065b8c99cde98bd2f3e.bindTooltip(
                 `<div>
                      No title
                  </div>`,
@@ -844,30 +868,30 @@
             );
         
     
-            var circle_marker_200a42cde4b66540544bbd8433b7a9cc = L.circleMarker(
+            var circle_marker_3d0c76147d4c0f5ae1171ddeeefc1bbf = L.circleMarker(
                 [13.712829567757128, 79.59172538199509],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_8fd9d965f7f55c4334f63ea9302945bc = L.popup({
+        var popup_06fb582ce8bc3ed51a1718f4a1021914 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_af827c355d0d682d8ba1e59390610b2f = $(`<div id="html_af827c355d0d682d8ba1e59390610b2f" style="width: 100.0%; height: 100.0%;"><b>Near circle</b><br>Collected by: Aditi Saha<br>Note: Non segregated <br>Recorded at: 2026-09-03 13:47:39.844000+00:00<br><img src='photos/JPEG_20260903134749671.jpg' width='220'></div>`)[0];
-                popup_8fd9d965f7f55c4334f63ea9302945bc.setContent(html_af827c355d0d682d8ba1e59390610b2f);
+                var html_a289d11b24c6947a8948d4648046ab5f = $(`<div id="html_a289d11b24c6947a8948d4648046ab5f" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Near circle</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non segregated <br><b>Recorded at:</b> 2026-09-03 13:47:39.844000+00:00<br><img src='photos/JPEG_20260903134749671.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_06fb582ce8bc3ed51a1718f4a1021914.setContent(html_a289d11b24c6947a8948d4648046ab5f);
             
         
 
-        circle_marker_200a42cde4b66540544bbd8433b7a9cc.bindPopup(popup_8fd9d965f7f55c4334f63ea9302945bc)
+        circle_marker_3d0c76147d4c0f5ae1171ddeeefc1bbf.bindPopup(popup_06fb582ce8bc3ed51a1718f4a1021914)
         ;
 
         
     
     
-            circle_marker_200a42cde4b66540544bbd8433b7a9cc.bindTooltip(
+            circle_marker_3d0c76147d4c0f5ae1171ddeeefc1bbf.bindTooltip(
                 `<div>
                      Near circle
                  </div>`,
@@ -877,30 +901,30 @@
             );
         
     
-            var circle_marker_6b7f5630fb22e9060af10ecca71bc28a = L.circleMarker(
+            var circle_marker_8252d3bafb1f211dd09f97fbab287686 = L.circleMarker(
                 [13.708235314989844, 79.59487474247891],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_bd6900ea17c54a05ce49f1abb9318210 = L.popup({
+        var popup_c2e90df38b44c4d68bcfbddceacb71b5 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_1c4ea4192ca6559a6a5fe488a0b90cfe = $(`<div id="html_1c4ea4192ca6559a6a5fe488a0b90cfe" style="width: 100.0%; height: 100.0%;"><b>Cafeteria </b><br>Collected by: Aditi Saha<br>Note: Green bin <br>Recorded at: 2026-09-05 07:08:06.826000+00:00<br><img src='photos/JPEG_20260905070859121.jpg' width='220'></div>`)[0];
-                popup_bd6900ea17c54a05ce49f1abb9318210.setContent(html_1c4ea4192ca6559a6a5fe488a0b90cfe);
+                var html_d0f7a0a64769c71b5e064f7b68a309bf = $(`<div id="html_d0f7a0a64769c71b5e064f7b68a309bf" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Cafeteria </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Green bin <br><b>Recorded at:</b> 2026-09-05 07:08:06.826000+00:00<br><img src='photos/JPEG_20260905070859121.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_c2e90df38b44c4d68bcfbddceacb71b5.setContent(html_d0f7a0a64769c71b5e064f7b68a309bf);
             
         
 
-        circle_marker_6b7f5630fb22e9060af10ecca71bc28a.bindPopup(popup_bd6900ea17c54a05ce49f1abb9318210)
+        circle_marker_8252d3bafb1f211dd09f97fbab287686.bindPopup(popup_c2e90df38b44c4d68bcfbddceacb71b5)
         ;
 
         
     
     
-            circle_marker_6b7f5630fb22e9060af10ecca71bc28a.bindTooltip(
+            circle_marker_8252d3bafb1f211dd09f97fbab287686.bindTooltip(
                 `<div>
                      Cafeteria 
                  </div>`,
@@ -910,30 +934,30 @@
             );
         
     
-            var circle_marker_3cdf5891ba58e2da479dd43f28634484 = L.circleMarker(
+            var circle_marker_3ea5669f9e9d8074d33410f5b42c7cde = L.circleMarker(
                 [13.7081303695767, 79.59483039794884],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_19f90492053d52145098c298dd9f3f82 = L.popup({
+        var popup_a943cd4b0d732bcbc76692e75c60472b = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_05ab55f1e5e176dfedf29d40d73b8be6 = $(`<div id="html_05ab55f1e5e176dfedf29d40d73b8be6" style="width: 100.0%; height: 100.0%;"><b>Outside cafeteria </b><br>Collected by: Aditi Saha<br>Note: Non-segregated <br>Recorded at: 2026-09-05 07:10:51.329000+00:00<br><img src='photos/JPEG_20260905071102269.jpg' width='220'></div>`)[0];
-                popup_19f90492053d52145098c298dd9f3f82.setContent(html_05ab55f1e5e176dfedf29d40d73b8be6);
+                var html_fe23c94bca12b083d823b7b1c73bca92 = $(`<div id="html_fe23c94bca12b083d823b7b1c73bca92" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Outside cafeteria </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non-segregated <br><b>Recorded at:</b> 2026-09-05 07:10:51.329000+00:00<br><img src='photos/JPEG_20260905071102269.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_a943cd4b0d732bcbc76692e75c60472b.setContent(html_fe23c94bca12b083d823b7b1c73bca92);
             
         
 
-        circle_marker_3cdf5891ba58e2da479dd43f28634484.bindPopup(popup_19f90492053d52145098c298dd9f3f82)
+        circle_marker_3ea5669f9e9d8074d33410f5b42c7cde.bindPopup(popup_a943cd4b0d732bcbc76692e75c60472b)
         ;
 
         
     
     
-            circle_marker_3cdf5891ba58e2da479dd43f28634484.bindTooltip(
+            circle_marker_3ea5669f9e9d8074d33410f5b42c7cde.bindTooltip(
                 `<div>
                      Outside cafeteria 
                  </div>`,
@@ -943,30 +967,30 @@
             );
         
     
-            var circle_marker_074e5a808d5ad80291e27df4079bf68d = L.circleMarker(
+            var circle_marker_b4417d6f616d99adb7463fba4ce5a662 = L.circleMarker(
                 [13.714933939843371, 79.59102625356321],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_93038649c93010351f523552d37811d0 = L.popup({
+        var popup_7e3a9cef47aaf028710cf076eadb74f1 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_73c2154f3799d468a8aeff6d0727939b = $(`<div id="html_73c2154f3799d468a8aeff6d0727939b" style="width: 100.0%; height: 100.0%;"><b>Outside LHC</b><br>Collected by: Aditi Saha<br>Note: Non-segregated <br>Recorded at: 2026-09-05 14:30:29.233000+00:00<br><img src='photos/JPEG_20260905143039136.jpg' width='220'></div>`)[0];
-                popup_93038649c93010351f523552d37811d0.setContent(html_73c2154f3799d468a8aeff6d0727939b);
+                var html_a7f6aab1a4a3d1f13e4cc3c69b048e81 = $(`<div id="html_a7f6aab1a4a3d1f13e4cc3c69b048e81" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Outside LHC</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non-segregated <br><b>Recorded at:</b> 2026-09-05 14:30:29.233000+00:00<br><img src='photos/JPEG_20260905143039136.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_7e3a9cef47aaf028710cf076eadb74f1.setContent(html_a7f6aab1a4a3d1f13e4cc3c69b048e81);
             
         
 
-        circle_marker_074e5a808d5ad80291e27df4079bf68d.bindPopup(popup_93038649c93010351f523552d37811d0)
+        circle_marker_b4417d6f616d99adb7463fba4ce5a662.bindPopup(popup_7e3a9cef47aaf028710cf076eadb74f1)
         ;
 
         
     
     
-            circle_marker_074e5a808d5ad80291e27df4079bf68d.bindTooltip(
+            circle_marker_b4417d6f616d99adb7463fba4ce5a662.bindTooltip(
                 `<div>
                      Outside LHC
                  </div>`,
@@ -976,30 +1000,30 @@
             );
         
     
-            var circle_marker_21f40852ca0c792b8bb7cc3f278196dd = L.circleMarker(
+            var circle_marker_eff843c0f8d3b09b1c625192682be2bb = L.circleMarker(
                 [13.715741935193389, 79.59179649780431],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_e9fac58accb2d84636c2ff263d719e9d = L.popup({
+        var popup_0a3083fdbde50bef7f140e711bb4ca0e = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_3801a24586823eaaf7f07dd2d7611657 = $(`<div id="html_3801a24586823eaaf7f07dd2d7611657" style="width: 100.0%; height: 100.0%;"><b>No title</b><br>Collected by: Aditi Saha<br>Note: No note<br>Recorded at: 2026-09-05 14:35:43.808000+00:00<br><img src='photos/JPEG_20260905143554393.jpg' width='220'></div>`)[0];
-                popup_e9fac58accb2d84636c2ff263d719e9d.setContent(html_3801a24586823eaaf7f07dd2d7611657);
+                var html_285f86e573a535d508a6248192d3cb70 = $(`<div id="html_285f86e573a535d508a6248192d3cb70" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>No title</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> No note<br><b>Recorded at:</b> 2026-09-05 14:35:43.808000+00:00<br><img src='photos/JPEG_20260905143554393.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_0a3083fdbde50bef7f140e711bb4ca0e.setContent(html_285f86e573a535d508a6248192d3cb70);
             
         
 
-        circle_marker_21f40852ca0c792b8bb7cc3f278196dd.bindPopup(popup_e9fac58accb2d84636c2ff263d719e9d)
+        circle_marker_eff843c0f8d3b09b1c625192682be2bb.bindPopup(popup_0a3083fdbde50bef7f140e711bb4ca0e)
         ;
 
         
     
     
-            circle_marker_21f40852ca0c792b8bb7cc3f278196dd.bindTooltip(
+            circle_marker_eff843c0f8d3b09b1c625192682be2bb.bindTooltip(
                 `<div>
                      No title
                  </div>`,
@@ -1009,30 +1033,30 @@
             );
         
     
-            var circle_marker_571897151fd1a3de2e7fca32c0fcd320 = L.circleMarker(
+            var circle_marker_b582d71052e05e115bc9e7134d2ca8d0 = L.circleMarker(
                 [13.715689898875302, 79.59179924993191],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_8442156b360c94f2011e20371d0b9c51 = L.popup({
+        var popup_3fc362e10be44303ff9498200f2d3c9b = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_a840b3928af2879b38818dd325e87f40 = $(`<div id="html_a840b3928af2879b38818dd325e87f40" style="width: 100.0%; height: 100.0%;"><b>Outside AB1</b><br>Collected by: Aditi Saha<br>Note: Non-segregated <br>Recorded at: 2026-09-05 14:36:53.223000+00:00<br><img src='photos/JPEG_20260905143700036.jpg' width='220'></div>`)[0];
-                popup_8442156b360c94f2011e20371d0b9c51.setContent(html_a840b3928af2879b38818dd325e87f40);
+                var html_fb36b0ec10dcdd22d80e8c4de14d32ec = $(`<div id="html_fb36b0ec10dcdd22d80e8c4de14d32ec" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Outside AB1</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non-segregated <br><b>Recorded at:</b> 2026-09-05 14:36:53.223000+00:00<br><img src='photos/JPEG_20260905143700036.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_3fc362e10be44303ff9498200f2d3c9b.setContent(html_fb36b0ec10dcdd22d80e8c4de14d32ec);
             
         
 
-        circle_marker_571897151fd1a3de2e7fca32c0fcd320.bindPopup(popup_8442156b360c94f2011e20371d0b9c51)
+        circle_marker_b582d71052e05e115bc9e7134d2ca8d0.bindPopup(popup_3fc362e10be44303ff9498200f2d3c9b)
         ;
 
         
     
     
-            circle_marker_571897151fd1a3de2e7fca32c0fcd320.bindTooltip(
+            circle_marker_b582d71052e05e115bc9e7134d2ca8d0.bindTooltip(
                 `<div>
                      Outside AB1
                  </div>`,
@@ -1042,30 +1066,30 @@
             );
         
     
-            var circle_marker_a0b1117f26d21276ed785044f6d2228c = L.circleMarker(
+            var circle_marker_67126fe20f588778a39347b21bccd261 = L.circleMarker(
                 [13.706582894040706, 79.5949415503523],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_e1dd823c97965e609ec0bae60a090139 = L.popup({
+        var popup_4b06b715193e71c4a383070da1422c6f = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_476930dcb57cc1df941f36235e31fe02 = $(`<div id="html_476930dcb57cc1df941f36235e31fe02" style="width: 100.0%; height: 100.0%;"><b>No title</b><br>Collected by: Aditi Saha<br>Note: No note<br>Recorded at: 2026-09-06 08:05:20.007000+00:00<br>No photograph attached</div>`)[0];
-                popup_e1dd823c97965e609ec0bae60a090139.setContent(html_476930dcb57cc1df941f36235e31fe02);
+                var html_3e09ea3f2f18017b681f9f821209392c = $(`<div id="html_3e09ea3f2f18017b681f9f821209392c" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>No title</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> No note<br><b>Recorded at:</b> 2026-09-06 08:05:20.007000+00:00<br><i>No photograph attached</i></div></div>`)[0];
+                popup_4b06b715193e71c4a383070da1422c6f.setContent(html_3e09ea3f2f18017b681f9f821209392c);
             
         
 
-        circle_marker_a0b1117f26d21276ed785044f6d2228c.bindPopup(popup_e1dd823c97965e609ec0bae60a090139)
+        circle_marker_67126fe20f588778a39347b21bccd261.bindPopup(popup_4b06b715193e71c4a383070da1422c6f)
         ;
 
         
     
     
-            circle_marker_a0b1117f26d21276ed785044f6d2228c.bindTooltip(
+            circle_marker_67126fe20f588778a39347b21bccd261.bindTooltip(
                 `<div>
                      No title
                  </div>`,
@@ -1075,30 +1099,30 @@
             );
         
     
-            var circle_marker_bcf18d5a913eaa95423d5a3619454517 = L.circleMarker(
+            var circle_marker_c3ac4bf664b9f37f86bf68415890e774 = L.circleMarker(
                 [13.706571349556764, 79.59493220299964],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_7183280842610c224ebb7d543a9d0214 = L.popup({
+        var popup_94c4ad6a7702e692c0b960bcea75f064 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_19542a63e6e3297f90ab96289e5efb5e = $(`<div id="html_19542a63e6e3297f90ab96289e5efb5e" style="width: 100.0%; height: 100.0%;"><b>Outside health centre</b><br>Collected by: Aditi Saha<br>Note: Non-segregated <br>Recorded at: 2026-09-06 08:05:32.280000+00:00<br><img src='photos/JPEG_20260906080541093.jpg' width='220'></div>`)[0];
-                popup_7183280842610c224ebb7d543a9d0214.setContent(html_19542a63e6e3297f90ab96289e5efb5e);
+                var html_bab39492975256aa3e52a8996b0a0fbd = $(`<div id="html_bab39492975256aa3e52a8996b0a0fbd" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Outside health centre</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non-segregated <br><b>Recorded at:</b> 2026-09-06 08:05:32.280000+00:00<br><img src='photos/JPEG_20260906080541093.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_94c4ad6a7702e692c0b960bcea75f064.setContent(html_bab39492975256aa3e52a8996b0a0fbd);
             
         
 
-        circle_marker_bcf18d5a913eaa95423d5a3619454517.bindPopup(popup_7183280842610c224ebb7d543a9d0214)
+        circle_marker_c3ac4bf664b9f37f86bf68415890e774.bindPopup(popup_94c4ad6a7702e692c0b960bcea75f064)
         ;
 
         
     
     
-            circle_marker_bcf18d5a913eaa95423d5a3619454517.bindTooltip(
+            circle_marker_c3ac4bf664b9f37f86bf68415890e774.bindTooltip(
                 `<div>
                      Outside health centre
                  </div>`,
@@ -1108,30 +1132,30 @@
             );
         
     
-            var circle_marker_a26833573627ef011d9e7a4017cb0d3b = L.circleMarker(
+            var circle_marker_4a0742cf96865215c90a2346e93f168e = L.circleMarker(
                 [13.706806671330968, 79.59420852440871],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_35bc1d2e1f2d919f43c4960827289a51 = L.popup({
+        var popup_d225a931d4526aa697665130183f79af = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_37ddbb07ed5c528c6aec0065372a062f = $(`<div id="html_37ddbb07ed5c528c6aec0065372a062f" style="width: 100.0%; height: 100.0%;"><b>Outside lab</b><br>Collected by: Aditi Saha<br>Note: Waste bin<br>Recorded at: 2026-09-06 08:08:09.264000+00:00<br><img src='photos/JPEG_20260906080817819.jpg' width='220'></div>`)[0];
-                popup_35bc1d2e1f2d919f43c4960827289a51.setContent(html_37ddbb07ed5c528c6aec0065372a062f);
+                var html_b5b9c3de445376527311f5848c2b1b45 = $(`<div id="html_b5b9c3de445376527311f5848c2b1b45" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Outside lab</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Waste bin<br><b>Recorded at:</b> 2026-09-06 08:08:09.264000+00:00<br><img src='photos/JPEG_20260906080817819.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_d225a931d4526aa697665130183f79af.setContent(html_b5b9c3de445376527311f5848c2b1b45);
             
         
 
-        circle_marker_a26833573627ef011d9e7a4017cb0d3b.bindPopup(popup_35bc1d2e1f2d919f43c4960827289a51)
+        circle_marker_4a0742cf96865215c90a2346e93f168e.bindPopup(popup_d225a931d4526aa697665130183f79af)
         ;
 
         
     
     
-            circle_marker_a26833573627ef011d9e7a4017cb0d3b.bindTooltip(
+            circle_marker_4a0742cf96865215c90a2346e93f168e.bindTooltip(
                 `<div>
                      Outside lab
                  </div>`,
@@ -1141,30 +1165,30 @@
             );
         
     
-            var circle_marker_92c9c68691f3ec4f1e4a544cbfac1b64 = L.circleMarker(
+            var circle_marker_12b1f41ba4dbdcf8f58f74e85a361087 = L.circleMarker(
                 [13.706047845604914, 79.59449859410849],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_1f51af0c68dd72ef5221dd878efb9219 = L.popup({
+        var popup_624a107680e7c449d1e13e3400adb820 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_eed72bb44bd49f2309cc43e793ed4a24 = $(`<div id="html_eed72bb44bd49f2309cc43e793ed4a24" style="width: 100.0%; height: 100.0%;"><b>South gate entrance </b><br>Collected by: Aditi Saha<br>Note: Non-segregated <br>Recorded at: 2026-09-06 08:08:54.481000+00:00<br><img src='photos/JPEG_20260906080908220.jpg' width='220'></div>`)[0];
-                popup_1f51af0c68dd72ef5221dd878efb9219.setContent(html_eed72bb44bd49f2309cc43e793ed4a24);
+                var html_481ba409afb682b258669cbaaec1f169 = $(`<div id="html_481ba409afb682b258669cbaaec1f169" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>South gate entrance </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non-segregated <br><b>Recorded at:</b> 2026-09-06 08:08:54.481000+00:00<br><img src='photos/JPEG_20260906080908220.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_624a107680e7c449d1e13e3400adb820.setContent(html_481ba409afb682b258669cbaaec1f169);
             
         
 
-        circle_marker_92c9c68691f3ec4f1e4a544cbfac1b64.bindPopup(popup_1f51af0c68dd72ef5221dd878efb9219)
+        circle_marker_12b1f41ba4dbdcf8f58f74e85a361087.bindPopup(popup_624a107680e7c449d1e13e3400adb820)
         ;
 
         
     
     
-            circle_marker_92c9c68691f3ec4f1e4a544cbfac1b64.bindTooltip(
+            circle_marker_12b1f41ba4dbdcf8f58f74e85a361087.bindTooltip(
                 `<div>
                      South gate entrance 
                  </div>`,
@@ -1174,30 +1198,30 @@
             );
         
     
-            var circle_marker_5aae67746194b4c4cfb6e3ae4e1339a3 = L.circleMarker(
+            var circle_marker_68ea8057455518706bad56683fa33c6e = L.circleMarker(
                 [13.70716810400812, 79.5928056315516],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_7393969ef8b6e1407dcaac9dd68f1d7f = L.popup({
+        var popup_a2629100254f5c6ad3d30c20f16e564a = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_e17e8065c7699fad4c2fb8d6a7e31e8c = $(`<div id="html_e17e8065c7699fad4c2fb8d6a7e31e8c" style="width: 100.0%; height: 100.0%;"><b>Nearby faculty quarters </b><br>Collected by: Aditi Saha<br>Note: Non segregated <br>Recorded at: 2026-09-06 08:15:53.241000+00:00<br><img src='photos/JPEG_20260906081602288.jpg' width='220'></div>`)[0];
-                popup_7393969ef8b6e1407dcaac9dd68f1d7f.setContent(html_e17e8065c7699fad4c2fb8d6a7e31e8c);
+                var html_0d5210730c06c11fe609095d2fb0e6b7 = $(`<div id="html_0d5210730c06c11fe609095d2fb0e6b7" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Nearby faculty quarters </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Non segregated <br><b>Recorded at:</b> 2026-09-06 08:15:53.241000+00:00<br><img src='photos/JPEG_20260906081602288.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_a2629100254f5c6ad3d30c20f16e564a.setContent(html_0d5210730c06c11fe609095d2fb0e6b7);
             
         
 
-        circle_marker_5aae67746194b4c4cfb6e3ae4e1339a3.bindPopup(popup_7393969ef8b6e1407dcaac9dd68f1d7f)
+        circle_marker_68ea8057455518706bad56683fa33c6e.bindPopup(popup_a2629100254f5c6ad3d30c20f16e564a)
         ;
 
         
     
     
-            circle_marker_5aae67746194b4c4cfb6e3ae4e1339a3.bindTooltip(
+            circle_marker_68ea8057455518706bad56683fa33c6e.bindTooltip(
                 `<div>
                      Nearby faculty quarters 
                  </div>`,
@@ -1207,30 +1231,30 @@
             );
         
     
-            var circle_marker_3fe9e8db5e35d1e5c2d22f4acd18c0de = L.circleMarker(
+            var circle_marker_a49e3eb7bc23f47c61b01191ea708ce9 = L.circleMarker(
                 [13.707300090651243, 79.59291917572894],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_283ff4cbe1d3e90d7ea26d3c7580c665 = L.popup({
+        var popup_8db6e98e1d1e9a476e036ea852d3c6d0 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_4aeab3a50ce384efa56aa40f6e917740 = $(`<div id="html_4aeab3a50ce384efa56aa40f6e917740" style="width: 100.0%; height: 100.0%;"><b>Nearby grocery store </b><br>Collected by: Aditi Saha<br>Note: Dry bin<br>Recorded at: 2026-09-06 08:18:28.870000+00:00<br><img src='photos/JPEG_20260906081837741.jpg' width='220'></div>`)[0];
-                popup_283ff4cbe1d3e90d7ea26d3c7580c665.setContent(html_4aeab3a50ce384efa56aa40f6e917740);
+                var html_9d7756a8d39c76d40f5068abc660576f = $(`<div id="html_9d7756a8d39c76d40f5068abc660576f" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Nearby grocery store </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Dry bin<br><b>Recorded at:</b> 2026-09-06 08:18:28.870000+00:00<br><img src='photos/JPEG_20260906081837741.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_8db6e98e1d1e9a476e036ea852d3c6d0.setContent(html_9d7756a8d39c76d40f5068abc660576f);
             
         
 
-        circle_marker_3fe9e8db5e35d1e5c2d22f4acd18c0de.bindPopup(popup_283ff4cbe1d3e90d7ea26d3c7580c665)
+        circle_marker_a49e3eb7bc23f47c61b01191ea708ce9.bindPopup(popup_8db6e98e1d1e9a476e036ea852d3c6d0)
         ;
 
         
     
     
-            circle_marker_3fe9e8db5e35d1e5c2d22f4acd18c0de.bindTooltip(
+            circle_marker_a49e3eb7bc23f47c61b01191ea708ce9.bindTooltip(
                 `<div>
                      Nearby grocery store 
                  </div>`,
@@ -1240,30 +1264,30 @@
             );
         
     
-            var circle_marker_9dea1da8b8ce01abd6a63c1e02f84bb9 = L.circleMarker(
+            var circle_marker_279208bab7a2b3ee158da79b585ef870 = L.circleMarker(
                 [13.707358510000002, 79.59299610999999],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_ca30e7f2c38a7b73e7f918c33d4686dd = L.popup({
+        var popup_d3918be70ce6cf9fccfd05c8dd4cee53 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_8a9b77245d306892f58c959c1ef44a6b = $(`<div id="html_8a9b77245d306892f58c959c1ef44a6b" style="width: 100.0%; height: 100.0%;"><b>Outside grocery 2</b><br>Collected by: Aditi Saha<br>Note: Wet bin<br>Recorded at: 2026-09-06 08:31:16.736000+00:00<br><img src='photos/JPEG_20260906083124660.jpg' width='220'></div>`)[0];
-                popup_ca30e7f2c38a7b73e7f918c33d4686dd.setContent(html_8a9b77245d306892f58c959c1ef44a6b);
+                var html_6b3dd337c0a5ca94bc4a2374a18d7fca = $(`<div id="html_6b3dd337c0a5ca94bc4a2374a18d7fca" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Outside grocery 2</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Wet bin<br><b>Recorded at:</b> 2026-09-06 08:31:16.736000+00:00<br><img src='photos/JPEG_20260906083124660.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_d3918be70ce6cf9fccfd05c8dd4cee53.setContent(html_6b3dd337c0a5ca94bc4a2374a18d7fca);
             
         
 
-        circle_marker_9dea1da8b8ce01abd6a63c1e02f84bb9.bindPopup(popup_ca30e7f2c38a7b73e7f918c33d4686dd)
+        circle_marker_279208bab7a2b3ee158da79b585ef870.bindPopup(popup_d3918be70ce6cf9fccfd05c8dd4cee53)
         ;
 
         
     
     
-            circle_marker_9dea1da8b8ce01abd6a63c1e02f84bb9.bindTooltip(
+            circle_marker_279208bab7a2b3ee158da79b585ef870.bindTooltip(
                 `<div>
                      Outside grocery 2
                  </div>`,
@@ -1273,30 +1297,30 @@
             );
         
     
-            var circle_marker_7c40f617f3ff62e4c9c21ab871d4f78b = L.circleMarker(
+            var circle_marker_997878b96d5d62891ff6c20ff6e1c689 = L.circleMarker(
                 [13.70722570876501, 79.5929100795942],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_61316cd3fc9275b4b7d432e86b333fae = L.popup({
+        var popup_abfdf06aed3fe4353ccf5372132a818e = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_f952ee9ea5f7f3a550905283daf05bf7 = $(`<div id="html_f952ee9ea5f7f3a550905283daf05bf7" style="width: 100.0%; height: 100.0%;"><b>Grocery store bin 1</b><br>Collected by: Aditi Saha<br>Note: Dry waste<br>Recorded at: 2026-09-06 08:42:18.919000+00:00<br><img src='photos/JPEG_20260906084238817.jpg' width='220'></div>`)[0];
-                popup_61316cd3fc9275b4b7d432e86b333fae.setContent(html_f952ee9ea5f7f3a550905283daf05bf7);
+                var html_6d0e7ef365ed8d11027ceed2108a93f0 = $(`<div id="html_6d0e7ef365ed8d11027ceed2108a93f0" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Grocery store bin 1</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Dry waste<br><b>Recorded at:</b> 2026-09-06 08:42:18.919000+00:00<br><img src='photos/JPEG_20260906084238817.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_abfdf06aed3fe4353ccf5372132a818e.setContent(html_6d0e7ef365ed8d11027ceed2108a93f0);
             
         
 
-        circle_marker_7c40f617f3ff62e4c9c21ab871d4f78b.bindPopup(popup_61316cd3fc9275b4b7d432e86b333fae)
+        circle_marker_997878b96d5d62891ff6c20ff6e1c689.bindPopup(popup_abfdf06aed3fe4353ccf5372132a818e)
         ;
 
         
     
     
-            circle_marker_7c40f617f3ff62e4c9c21ab871d4f78b.bindTooltip(
+            circle_marker_997878b96d5d62891ff6c20ff6e1c689.bindTooltip(
                 `<div>
                      Grocery store bin 1
                  </div>`,
@@ -1306,30 +1330,30 @@
             );
         
     
-            var circle_marker_428f929f2aba7aa8a3e7da11680ebb73 = L.circleMarker(
+            var circle_marker_a770ee54e35b91e3465d4f882fbb8716 = L.circleMarker(
                 [13.707371026776487, 79.59294330890009],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_58a55ea7c6c54ddc590ecde90511a595 = L.popup({
+        var popup_9a4215bfa17913bb3b4634fb6c1739c3 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_654869226193fcf5841281760808db4d = $(`<div id="html_654869226193fcf5841281760808db4d" style="width: 100.0%; height: 100.0%;"><b>Vegetable shop </b><br>Collected by: Aditi Saha<br>Note: Wet waste bin<br>Recorded at: 2026-09-06 08:44:29.420000+00:00<br><img src='photos/JPEG_20260906084441897.jpg' width='220'></div>`)[0];
-                popup_58a55ea7c6c54ddc590ecde90511a595.setContent(html_654869226193fcf5841281760808db4d);
+                var html_814cf5229eddad2d487b7a6c0b93d320 = $(`<div id="html_814cf5229eddad2d487b7a6c0b93d320" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Vegetable shop </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Wet waste bin<br><b>Recorded at:</b> 2026-09-06 08:44:29.420000+00:00<br><img src='photos/JPEG_20260906084441897.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_9a4215bfa17913bb3b4634fb6c1739c3.setContent(html_814cf5229eddad2d487b7a6c0b93d320);
             
         
 
-        circle_marker_428f929f2aba7aa8a3e7da11680ebb73.bindPopup(popup_58a55ea7c6c54ddc590ecde90511a595)
+        circle_marker_a770ee54e35b91e3465d4f882fbb8716.bindPopup(popup_9a4215bfa17913bb3b4634fb6c1739c3)
         ;
 
         
     
     
-            circle_marker_428f929f2aba7aa8a3e7da11680ebb73.bindTooltip(
+            circle_marker_a770ee54e35b91e3465d4f882fbb8716.bindTooltip(
                 `<div>
                      Vegetable shop 
                  </div>`,
@@ -1339,30 +1363,30 @@
             );
         
     
-            var circle_marker_15bd4af451f2899686c620437072b01d = L.circleMarker(
+            var circle_marker_520bf7452528127fe2852bce8ad4e707 = L.circleMarker(
                 [13.708320264095475, 79.59263440898826],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_9e1023c15139072af46143673921db5c = L.popup({
+        var popup_0c4766669a4d1ae21485fbab63582e97 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_847abf48f7eb3fe713ef1dd1d6af29f5 = $(`<div id="html_847abf48f7eb3fe713ef1dd1d6af29f5" style="width: 100.0%; height: 100.0%;"><b>Way to faculty quarters </b><br>Collected by: Aditi Saha<br>Note: Dry waste bin<br>Recorded at: 2026-09-06 08:49:25.269000+00:00<br><img src='photos/JPEG_20260906084934869.jpg' width='220'></div>`)[0];
-                popup_9e1023c15139072af46143673921db5c.setContent(html_847abf48f7eb3fe713ef1dd1d6af29f5);
+                var html_2d25c6ff0a722f2fc3615061228d0813 = $(`<div id="html_2d25c6ff0a722f2fc3615061228d0813" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Way to faculty quarters </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Dry waste bin<br><b>Recorded at:</b> 2026-09-06 08:49:25.269000+00:00<br><img src='photos/JPEG_20260906084934869.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_0c4766669a4d1ae21485fbab63582e97.setContent(html_2d25c6ff0a722f2fc3615061228d0813);
             
         
 
-        circle_marker_15bd4af451f2899686c620437072b01d.bindPopup(popup_9e1023c15139072af46143673921db5c)
+        circle_marker_520bf7452528127fe2852bce8ad4e707.bindPopup(popup_0c4766669a4d1ae21485fbab63582e97)
         ;
 
         
     
     
-            circle_marker_15bd4af451f2899686c620437072b01d.bindTooltip(
+            circle_marker_520bf7452528127fe2852bce8ad4e707.bindTooltip(
                 `<div>
                      Way to faculty quarters 
                  </div>`,
@@ -1372,30 +1396,30 @@
             );
         
     
-            var circle_marker_8b08bf66ff9a1426e360471bef0d4424 = L.circleMarker(
+            var circle_marker_0b39c8b4d0285f93d5f8970239eee9c8 = L.circleMarker(
                 [13.708889477052264, 79.59388230228092],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_f2e63455ace4a5155d00bf61f955ff96 = L.popup({
+        var popup_8794d34a3dcba3af3a7f04cf2f764ffa = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_0442aad11e3e0791336ec57c65e88bac = $(`<div id="html_0442aad11e3e0791336ec57c65e88bac" style="width: 100.0%; height: 100.0%;"><b>Way to kedar hostel </b><br>Collected by: Aditi Saha<br>Note: Dry waste <br>Recorded at: 2026-09-06 08:56:51.796000+00:00<br><img src='photos/JPEG_20260906085658462.jpg' width='220'></div>`)[0];
-                popup_f2e63455ace4a5155d00bf61f955ff96.setContent(html_0442aad11e3e0791336ec57c65e88bac);
+                var html_8dbbfd372acdb9fa9cdcf3daf7c107d0 = $(`<div id="html_8dbbfd372acdb9fa9cdcf3daf7c107d0" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Way to kedar hostel </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Dry waste <br><b>Recorded at:</b> 2026-09-06 08:56:51.796000+00:00<br><img src='photos/JPEG_20260906085658462.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_8794d34a3dcba3af3a7f04cf2f764ffa.setContent(html_8dbbfd372acdb9fa9cdcf3daf7c107d0);
             
         
 
-        circle_marker_8b08bf66ff9a1426e360471bef0d4424.bindPopup(popup_f2e63455ace4a5155d00bf61f955ff96)
+        circle_marker_0b39c8b4d0285f93d5f8970239eee9c8.bindPopup(popup_8794d34a3dcba3af3a7f04cf2f764ffa)
         ;
 
         
     
     
-            circle_marker_8b08bf66ff9a1426e360471bef0d4424.bindTooltip(
+            circle_marker_0b39c8b4d0285f93d5f8970239eee9c8.bindTooltip(
                 `<div>
                      Way to kedar hostel 
                  </div>`,
@@ -1405,30 +1429,30 @@
             );
         
     
-            var circle_marker_41208de53146e4397bbe588506216589 = L.circleMarker(
+            var circle_marker_fd1d6d1e03fcf98d8edeb8bd274d494e = L.circleMarker(
                 [13.707718817464578, 79.59416552758373],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_9d1dab52ad20b19309c30c7b2783bb43 = L.popup({
+        var popup_9a1610bc3b6706c6ac7c04bacb41140c = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_32e0f879dde23ed115a99d36ad3a4036 = $(`<div id="html_32e0f879dde23ed115a99d36ad3a4036" style="width: 100.0%; height: 100.0%;"><b>No title</b><br>Collected by: Aditi Saha<br>Note: No note<br>Recorded at: 2026-09-06 10:54:49.705000+00:00<br>No photograph attached</div>`)[0];
-                popup_9d1dab52ad20b19309c30c7b2783bb43.setContent(html_32e0f879dde23ed115a99d36ad3a4036);
+                var html_d25bef73a5a10c528fa452f8d3fa88b9 = $(`<div id="html_d25bef73a5a10c528fa452f8d3fa88b9" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>No title</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> No note<br><b>Recorded at:</b> 2026-09-06 10:54:49.705000+00:00<br><i>No photograph attached</i></div></div>`)[0];
+                popup_9a1610bc3b6706c6ac7c04bacb41140c.setContent(html_d25bef73a5a10c528fa452f8d3fa88b9);
             
         
 
-        circle_marker_41208de53146e4397bbe588506216589.bindPopup(popup_9d1dab52ad20b19309c30c7b2783bb43)
+        circle_marker_fd1d6d1e03fcf98d8edeb8bd274d494e.bindPopup(popup_9a1610bc3b6706c6ac7c04bacb41140c)
         ;
 
         
     
     
-            circle_marker_41208de53146e4397bbe588506216589.bindTooltip(
+            circle_marker_fd1d6d1e03fcf98d8edeb8bd274d494e.bindTooltip(
                 `<div>
                      No title
                  </div>`,
@@ -1438,30 +1462,30 @@
             );
         
     
-            var circle_marker_16e6d32e0b8bfacc50aab63d3e9f3d00 = L.circleMarker(
+            var circle_marker_fa1848a6c7f2c8e79e08b6849cc1a274 = L.circleMarker(
                 [13.708110805581123, 79.59486240711044],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_c2aa5dd26c84a7940217478d696224ce = L.popup({
+        var popup_53926540a43bc14deda33575a5aed891 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_993cdc3fa4e6e46ee18fc5b8ff42530d = $(`<div id="html_993cdc3fa4e6e46ee18fc5b8ff42530d" style="width: 100.0%; height: 100.0%;"><b>Caf</b><br>Collected by: Aditi Saha<br>Note: Wet waste<br>Recorded at: 2026-09-06 10:57:48.793000+00:00<br><img src='photos/JPEG_20260906105804566.jpg' width='220'></div>`)[0];
-                popup_c2aa5dd26c84a7940217478d696224ce.setContent(html_993cdc3fa4e6e46ee18fc5b8ff42530d);
+                var html_f81bb2e4a2630f497d5ffdc2cbd0e320 = $(`<div id="html_f81bb2e4a2630f497d5ffdc2cbd0e320" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Caf</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Wet waste<br><b>Recorded at:</b> 2026-09-06 10:57:48.793000+00:00<br><img src='photos/JPEG_20260906105804566.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_53926540a43bc14deda33575a5aed891.setContent(html_f81bb2e4a2630f497d5ffdc2cbd0e320);
             
         
 
-        circle_marker_16e6d32e0b8bfacc50aab63d3e9f3d00.bindPopup(popup_c2aa5dd26c84a7940217478d696224ce)
+        circle_marker_fa1848a6c7f2c8e79e08b6849cc1a274.bindPopup(popup_53926540a43bc14deda33575a5aed891)
         ;
 
         
     
     
-            circle_marker_16e6d32e0b8bfacc50aab63d3e9f3d00.bindTooltip(
+            circle_marker_fa1848a6c7f2c8e79e08b6849cc1a274.bindTooltip(
                 `<div>
                      Caf
                  </div>`,
@@ -1471,30 +1495,30 @@
             );
         
     
-            var circle_marker_583c5d91e25281ec79d1e802a20b46a2 = L.circleMarker(
+            var circle_marker_9f03390e4aa70045cc55c889fd502c57 = L.circleMarker(
                 [13.70818332187475, 79.59482450468003],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_6cb6863d22f61c4f8cebdef627175ff7 = L.popup({
+        var popup_81e36969c8dd3fa6936494964c9f4e54 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_49a4929c012efc3e2bf44fd8a524c49e = $(`<div id="html_49a4929c012efc3e2bf44fd8a524c49e" style="width: 100.0%; height: 100.0%;"><b>Saloon</b><br>Collected by: Aditi Saha<br>Note: Dry waste<br>Recorded at: 2026-09-06 10:58:41.628000+00:00<br><img src='photos/JPEG_20260906105855954.jpg' width='220'></div>`)[0];
-                popup_6cb6863d22f61c4f8cebdef627175ff7.setContent(html_49a4929c012efc3e2bf44fd8a524c49e);
+                var html_b20facb1f1b7ed2e5a5de9bfcf96fb42 = $(`<div id="html_b20facb1f1b7ed2e5a5de9bfcf96fb42" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Saloon</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Dry waste<br><b>Recorded at:</b> 2026-09-06 10:58:41.628000+00:00<br><img src='photos/JPEG_20260906105855954.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_81e36969c8dd3fa6936494964c9f4e54.setContent(html_b20facb1f1b7ed2e5a5de9bfcf96fb42);
             
         
 
-        circle_marker_583c5d91e25281ec79d1e802a20b46a2.bindPopup(popup_6cb6863d22f61c4f8cebdef627175ff7)
+        circle_marker_9f03390e4aa70045cc55c889fd502c57.bindPopup(popup_81e36969c8dd3fa6936494964c9f4e54)
         ;
 
         
     
     
-            circle_marker_583c5d91e25281ec79d1e802a20b46a2.bindTooltip(
+            circle_marker_9f03390e4aa70045cc55c889fd502c57.bindTooltip(
                 `<div>
                      Saloon
                  </div>`,
@@ -1504,30 +1528,30 @@
             );
         
     
-            var circle_marker_64ebe483921ff3ab5d2c962326adf3c8 = L.circleMarker(
+            var circle_marker_a2a1983781fff961cabd1b37f22f5a65 = L.circleMarker(
                 [13.71429661, 79.59011410000001],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_4d3a874b2dc912b0e0b91e78472ce5b9 = L.popup({
+        var popup_48c94cde8d8588599733c677afd3cf17 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_1cadd2cb68030e74713828a3f984f7b5 = $(`<div id="html_1cadd2cb68030e74713828a3f984f7b5" style="width: 100.0%; height: 100.0%;"><b>Outside department entrance </b><br>Collected by: Aditi Saha<br>Note: Dry waste<br>Recorded at: 2026-09-06 11:12:46.158000+00:00<br><img src='photos/JPEG_20260906111255588.jpg' width='220'></div>`)[0];
-                popup_4d3a874b2dc912b0e0b91e78472ce5b9.setContent(html_1cadd2cb68030e74713828a3f984f7b5);
+                var html_7be219d0d1d5fa0388913bb856880bb7 = $(`<div id="html_7be219d0d1d5fa0388913bb856880bb7" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Outside department entrance </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Dry waste<br><b>Recorded at:</b> 2026-09-06 11:12:46.158000+00:00<br><img src='photos/JPEG_20260906111255588.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_48c94cde8d8588599733c677afd3cf17.setContent(html_7be219d0d1d5fa0388913bb856880bb7);
             
         
 
-        circle_marker_64ebe483921ff3ab5d2c962326adf3c8.bindPopup(popup_4d3a874b2dc912b0e0b91e78472ce5b9)
+        circle_marker_a2a1983781fff961cabd1b37f22f5a65.bindPopup(popup_48c94cde8d8588599733c677afd3cf17)
         ;
 
         
     
     
-            circle_marker_64ebe483921ff3ab5d2c962326adf3c8.bindTooltip(
+            circle_marker_a2a1983781fff961cabd1b37f22f5a65.bindTooltip(
                 `<div>
                      Outside department entrance 
                  </div>`,
@@ -1537,30 +1561,30 @@
             );
         
     
-            var circle_marker_40a2bd752e1f4132b4f0a1736de6eb05 = L.circleMarker(
+            var circle_marker_d788e5c5eb19ee0b1ec10a447f74f1cf = L.circleMarker(
                 [13.714540088893163, 79.58960976566634],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_74a13ed64836eaea7dd0d7aa290ca461 = L.popup({
+        var popup_eaba3b19c3dc997dd5730a87dbe475ed = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_38dcdbab34d727ff7802d8257efaed9d = $(`<div id="html_38dcdbab34d727ff7802d8257efaed9d" style="width: 100.0%; height: 100.0%;"><b>LHC bus stop </b><br>Collected by: Aditi Saha<br>Note: Dry waste<br>Recorded at: 2026-09-06 11:15:01.135000+00:00<br><img src='photos/JPEG_20260906111507262.jpg' width='220'></div>`)[0];
-                popup_74a13ed64836eaea7dd0d7aa290ca461.setContent(html_38dcdbab34d727ff7802d8257efaed9d);
+                var html_9c8507fc7e946190f5595a0c8665bffb = $(`<div id="html_9c8507fc7e946190f5595a0c8665bffb" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>LHC bus stop </b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Dry waste<br><b>Recorded at:</b> 2026-09-06 11:15:01.135000+00:00<br><img src='photos/JPEG_20260906111507262.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_eaba3b19c3dc997dd5730a87dbe475ed.setContent(html_9c8507fc7e946190f5595a0c8665bffb);
             
         
 
-        circle_marker_40a2bd752e1f4132b4f0a1736de6eb05.bindPopup(popup_74a13ed64836eaea7dd0d7aa290ca461)
+        circle_marker_d788e5c5eb19ee0b1ec10a447f74f1cf.bindPopup(popup_eaba3b19c3dc997dd5730a87dbe475ed)
         ;
 
         
     
     
-            circle_marker_40a2bd752e1f4132b4f0a1736de6eb05.bindTooltip(
+            circle_marker_d788e5c5eb19ee0b1ec10a447f74f1cf.bindTooltip(
                 `<div>
                      LHC bus stop 
                  </div>`,
@@ -1570,30 +1594,30 @@
             );
         
     
-            var circle_marker_ccff53d1b5c2942e46d2148587d2bc5d = L.circleMarker(
+            var circle_marker_7dd8a08e9313b69522037f08126ea9bc = L.circleMarker(
                 [13.71497796502137, 79.58927625035119],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_2e21ada13e4ff96d4ffc5c401d857634 = L.popup({
+        var popup_2b583497365c3891d51664cf489a7ab4 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_55f02ba625fe13947e91dca7312423da = $(`<div id="html_55f02ba625fe13947e91dca7312423da" style="width: 100.0%; height: 100.0%;"><b>Way to North mess bin1</b><br>Collected by: Aditi Saha<br>Note: Dry waste <br>Recorded at: 2026-09-06 11:16:47.001000+00:00<br><img src='photos/JPEG_20260906111701609.jpg' width='220'></div>`)[0];
-                popup_2e21ada13e4ff96d4ffc5c401d857634.setContent(html_55f02ba625fe13947e91dca7312423da);
+                var html_755644a8b0b15a9b74a5c04762798be7 = $(`<div id="html_755644a8b0b15a9b74a5c04762798be7" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Way to North mess bin1</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Dry waste <br><b>Recorded at:</b> 2026-09-06 11:16:47.001000+00:00<br><img src='photos/JPEG_20260906111701609.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_2b583497365c3891d51664cf489a7ab4.setContent(html_755644a8b0b15a9b74a5c04762798be7);
             
         
 
-        circle_marker_ccff53d1b5c2942e46d2148587d2bc5d.bindPopup(popup_2e21ada13e4ff96d4ffc5c401d857634)
+        circle_marker_7dd8a08e9313b69522037f08126ea9bc.bindPopup(popup_2b583497365c3891d51664cf489a7ab4)
         ;
 
         
     
     
-            circle_marker_ccff53d1b5c2942e46d2148587d2bc5d.bindTooltip(
+            circle_marker_7dd8a08e9313b69522037f08126ea9bc.bindTooltip(
                 `<div>
                      Way to North mess bin1
                  </div>`,
@@ -1603,30 +1627,30 @@
             );
         
     
-            var circle_marker_a381ba17d373cc43dcef8302c822581f = L.circleMarker(
+            var circle_marker_c4560267cbf6bb76a4281458b1dc1719 = L.circleMarker(
                 [13.715489418134089, 79.58859201813544],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_7138a91b970a5498fd68ec5c2390ee4d = L.popup({
+        var popup_4a1ba60200a490dd94992f9308d30ef1 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_8dd7bdffc08516752a6d82fe414293fa = $(`<div id="html_8dd7bdffc08516752a6d82fe414293fa" style="width: 100.0%; height: 100.0%;"><b>Way to North mess bin 2</b><br>Collected by: Aditi Saha<br>Note: Dry waste<br>Recorded at: 2026-09-06 11:19:02.695000+00:00<br><img src='photos/JPEG_20260906111921112.jpg' width='220'></div>`)[0];
-                popup_7138a91b970a5498fd68ec5c2390ee4d.setContent(html_8dd7bdffc08516752a6d82fe414293fa);
+                var html_4ab5320bdfd960e651db6ea293b6cb9d = $(`<div id="html_4ab5320bdfd960e651db6ea293b6cb9d" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Way to North mess bin 2</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Dry waste<br><b>Recorded at:</b> 2026-09-06 11:19:02.695000+00:00<br><img src='photos/JPEG_20260906111921112.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_4a1ba60200a490dd94992f9308d30ef1.setContent(html_4ab5320bdfd960e651db6ea293b6cb9d);
             
         
 
-        circle_marker_a381ba17d373cc43dcef8302c822581f.bindPopup(popup_7138a91b970a5498fd68ec5c2390ee4d)
+        circle_marker_c4560267cbf6bb76a4281458b1dc1719.bindPopup(popup_4a1ba60200a490dd94992f9308d30ef1)
         ;
 
         
     
     
-            circle_marker_a381ba17d373cc43dcef8302c822581f.bindTooltip(
+            circle_marker_c4560267cbf6bb76a4281458b1dc1719.bindTooltip(
                 `<div>
                      Way to North mess bin 2
                  </div>`,
@@ -1636,30 +1660,30 @@
             );
         
     
-            var circle_marker_b058285f4b70d64e0e8a8ec055dc69c9 = L.circleMarker(
+            var circle_marker_d9e70edbda0c8d0980ca4e8133622fea = L.circleMarker(
                 [13.716475529831895, 79.58849563708634],
-                {"bubblingMouseEvents": true, "color": "#377eb8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#377eb8", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 1}
+            ).addTo(feature_group_e1b58d528a48013d8e5fb70cd8064f19);
         
     
-        var popup_c11ba88df07865e28f497ee37d8865db = L.popup({
+        var popup_a86ae90c048dd395d36653900a6870b0 = L.popup({
   "maxWidth": 280,
 });
 
         
             
-                var html_e60fdd2e0e4c350173e2839fdc00547d = $(`<div id="html_e60fdd2e0e4c350173e2839fdc00547d" style="width: 100.0%; height: 100.0%;"><b>Way to North mess bin 3</b><br>Collected by: Aditi Saha<br>Note: Dry waste <br>Recorded at: 2026-09-06 11:21:19.032000+00:00<br><img src='photos/JPEG_20260906112125673.jpg' width='220'></div>`)[0];
-                popup_c11ba88df07865e28f497ee37d8865db.setContent(html_e60fdd2e0e4c350173e2839fdc00547d);
+                var html_0c15487db4cd90e8dede0455d99fe8a1 = $(`<div id="html_0c15487db4cd90e8dede0455d99fe8a1" style="width: 100.0%; height: 100.0%;"><div style='width:240px;font-size:13px;line-height:1.4'><b>Way to North mess bin 3</b><br><b>Collected by:</b> Aditi Saha<br><b>Note:</b> Dry waste <br><b>Recorded at:</b> 2026-09-06 11:21:19.032000+00:00<br><img src='photos/JPEG_20260906112125673.jpg' style='margin-top:8px;width:100%;border-radius:4px'></div></div>`)[0];
+                popup_a86ae90c048dd395d36653900a6870b0.setContent(html_0c15487db4cd90e8dede0455d99fe8a1);
             
         
 
-        circle_marker_b058285f4b70d64e0e8a8ec055dc69c9.bindPopup(popup_c11ba88df07865e28f497ee37d8865db)
+        circle_marker_d9e70edbda0c8d0980ca4e8133622fea.bindPopup(popup_a86ae90c048dd395d36653900a6870b0)
         ;
 
         
     
     
-            circle_marker_b058285f4b70d64e0e8a8ec055dc69c9.bindTooltip(
+            circle_marker_d9e70edbda0c8d0980ca4e8133622fea.bindTooltip(
                 `<div>
                      Way to North mess bin 3
                  </div>`,
@@ -1669,24 +1693,34 @@
             );
         
     
-            var layer_control_8d0e13b4f2fae689ac80694d6c4737f5_layers = {
+            feature_group_e1b58d528a48013d8e5fb70cd8064f19.addTo(map_54b8100afb9b876f805aed8a32771eee);
+        
+    
+            var layer_control_0dd5a90ec230a34a559b086e6b3cf12b_layers = {
                 base_layers : {
-                    "OpenStreetMap" : tile_layer_c899f1d8a970a28cdb48272f8aa3cd6b,
-                    "Satellite" : tile_layer_85226556a81760d7fede08a035ada819,
+                    "Streets" : tile_layer_4e7bb70f76a4e3cc2c440d4b1cf6e457,
+                    "Satellite" : tile_layer_36a01e433f2d62917ce13b932e341eb3,
                 },
                 overlays :  {
+                    "Waste bins" : feature_group_e1b58d528a48013d8e5fb70cd8064f19,
                 },
             };
-            let layer_control_8d0e13b4f2fae689ac80694d6c4737f5 = L.control.layers(
-                layer_control_8d0e13b4f2fae689ac80694d6c4737f5_layers.base_layers,
-                layer_control_8d0e13b4f2fae689ac80694d6c4737f5_layers.overlays,
+            let layer_control_0dd5a90ec230a34a559b086e6b3cf12b = L.control.layers(
+                layer_control_0dd5a90ec230a34a559b086e6b3cf12b_layers.base_layers,
+                layer_control_0dd5a90ec230a34a559b086e6b3cf12b_layers.overlays,
                 {
   "position": "topright",
   "collapsed": true,
   "autoZIndex": true,
 }
-            ).addTo(map_4d7da0f9923aa50004e9ec8738b6edd8);
+            ).addTo(map_54b8100afb9b876f805aed8a32771eee);
 
+        
+    
+            map_54b8100afb9b876f805aed8a32771eee.fitBounds(
+                [[13.706047845604914, 79.58614500033971], [13.718647753551485, 79.5949415503523]],
+                {}
+            );
         
 </script>
 </html>
