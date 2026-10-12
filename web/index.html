@@ -5,60 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Waste-bin observations · Aditi Saha</title>
   <style>
-    :root { color-scheme: light; }
     body { margin: 0; font-family: Georgia, "Times New Roman", serif; color: #1c1c1c; background: #f7f4ef; }
     header { background: #1f3d32; color: #f7f4ef; padding: 28px 20px 22px; }
-    header, main { max-width: 980px; margin: 0 auto; }
-    header { max-width: none; }
     header .inner, main { max-width: 980px; margin: 0 auto; }
+    main { padding: 8px 20px 48px; }
     h1 { font-weight: 600; font-size: 1.8rem; margin: 0 0 6px; }
     h2 { font-size: 1.35rem; margin: 1.6rem 0 0.5rem; }
     p, li { line-height: 1.5; }
     .byline { margin: 0; font-family: "Segoe UI", sans-serif; font-size: 0.95rem; }
-    main { padding: 8px 20px 48px; }
     iframe { width: 100%; height: 72vh; min-height: 480px; border: 1px solid #d9d3c8; border-radius: 8px; background: #fff; }
     a { color: #1f3d32; }
-    table { border-collapse: collapse; font-family: "Segoe UI", sans-serif; font-size: 0.95rem; }
-    th, td { border-bottom: 1px solid #d9d3c8; text-align: left; padding: 6px 18px 6px 0; }
-    .warn { background: #fff6e8; border: 1px solid #e2c48a; padding: 12px 14px; border-radius: 8px; }
-    code { font-family: Consolas, monospace; font-size: 0.9em; }
-    .note { font-family: "Segoe UI", sans-serif; }
   </style>
 </head>
 <body>
   <header>
     <div class="inner">
       <h1>Waste-bin observations at IIT Tirupati</h1>
-      <p class="byline">Aditi Saha · HS25M101 · collected with QField on 2 September 2026</p>
+      <p class="byline">Aditi Saha · HS25M101 · collected with QField</p>
     </div>
   </header>
   <main>
     <h2>Question 1 — Interactive map</h2>
-    <p>Click a point for the place name, field note, category, time, coordinates, and photograph. Hover for a short tooltip. Use the layer control to switch between the street map and satellite imagery, and to turn waste categories on and off.</p>
+    <p>Click a point to see the location, field note, collector name, time, and photograph. Hover for a short tooltip. Use the layer control to switch between the street map and satellite imagery.</p>
     <p><a href="waste-bins.html">Open the map on its own page</a></p>
     <iframe src="waste-bins.html" title="Interactive map of waste-bin observations at IIT Tirupati"></iframe>
-
-    <h2>What the survey shows</h2>
-    <p>There are 47 point observations from one walk around campus. The points run from the south gate and faculty quarters through the grocery, cafeteria, lecture hall complex, and labs, and up to the sports complex, Malhar and Des hostels, and the north mess. 25 notes describe bins that were not segregated. Dry-waste and wet-waste bins show up mainly around the grocery, the cafeteria, and the paths toward the hostels and the north mess. 4 records have no title or note. Two further notes stay in their own group: a dumping area recorded as “Too much garbage”, and one lab bin labelled only “Waste bin”.</p>
-    <table>
-      <thead><tr><th>Category</th><th>Observations</th></tr></thead>
-      <tbody>
-        <tr><td>Not segregated</td><td>25</td></tr><tr><td>Dry waste</td><td>11</td></tr><tr><td>Wet waste</td><td>4</td></tr><tr><td>Segregated</td><td>1</td></tr><tr><td>Other</td><td>2</td></tr><tr><td>Unspecified</td><td>4</td></tr>
-      </tbody>
-    </table>
-    <p class="note">Green-bin notes are grouped with wet waste, which is the usual campus colour code. Every popup names the student who collected that point. These records were all collected by Aditi Saha. No other student's observations are included.</p>
-
-    <h2>Photographs</h2>
-    <p>44 field photographs are stored in <code>photos/</code> on this website and open inside the popup. They are ordinary image links, so they remain visible after the page is hosted.</p>
-    <p class="note">Photograph files published on this site: 44. Photograph files named by QField but not in the project folder: 0. Observations with no attachment: 3.</p>
-
-    <h2>How to read the controls</h2>
-    <ul>
-      <li>The street map is the default, because hostel and building names make the bin locations easier to place. Satellite imagery is in the layer control.</li>
-      <li>Each colour is a separate layer, so a category can be hidden.</li>
-      <li>The scale bar and full-screen control sit on the map.</li>
-    </ul>
-
+    <h2>About the map</h2>
+    <p>The map shows 47 waste-bin observations collected around the IIT Tirupati campus. Each popup names the student who collected the point. Photographs are stored in the <code>photos</code> folder on this website so they remain visible after hosting.</p>
   </main>
 </body>
 </html>
