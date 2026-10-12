@@ -1,4 +1,4 @@
-"""Put a large bold month + year label in the top-right of each monthly frame and rebuild the GIF."""
+"""Add a clear top banner with bold month/year on one line and rebuild the GIF."""
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -40,60 +40,53 @@ def get_font(size):
     return ImageFont.load_default()
 
 
+def text_size(draw, text, font):
+    bbox = draw.textbbox((0, 0), text, font=font)
+    return bbox[2] - bbox[0], bbox[3] - bbox[1], bbox
+
+
+def draw_text_topleft(draw, x, y, text, font, fill):
+    """Place glyph box top-left at (x, y)."""
+    _, _, bbox = text_size(draw, text, font)
+    draw.text((x - bbox[0], y - bbox[1]), text, font=font, fill=fill)
+
+
 def label_frame(src: Path, month_idx: int) -> Image.Image:
     im = Image.open(src).convert("RGBA")
-    canvas = Image.new("RGBA", im.size, (7, 13, 20, 255))
-    canvas.alpha_composite(im)
+
+    # Tall banner ABOVE the map — labels never sit on the city outline.
+    banner_h = 96
+    canvas = Image.new("RGB", (im.width, im.height + banner_h), (7, 13, 20))
+    draw = ImageDraw.Draw(canvas)
+    draw.rectangle([0, 0, im.width, banner_h], fill=(10, 18, 28))
 
     month = MONTHS[month_idx]
     year = "2020"
+    title = f"{month}  {year}"  # one line — cannot overlap each other
     mean_txt = f"{MEANS[month_idx]:.6f}"
-    sub = "mean NO2 (mol/m2)"
 
-    font_month = get_font(max(56, im.width // 5))
-    font_year = get_font(max(34, im.width // 9))
-    font_sub = get_font(max(15, im.width // 24))
+    font_title = get_font(44)
+    font_mean = get_font(18)
+    font_unit = get_font(15)
 
-    # Build a tight badge image first, then paste it.
-    probe = Image.new("RGBA", (800, 400), (0, 0, 0, 0))
-    pdraw = ImageDraw.Draw(probe)
-    lines = [
-        (month, font_month, (240, 199, 94, 255)),
-        (year, font_year, (255, 255, 255, 255)),
-        (mean_txt, font_sub, (61, 187, 154, 255)),
-        (sub, font_sub, (210, 218, 228, 255)),
-    ]
+    # Left: mean value + unit
+    draw_text_topleft(draw, 14, 18, mean_txt, font_mean, (61, 187, 154))
+    draw_text_topleft(draw, 14, 48, "mean NO2 (mol/m2)", font_unit, (200, 210, 220))
 
-    pad_x, pad_y, gap = 12, 8, 2
-    widths, heights = [], []
-    for text, font, _ in lines:
-        bbox = pdraw.textbbox((0, 0), text, font=font)
-        widths.append(bbox[2] - bbox[0])
-        heights.append(bbox[3] - bbox[1])
+    # Right: MONTH  YEAR as one bold line
+    tw, th, _ = text_size(draw, title, font_title)
+    title_x = im.width - 16 - tw
+    title_y = (banner_h - 6 - th) // 2
+    draw_text_topleft(draw, title_x, title_y, title, font_title, (240, 199, 94))
 
-    block_w = max(widths) + pad_x * 2
-    block_h = sum(heights) + gap * (len(lines) - 1) + pad_y * 2
+    # Gold rule under banner, clear of text
+    draw.line([(0, banner_h - 3), (im.width, banner_h - 3)], fill=(240, 199, 94), width=3)
 
-    badge = Image.new("RGBA", (block_w, block_h), (0, 0, 0, 0))
-    bdraw = ImageDraw.Draw(badge)
-    bdraw.rounded_rectangle(
-        [0, 0, block_w - 1, block_h - 1],
-        radius=10,
-        fill=(7, 13, 20, 220),
-        outline=(240, 199, 94, 220),
-        width=2,
-    )
-
-    y = pad_y
-    for (text, font, color), w, h in zip(lines, widths, heights):
-        x = block_w - pad_x - w
-        bdraw.text((x, y), text, font=font, fill=color)
-        y += h + gap
-
-    x0 = im.width - block_w - 10
-    y0 = 10
-    canvas.alpha_composite(badge, (x0, y0))
-    return canvas.convert("RGB")
+    # Map below banner on dark background
+    map_bg = Image.new("RGBA", im.size, (7, 13, 20, 255))
+    map_bg.alpha_composite(im)
+    canvas.paste(map_bg.convert("RGB"), (0, banner_h))
+    return canvas
 
 
 def main():
@@ -104,7 +97,7 @@ def main():
         out = FRAMES / f"labeled_{i:02d}.png"
         labeled.save(out)
         frame_paths.append(out)
-        print("Labeled", out.name, f"{MEANS[i-1]:.6f}")
+        print("Labeled", out.name)
 
     frames = [Image.open(p).convert("RGB") for p in frame_paths]
     gif = OUT / "mumbai_2020_monthly_no2.gif"
