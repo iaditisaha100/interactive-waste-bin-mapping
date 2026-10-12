@@ -97,45 +97,40 @@
     }
 
     .hero {
-      padding: 28px 0 18px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 18px;
-      align-items: stretch;
+      padding: 36px 0 20px;
     }
 
     .eyebrow {
-      margin: 0 0 10px;
+      margin: 0 0 12px;
       color: var(--teal);
-      font-size: 0.74rem;
+      font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
     .hero h1 {
-      margin: 0 0 12px;
+      margin: 0 0 14px;
+      max-width: 22ch;
       font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(1.85rem, 4vw, 2.7rem);
-      line-height: 1.08;
+      font-size: clamp(2.2rem, 5.2vw, 3.4rem);
+      line-height: 1.06;
       letter-spacing: -0.03em;
       color: #fff;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
     }
 
     .hero-lead {
-      margin: 0 0 14px;
+      margin: 0 0 18px;
       color: var(--soft);
-      font-size: 0.98rem;
-      max-width: 48ch;
+      font-size: 1.05rem;
+      max-width: 56ch;
     }
 
     .stats {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
     }
 
     .stat {
@@ -171,32 +166,6 @@
     }
 
     .stat.accent strong { color: var(--hot); }
-
-    .hero-map {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
-    }
-
-    .hero-map img {
-      display: block;
-      width: 100%;
-      height: min(420px, 52vh);
-      object-fit: contain;
-      background: #070d14;
-      padding: 10px;
-    }
-
-    .hero-map .cap {
-      padding: 10px 14px 12px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
 
     .legend-bar {
       width: min(220px, 100%);
@@ -311,9 +280,9 @@
       align-items: stretch;
     }
 
-    .three {
+    .maps-row {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr 0.9fr;
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
       align-items: stretch;
     }
@@ -329,7 +298,7 @@
     .figure img {
       display: block;
       width: 100%;
-      height: 340px;
+      height: 380px;
       object-fit: contain;
       background: #070d14;
       padding: 8px;
@@ -337,10 +306,23 @@
 
     .map-card .cap,
     .figure .cap {
-      padding: 10px 12px 12px;
+      padding: 12px 14px 14px;
       border-top: 1px solid var(--line);
+      color: var(--soft);
+      font-size: 0.86rem;
+    }
+
+    .map-card .cap strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .map-card .cap p {
+      margin: 0;
       color: var(--muted);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
     }
 
     .readbox,
@@ -424,7 +406,8 @@
 
     iframe.slider {
       width: 100%;
-      min-height: 480px;
+      min-height: 560px;
+      height: 560px;
       border: 0;
       display: block;
       background: #070d14;
@@ -509,9 +492,8 @@
     }
 
     @media (max-width: 920px) {
-      .hero-grid,
       .two,
-      .three,
+      .maps-row,
       .season,
       .table-grid,
       .limits,
@@ -519,10 +501,16 @@
         grid-template-columns: 1fr;
       }
 
+      .hero h1 { max-width: none; }
+
       .map-card img,
-      .figure img,
-      .hero-map img {
+      .figure img {
         height: 300px;
+      }
+
+      iframe.slider {
+        min-height: 480px;
+        height: 480px;
       }
     }
   </style>
@@ -543,40 +531,31 @@
   </nav>
 
   <header class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow">Question 2 · Google Earth Engine urban analysis</p>
-        <h1>About one in three Mumbai residents aged 65+ live in the city’s highest-NO₂ quartile.</h1>
-        <p class="hero-lead">
-          2020 tropospheric NO₂ from Sentinel-5P and WorldPop age–sex for Greater Mumbai.
-          Maps share one fixed colour scale. “Relatively high” NO₂ = city-wide upper quartile (P75).
-        </p>
-        <div class="stats">
-          <div class="stat">
-            <strong id="stat-mean">8.61×10⁻⁵</strong>
-            <span>city-wide mean NO₂ (mol/m²)</span>
-          </div>
-          <div class="stat">
-            <strong id="stat-p75">1.04×10⁻⁴</strong>
-            <span>highest-quartile threshold (P75)</span>
-          </div>
-          <div class="stat">
-            <strong id="stat-pop65">7.32 lakh</strong>
-            <span>WorldPop residents aged 65+</span>
-          </div>
-          <div class="stat accent">
-            <strong id="stat-share">32.6%</strong>
-            <span>of 65+ in highest-NO₂ quartile</span>
-          </div>
+    <div class="wrap">
+      <p class="eyebrow">Question 2 · Google Earth Engine urban analysis</p>
+      <h1>About one in three Mumbai residents aged 65+ live in the city’s highest-NO₂ quartile.</h1>
+      <p class="hero-lead">
+        2020 tropospheric NO₂ from Sentinel-5P and WorldPop age–sex for Greater Mumbai.
+        Maps share one fixed colour scale. “Relatively high” NO₂ = city-wide upper quartile (P75).
+      </p>
+      <div class="stats">
+        <div class="stat">
+          <strong id="stat-mean">8.61×10⁻⁵</strong>
+          <span>city-wide mean NO₂ (mol/m²)</span>
+        </div>
+        <div class="stat">
+          <strong id="stat-p75">1.04×10⁻⁴</strong>
+          <span>highest-quartile threshold (P75)</span>
+        </div>
+        <div class="stat">
+          <strong id="stat-pop65">7.32 lakh</strong>
+          <span>WorldPop residents aged 65+</span>
+        </div>
+        <div class="stat accent">
+          <strong id="stat-share">32.6%</strong>
+          <span>of 65+ in highest-NO₂ quartile</span>
         </div>
       </div>
-      <article class="hero-map">
-        <img src="outputs/mumbai_2020_mean_no2.png" alt="Annual mean tropospheric NO2 over Greater Mumbai in 2020">
-        <div class="cap">
-          Annual mean tropospheric NO₂, 2020 · white line = Greater Mumbai ULB ·
-          scale <span class="legend-bar" aria-hidden="true"></span> 0–0.0002 mol/m²
-        </div>
-      </article>
     </div>
   </header>
 
@@ -594,29 +573,39 @@
           <span class="chip line"><i></i> City boundary</span>
         </div>
 
-        <div class="three">
+        <div class="maps-row">
           <article class="map-card">
             <img src="outputs/mumbai_2020_mean_no2.png" alt="Annual mean tropospheric NO2 map">
-            <div class="cap">Figure 1 · Annual mean tropospheric NO₂ (mol/m²), cloud-masked S5P OFFL L3, 2020.</div>
+            <div class="cap">
+              <strong>Figure 1 · Annual mean tropospheric NO₂ (2020)</strong>
+              <p>
+                Cloud-masked Sentinel-5P OFFL L3 column density (mol/m²).
+                Warmer colours = higher city-mean NO₂. White outline = Greater Mumbai ULB.
+              </p>
+            </div>
           </article>
           <article class="map-card">
             <img src="outputs/mumbai_2020_no2_65plus_exposure.png" alt="Highest NO2 quartile exposure map">
-            <div class="cap">Figure 3 · Highest-NO₂ quartile overlay used for the 65+ exposure count.</div>
+            <div class="cap">
+              <strong>Figure 3 · Highest-NO₂ quartile (P75+) zone</strong>
+              <p>
+                Coral overlay marks pixels at or above the city 75th percentile —
+                the area used to count WorldPop residents aged 65+.
+              </p>
+            </div>
           </article>
-          <aside class="takeaway">
-            <h3>Key exposure takeaway</h3>
-            <div class="big">32.6%</div>
-            <p>
-              About <b style="color:#fff">2.38 lakh</b> of <b style="color:#fff">7.32 lakh</b>
-              residents aged 65+ live in pixels at or above the city P75 of 2020 mean
-              tropospheric NO₂.
-            </p>
-            <p style="margin-top:8px;color:var(--muted);font-size:0.82rem">
-              Population in areas with relatively high <em>satellite-observed</em> column NO₂ —
-              not personal or ground-level exposure.
-            </p>
-          </aside>
         </div>
+
+        <aside class="takeaway" style="margin-top:12px">
+          <h3>Key exposure takeaway</h3>
+          <div class="big">32.6%</div>
+          <p>
+            About <b style="color:#fff">2.38 lakh</b> of <b style="color:#fff">7.32 lakh</b>
+            residents aged 65+ live in pixels at or above the city P75 of 2020 mean
+            tropospheric NO₂. That is a transparent, city-specific definition of
+            “relatively high” satellite-observed NO₂ — not personal or ground-level exposure.
+          </p>
+        </aside>
       </div>
     </section>
 

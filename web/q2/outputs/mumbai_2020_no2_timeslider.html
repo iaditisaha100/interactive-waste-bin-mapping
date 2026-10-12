@@ -3,28 +3,164 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mumbai 2020 monthly NO2 time slider</title>
+  <title>Mumbai 2020 monthly NO₂ time slider</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 16px; background: #f4f7f8; color: #10262f; }
-    img { max-width: 100%; border: 1px solid #c9d6dc; border-radius: 8px; background: white; }
-    input[type=range] { width: min(640px, 100%); }
+    :root {
+      --bg: #070d14;
+      --ink: #f3f7fb;
+      --soft: #c5d0dc;
+      --muted: #8b9aab;
+      --gold: #f0c75e;
+      --coral: #e76f51;
+      --line: rgba(255,255,255,0.12);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
+    }
+    body { padding: 14px 16px 18px; }
+    .top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .hint { margin: 0; color: var(--muted); font-size: 0.82rem; }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    input[type=range] {
+      flex: 1 1 220px;
+      accent-color: var(--coral);
+    }
+    .stage {
+      position: relative;
+      background: #070d14;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+    }
+    .stage img {
+      display: block;
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      background: #070d14;
+    }
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      text-align: right;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(7, 13, 20, 0.88);
+      border: 2px solid rgba(240, 199, 94, 0.85);
+      pointer-events: none;
+      line-height: 1.05;
+      min-width: 118px;
+    }
+    .badge .m {
+      display: block;
+      font-size: clamp(2rem, 5.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+    .badge .y {
+      display: block;
+      margin-top: 5px;
+      font-size: clamp(1.15rem, 3vw, 1.55rem);
+      font-weight: 800;
+      color: #fff;
+    }
+    .badge .v {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #3dbb9a;
+    }
+    .badge .s {
+      display: block;
+      margin-top: 3px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .legend {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .legend-bar {
+      display: inline-block;
+      width: 140px;
+      height: 8px;
+      margin: 0 6px;
+      vertical-align: middle;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #071820, #147a7f, #3dbb9a, #f0c75e, #e76f51, #c1121f);
+      border: 1px solid var(--line);
+    }
   </style>
 </head>
 <body>
-  <h2>Greater Mumbai — monthly mean tropospheric NO2 (2020)</h2>
-  <p>Drag the slider to change month. Colour scale is fixed across months.</p>
-  <p><b>Month: <span id="label">Jan 2020</span></b></p>
-  <input id="slider" type="range" min="1" max="12" value="1" step="1">
-  <div style="margin-top:12px"><img id="frame" alt="Monthly NO2 map"></div>
+  <div class="top">
+    <h2>Greater Mumbai · monthly mean tropospheric NO₂</h2>
+    <p class="hint">Drag the slider · fixed colour scale</p>
+  </div>
+  <div class="controls">
+    <input id="slider" type="range" min="1" max="12" value="1" step="1" aria-label="Month slider">
+  </div>
+  <div class="stage">
+    <img id="frame" alt="Monthly NO2 map">
+    <div class="badge">
+      <span class="m" id="month">JAN</span>
+      <span class="y">2020</span>
+      <span class="v" id="mean">1.21e-4</span>
+      <span class="s">mean NO₂ mol/m²</span>
+    </div>
+  </div>
+  <p class="legend">Low → High NO₂ <span class="legend-bar"></span> 0–0.0002 mol/m² · white line = city boundary</p>
   <script>
-    const names = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const names = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+    const means = [
+      1.21e-4, 1.34e-4, 6.88e-5, 3.12e-5, 2.53e-5, 3.38e-5,
+      2.62e-5, 3.30e-5, 5.70e-5, 9.03e-5, 1.05e-4, 1.68e-4
+    ];
     const slider = document.getElementById("slider");
     const frame = document.getElementById("frame");
-    const label = document.getElementById("label");
+    const month = document.getElementById("month");
+    const mean = document.getElementById("mean");
     function update() {
+      const i = Number(slider.value) - 1;
       const m = String(slider.value).padStart(2, "0");
       frame.src = "monthly_frames/no2_2020_" + m + ".png";
-      label.textContent = names[Number(slider.value) - 1] + " 2020";
+      month.textContent = names[i];
+      mean.textContent = means[i].toExponential(2);
     }
     slider.addEventListener("input", update);
     update();
