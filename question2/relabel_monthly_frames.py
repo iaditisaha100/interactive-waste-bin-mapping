@@ -1,4 +1,4 @@
-"""Put a large month + year label in the top-right of each monthly frame and rebuild the GIF."""
+"""Put a large bold month + year label in the top-right of each monthly frame and rebuild the GIF."""
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -9,7 +9,6 @@ MONTHS = [
     "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
     "JUL", "AUG", "SEP", "OCT", "NOV", "DEC",
 ]
-# city-wide monthly means (mol/m2) from the Q2 analysis
 MEANS = [
     0.00012122771002100347,
     0.0001344614113413094,
@@ -30,8 +29,8 @@ def get_font(size):
     candidates = [
         r"C:\Windows\Fonts\arialbd.ttf",
         r"C:\Windows\Fonts\segoeuib.ttf",
-        r"C:\Windows\Fonts\arial.ttf",
         r"C:\Windows\Fonts\calibrib.ttf",
+        r"C:\Windows\Fonts\arial.ttf",
     ]
     for path in candidates:
         try:
@@ -45,55 +44,55 @@ def label_frame(src: Path, month_idx: int) -> Image.Image:
     im = Image.open(src).convert("RGBA")
     canvas = Image.new("RGBA", im.size, (7, 13, 20, 255))
     canvas.alpha_composite(im)
-    draw = ImageDraw.Draw(canvas)
 
     month = MONTHS[month_idx]
     year = "2020"
-    mean_txt = f"{MEANS[month_idx]:.2e}"
-    sub = "mean NO₂ mol/m²"
+    mean_txt = f"{MEANS[month_idx]:.6f}"
+    sub = "mean NO2 (mol/m2)"
 
-    font_month = get_font(max(48, im.width // 6))
-    font_year = get_font(max(30, im.width // 10))
-    font_sub = get_font(max(16, im.width // 22))
+    font_month = get_font(max(56, im.width // 5))
+    font_year = get_font(max(34, im.width // 9))
+    font_sub = get_font(max(15, im.width // 24))
 
+    # Build a tight badge image first, then paste it.
+    probe = Image.new("RGBA", (800, 400), (0, 0, 0, 0))
+    pdraw = ImageDraw.Draw(probe)
     lines = [
         (month, font_month, (240, 199, 94, 255)),
-        (year, font_year, (243, 247, 251, 255)),
+        (year, font_year, (255, 255, 255, 255)),
         (mean_txt, font_sub, (61, 187, 154, 255)),
-        (sub, font_sub, (197, 208, 220, 255)),
+        (sub, font_sub, (210, 218, 228, 255)),
     ]
 
-    widths = []
-    heights = []
+    pad_x, pad_y, gap = 12, 8, 2
+    widths, heights = [], []
     for text, font, _ in lines:
-        bbox = draw.textbbox((0, 0), text, font=font)
+        bbox = pdraw.textbbox((0, 0), text, font=font)
         widths.append(bbox[2] - bbox[0])
         heights.append(bbox[3] - bbox[1])
 
-    pad_x, pad_y, gap = 14, 10, 3
     block_w = max(widths) + pad_x * 2
     block_h = sum(heights) + gap * (len(lines) - 1) + pad_y * 2
-    x0 = im.width - block_w - 12
-    y0 = 12
 
-    overlay = Image.new("RGBA", im.size, (0, 0, 0, 0))
-    odraw = ImageDraw.Draw(overlay)
-    odraw.rounded_rectangle(
-        [x0, y0, x0 + block_w, y0 + block_h],
+    badge = Image.new("RGBA", (block_w, block_h), (0, 0, 0, 0))
+    bdraw = ImageDraw.Draw(badge)
+    bdraw.rounded_rectangle(
+        [0, 0, block_w - 1, block_h - 1],
         radius=10,
-        fill=(7, 13, 20, 210),
-        outline=(240, 199, 94, 200),
+        fill=(7, 13, 20, 220),
+        outline=(240, 199, 94, 220),
         width=2,
     )
-    canvas = Image.alpha_composite(canvas, overlay)
-    draw = ImageDraw.Draw(canvas)
 
-    y = y0 + pad_y - 2
+    y = pad_y
     for (text, font, color), w, h in zip(lines, widths, heights):
-        x = x0 + block_w - pad_x - w
-        draw.text((x, y), text, font=font, fill=color)
+        x = block_w - pad_x - w
+        bdraw.text((x, y), text, font=font, fill=color)
         y += h + gap
 
+    x0 = im.width - block_w - 10
+    y0 = 10
+    canvas.alpha_composite(badge, (x0, y0))
     return canvas.convert("RGB")
 
 
@@ -101,13 +100,11 @@ def main():
     frame_paths = []
     for i in range(1, 13):
         src = FRAMES / f"no2_2020_{i:02d}.png"
-        if not src.exists():
-            raise FileNotFoundError(src)
         labeled = label_frame(src, i - 1)
         out = FRAMES / f"labeled_{i:02d}.png"
         labeled.save(out)
         frame_paths.append(out)
-        print("Labeled", out.name)
+        print("Labeled", out.name, f"{MEANS[i-1]:.6f}")
 
     frames = [Image.open(p).convert("RGB") for p in frame_paths]
     gif = OUT / "mumbai_2020_monthly_no2.gif"

@@ -141,15 +141,15 @@
       <span class="m" id="month">JAN</span>
       <span class="y">2020</span>
       <span class="v" id="mean">1.21e-4</span>
-      <span class="s">mean NO₂ mol/m²</span>
+      <span class="s">mean NO2 (mol/m2)</span>
     </div>
   </div>
   <p class="legend">Low → High NO₂ <span class="legend-bar"></span> 0–0.0002 mol/m² · white line = city boundary</p>
   <script>
     const names = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
     const means = [
-      1.21e-4, 1.34e-4, 6.88e-5, 3.12e-5, 2.53e-5, 3.38e-5,
-      2.62e-5, 3.30e-5, 5.70e-5, 9.03e-5, 1.05e-4, 1.68e-4
+      0.000121, 0.000134, 0.000069, 0.000031, 0.000025, 0.000034,
+      0.000026, 0.000033, 0.000057, 0.000090, 0.000105, 0.000168
     ];
     const slider = document.getElementById("slider");
     const frame = document.getElementById("frame");
@@ -160,7 +160,7 @@
       const m = String(slider.value).padStart(2, "0");
       frame.src = "monthly_frames/no2_2020_" + m + ".png";
       month.textContent = names[i];
-      mean.textContent = means[i].toExponential(2);
+      mean.textContent = means[i].toFixed(6);
     }
     slider.addEventListener("input", update);
     update();

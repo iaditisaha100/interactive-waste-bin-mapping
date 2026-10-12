@@ -190,6 +190,7 @@
       margin: 0 0 8px;
       font-family: "Fraunces", Georgia, serif;
       font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+      font-weight: 700;
       color: #fff;
       letter-spacing: -0.02em;
     }
@@ -263,7 +264,8 @@
     .season strong {
       display: block;
       font-family: "Fraunces", Georgia, serif;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
+      font-weight: 700;
       color: #fff;
       margin-bottom: 2px;
     }
@@ -397,9 +399,9 @@
     .bar.low { background: linear-gradient(180deg, var(--teal), #147a7f); }
 
     .bar-label {
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--soft);
     }
 
     .panel { overflow: hidden; margin-top: 10px; }
@@ -540,11 +542,11 @@
       </p>
       <div class="stats">
         <div class="stat">
-          <strong id="stat-mean">8.61×10⁻⁵</strong>
+          <strong id="stat-mean">0.000086</strong>
           <span>city-wide mean NO₂ (mol/m²)</span>
         </div>
         <div class="stat">
-          <strong id="stat-p75">1.04×10⁻⁴</strong>
+          <strong id="stat-p75">0.000104</strong>
           <span>highest-quartile threshold (P75)</span>
         </div>
         <div class="stat">
@@ -645,7 +647,7 @@
         </div>
 
         <div class="bars" id="month-bars" aria-label="Monthly mean NO2 bar chart"></div>
-        <p style="color:var(--muted);font-size:0.82rem;margin-bottom:8px">
+        <p style="color:var(--soft);font-size:0.9rem;font-weight:800;margin-bottom:8px">
           City-wide monthly means · gold/coral = higher · teal = lowest month
         </p>
 
@@ -659,7 +661,7 @@
               <h3>Temporal result</h3>
               <p>
                 Means peak in December–February and fall from April through August.
-                December is highest (~1.68×10⁻⁴ mol/m²); May is lowest (~2.53×10⁻⁵ mol/m²).
+                December is highest (~0.000168 mol/m²); May is lowest (~0.000025 mol/m²).
               </p>
             </div>
             <div class="callout" style="margin-top:10px">
@@ -708,8 +710,8 @@
               <tr><th>Exposure summary</th><th>Value</th></tr>
             </thead>
             <tbody id="summary-table">
-              <tr><td>City-wide mean tropospheric NO₂</td><td>8.61×10⁻⁵ mol/m²</td></tr>
-              <tr><td>Highest-quartile threshold (P75)</td><td>1.04×10⁻⁴ mol/m²</td></tr>
+              <tr><td>City-wide mean tropospheric NO₂</td><td>0.000086 mol/m²</td></tr>
+              <tr><td>Highest-quartile threshold (P75)</td><td>0.000104 mol/m²</td></tr>
               <tr><td>Residents aged 65+ (city total)</td><td>7,31,666</td></tr>
               <tr><td>Residents aged 65+ in highest-NO₂ quartile</td><td>2,38,328</td></tr>
               <tr><td>Share of 65+ in highest-NO₂ quartile</td><td>32.57%</td></tr>
@@ -835,7 +837,7 @@
     const pre = avg([2, 3, 4]);
     const mon = avg([5, 6, 7]);
     const post = avg([8, 9, 10]);
-    const fmt = (v) => v.toExponential(2);
+    const fmt = (v) => Number(v).toFixed(6);
 
     document.getElementById("s-winter").textContent = fmt(winter);
     document.getElementById("s-pre").textContent = fmt(pre);
@@ -862,7 +864,7 @@
       const rel = ((v / annual - 1) * 100);
       const sign = rel >= 0 ? "+" : "";
       return `<tr>
-        <td>${label}</td>
+        <td><b>${label}</b></td>
         <td>${fmt(v)}</td>
         <td>${sign}${rel.toFixed(0)}%</td>
       </tr>`;
@@ -872,17 +874,17 @@
       .then((r) => r.ok ? r.json() : Promise.reject())
       .then((data) => {
         document.getElementById("stat-mean").textContent =
-          Number(data.no2_city_mean_mol_m2).toExponential(2);
+          fmt(data.no2_city_mean_mol_m2);
         document.getElementById("stat-p75").textContent =
-          Number(data.no2_p75_mol_m2).toExponential(2);
+          fmt(data.no2_p75_mol_m2);
         document.getElementById("stat-pop65").textContent =
           (Math.round(data.pop65_total) / 100000).toFixed(2) + " lakh";
         document.getElementById("stat-share").textContent =
           Number(data.share_pop65_in_highest_no2_quartile_percent).toFixed(1) + "%";
 
         document.getElementById("summary-table").innerHTML = `
-          <tr><td>City-wide mean tropospheric NO₂</td><td>${Number(data.no2_city_mean_mol_m2).toExponential(2)} mol/m²</td></tr>
-          <tr><td>Highest-quartile threshold (P75)</td><td>${Number(data.no2_p75_mol_m2).toExponential(2)} mol/m²</td></tr>
+          <tr><td>City-wide mean tropospheric NO₂</td><td>${fmt(data.no2_city_mean_mol_m2)} mol/m²</td></tr>
+          <tr><td>Highest-quartile threshold (P75)</td><td>${fmt(data.no2_p75_mol_m2)} mol/m²</td></tr>
           <tr><td>Residents aged 65+ (city total)</td><td>${Math.round(data.pop65_total).toLocaleString("en-IN")}</td></tr>
           <tr><td>Residents aged 65+ in highest-NO₂ quartile</td><td>${Math.round(data.pop65_in_highest_no2_quartile).toLocaleString("en-IN")}</td></tr>
           <tr><td>Share of 65+ in highest-NO₂ quartile</td><td>${Number(data.share_pop65_in_highest_no2_quartile_percent).toFixed(2)}%</td></tr>
