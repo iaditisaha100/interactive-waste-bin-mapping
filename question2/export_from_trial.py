@@ -17,11 +17,22 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 NO2_BAND = "tropospheric_NO2_column_number_density"
 CLOUD_BAND = "cloud_fraction"
+# Warm teal → gold → coral palette (matches the dark webpage theme)
 no2_vis = {
     "min": 0,
     "max": 0.0002,
-    "palette": ["blue", "cyan", "yellow", "orange", "red"],
+    "palette": [
+        "#071820",
+        "#0b3d4a",
+        "#147a7f",
+        "#3dbb9a",
+        "#f0c75e",
+        "#f4a261",
+        "#e76f51",
+        "#c1121f",
+    ],
 }
+HIGH_NO2_COLOR = "#ff6b6b"
 month_names = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
@@ -119,7 +130,7 @@ def main():
             ).content
         )
         im = Image.open(raw_path).convert("RGBA")
-        bar = Image.new("RGBA", (im.width, 36), (11, 61, 74, 230))
+        bar = Image.new("RGBA", (im.width, 36), (7, 24, 32, 235))
         labeled = Image.new("RGBA", (im.width, im.height + 36), (255, 255, 255, 255))
         labeled.paste(bar, (0, 0))
         labeled.paste(im, (0, 36))
@@ -284,7 +295,7 @@ def main():
     ).to_csv(OUT_DIR / "mumbai_2020_no2_exposure_table.csv", index=False)
 
     exposure_rgb = annual_no2.visualize(**no2_vis)
-    high_vis = high_no2.visualize(min=0, max=1, palette=["#6a00a8"])
+    high_vis = high_no2.visualize(min=0, max=1, palette=[HIGH_NO2_COLOR])
     exposure_map = (
         ee.ImageCollection([exposure_rgb, high_vis]).mosaic().clip(mumbai_ee.geometry())
     )
