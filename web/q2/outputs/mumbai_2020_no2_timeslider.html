@@ -4,18 +4,67 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mumbai 2020 monthly NO2 time slider</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 16px; background: #f4f7f8; color: #10262f; }
-    img { max-width: 100%; border: 1px solid #c9d6dc; border-radius: 8px; background: white; }
-    input[type=range] { width: min(640px, 100%); }
+    :root {
+      --ink: #1a2744;
+      --sea: #1f7a8c;
+      --coral: #e85d4c;
+      --amber: #f0a202;
+      --line: #c5d5e4;
+    }
+    body {
+      font-family: "Sora", sans-serif;
+      margin: 16px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(232, 93, 76, 0.12), transparent 40%),
+        linear-gradient(180deg, #eaf3f9, #f7fbff);
+    }
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+    }
+    p { margin: 0 0 10px; color: #5a6a85; }
+    img {
+      max-width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 8px 20px rgba(26, 39, 68, 0.08);
+    }
+    input[type=range] {
+      width: min(640px, 100%);
+      accent-color: var(--coral);
+    }
+    .month {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--coral), #ff8a6b);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .legend-bar {
+      height: 12px;
+      width: min(280px, 100%);
+      border-radius: 999px;
+      margin: 8px 0 14px;
+      background: linear-gradient(90deg, #0000ff, #00ffff, #ffff00, #ffa500, #ff0000);
+      border: 1px solid rgba(26, 39, 68, 0.12);
+    }
   </style>
 </head>
 <body>
-  <h2>Greater Mumbai — monthly mean tropospheric NO2 (2020)</h2>
-  <p>Drag the slider to change month. Colour scale is fixed across months.</p>
-  <p><b>Month: <span id="label">Jan 2020</span></b></p>
+  <h2>Greater Mumbai — monthly mean tropospheric NO₂ (2020)</h2>
+  <p>Drag the slider to change month. Colour scale is fixed across months (0–0.0002 mol/m²).</p>
+  <p><b>Month: <span class="month" id="label">Jan 2020</span></b></p>
   <input id="slider" type="range" min="1" max="12" value="1" step="1">
-  <div style="margin-top:12px"><img id="frame" alt="Monthly NO2 map"></div>
+  <div class="legend-bar" aria-hidden="true"></div>
+  <div><img id="frame" alt="Monthly NO2 map"></div>
   <script>
     const names = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     const slider = document.getElementById("slider");
