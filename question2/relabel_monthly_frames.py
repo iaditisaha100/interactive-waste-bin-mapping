@@ -1,4 +1,4 @@
-"""Add a clear top banner with bold month/year on one line and rebuild the GIF."""
+"""Build wide GIF frames with month/year pinned to the top-RIGHT corner."""
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -24,6 +24,11 @@ MEANS = [
     0.0001679684995766481,
 ]
 
+# Wide canvas so the label sits at the card's top-right, not mid-frame
+CANVAS_W = 920
+CANVAS_H = 620
+BG = (7, 13, 20)
+
 
 def get_font(size):
     candidates = [
@@ -46,7 +51,6 @@ def text_size(draw, text, font):
 
 
 def draw_text_topleft(draw, x, y, text, font, fill):
-    """Place glyph box top-left at (x, y)."""
     _, _, bbox = text_size(draw, text, font)
     draw.text((x - bbox[0], y - bbox[1]), text, font=font, fill=fill)
 
@@ -54,38 +58,51 @@ def draw_text_topleft(draw, x, y, text, font, fill):
 def label_frame(src: Path, month_idx: int) -> Image.Image:
     im = Image.open(src).convert("RGBA")
 
-    # Tall banner ABOVE the map — labels never sit on the city outline.
-    banner_h = 96
-    canvas = Image.new("RGB", (im.width, im.height + banner_h), (7, 13, 20))
+    canvas = Image.new("RGB", (CANVAS_W, CANVAS_H), BG)
     draw = ImageDraw.Draw(canvas)
-    draw.rectangle([0, 0, im.width, banner_h], fill=(10, 18, 28))
+
+    # Top bar across the FULL width
+    bar_h = 88
+    draw.rectangle([0, 0, CANVAS_W, bar_h], fill=(10, 18, 28))
+    draw.line([(0, bar_h - 3), (CANVAS_W, bar_h - 3)], fill=(240, 199, 94), width=3)
 
     month = MONTHS[month_idx]
     year = "2020"
-    title = f"{month}  {year}"  # one line — cannot overlap each other
+    title = f"{month}  {year}"
     mean_txt = f"{MEANS[month_idx]:.6f}"
 
-    font_title = get_font(44)
-    font_mean = get_font(18)
-    font_unit = get_font(15)
+    font_title = get_font(48)
+    font_mean = get_font(20)
+    font_unit = get_font(16)
 
-    # Left: mean value + unit
-    draw_text_topleft(draw, 14, 18, mean_txt, font_mean, (61, 187, 154))
-    draw_text_topleft(draw, 14, 48, "mean NO2 (mol/m2)", font_unit, (200, 210, 220))
+    # Left: mean
+    draw_text_topleft(draw, 20, 18, mean_txt, font_mean, (61, 187, 154))
+    draw_text_topleft(draw, 20, 48, "mean NO2 (mol/m2)", font_unit, (200, 210, 220))
 
-    # Right: MONTH  YEAR as one bold line
+    # RIGHT corner: month + year (pinned to canvas right edge)
     tw, th, _ = text_size(draw, title, font_title)
-    title_x = im.width - 16 - tw
-    title_y = (banner_h - 6 - th) // 2
+    title_x = CANVAS_W - 20 - tw
+    title_y = (bar_h - 6 - th) // 2
     draw_text_topleft(draw, title_x, title_y, title, font_title, (240, 199, 94))
 
-    # Gold rule under banner, clear of text
-    draw.line([(0, banner_h - 3), (im.width, banner_h - 3)], fill=(240, 199, 94), width=3)
+    # Map area below bar — fit map on the left/center of the wide panel
+    map_area_h = CANVAS_H - bar_h - 16
+    map_area_w = CANVAS_W - 40
 
-    # Map below banner on dark background
-    map_bg = Image.new("RGBA", im.size, (7, 13, 20, 255))
-    map_bg.alpha_composite(im)
-    canvas.paste(map_bg.convert("RGB"), (0, banner_h))
+    # scale map to fit height, keep aspect
+    scale = min(map_area_w / im.width, map_area_h / im.height)
+    new_w = max(1, int(im.width * scale))
+    new_h = max(1, int(im.height * scale))
+    resized = im.resize((new_w, new_h), Image.Resampling.LANCZOS)
+
+    map_bg = Image.new("RGBA", (new_w, new_h), (*BG, 255))
+    map_bg.alpha_composite(resized)
+
+    # place map toward left-center so right side stays clear under the title
+    paste_x = 20
+    paste_y = bar_h + (map_area_h - new_h) // 2 + 8
+    canvas.paste(map_bg.convert("RGB"), (paste_x, paste_y))
+
     return canvas
 
 
@@ -108,7 +125,7 @@ def main():
         duration=800,
         loop=0,
     )
-    print("Saved", gif)
+    print("Saved", gif, frames[0].size)
 
 
 if __name__ == "__main__":

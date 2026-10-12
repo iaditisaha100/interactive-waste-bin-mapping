@@ -302,8 +302,17 @@
       width: 100%;
       height: 380px;
       object-fit: contain;
+      object-position: center center;
       background: #070d14;
       padding: 8px;
+    }
+
+    .figure.gif-frame img {
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      object-position: top right;
+      padding: 0;
     }
 
     .map-card .cap,
@@ -652,7 +661,7 @@
         </p>
 
         <div class="two">
-          <article class="figure">
+          <article class="figure gif-frame">
             <img src="outputs/mumbai_2020_monthly_no2.gif" alt="Animated monthly NO2 maps for Greater Mumbai 2020">
             <div class="cap">Figure 2 · Monthly GIF for 2020 (dynamic output). Fixed 0–0.0002 mol/m² scale.</div>
           </article>
