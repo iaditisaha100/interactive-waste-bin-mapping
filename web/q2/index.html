@@ -269,9 +269,24 @@
 
     .figure {
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
       border: 1px solid var(--line);
       border-radius: 14px;
       background: #070d14;
+    }
+
+    .figure-title {
+      margin: 0;
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: #fff;
+      font-family: "Manrope", sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.01em;
     }
 
     .figure img {
@@ -294,6 +309,14 @@
       font-size: 0.88rem;
       line-height: 1.45;
       max-width: 70ch;
+    }
+
+    .cap.maps-shared {
+      margin-top: 14px;
+      max-width: 78ch;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--soft);
     }
 
     .result {
@@ -581,16 +604,21 @@
         </p>
         <div class="maps-row">
           <article class="figure">
+            <h3 class="figure-title">Figure 1. Annual Mean NO₂ (2020)</h3>
             <img src="outputs/mumbai_2020_mean_no2.png" alt="Annual mean tropospheric NO2 map">
           </article>
           <article class="figure">
+            <h3 class="figure-title">Figure 3. Highest-NO₂ Quartile (P75+)</h3>
             <img src="outputs/mumbai_2020_no2_65plus_exposure.png" alt="Highest NO2 quartile exposure map">
           </article>
         </div>
-        <p class="cap">
-          Figure 1 · Annual mean tropospheric NO₂ (left) and Figure 3 · highest-NO₂ quartile
-          used for the 65+ count (right). Sentinel-5P column density — not personal
-          or ground-level exposure.
+        <p class="cap maps-shared">
+          The left panel shows the annual mean tropospheric NO₂ column density across
+          Greater Mumbai in 2020. The right panel highlights areas within the
+          highest-NO₂ quartile (P75+), used to estimate the distribution of residents
+          aged 65 and above. Both maps use the same colour scale (0–200 µmol/m²).
+          Satellite-derived column density does not directly represent ground-level
+          pollution or individual exposure.
         </p>
         <p class="result">
           <strong>2.38 lakh</strong> of <strong>7.32 lakh</strong> residents aged 65+
