@@ -51,45 +51,49 @@
 
     .topnav .wrap {
       position: relative;
-      min-height: 56px;
+      min-height: 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
     }
 
     .brand {
       color: var(--ink);
       text-decoration: none;
       font-weight: 800;
+      font-size: 0.92rem;
+      line-height: 1.2;
+      min-width: 0;
     }
 
     .brand em {
       font-style: normal;
       color: var(--muted);
-      margin-left: 8px;
+      margin-left: 6px;
       font-weight: 600;
-      font-size: 0.86rem;
+      font-size: 0.78rem;
     }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       margin-left: auto;
+      flex-shrink: 0;
     }
 
     .nav-switch {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 12px;
+      padding: 6px 10px;
       border: 1px solid rgba(61, 187, 154, 0.45);
-      border-radius: 10px;
+      border-radius: 8px;
       background: rgba(61, 187, 154, 0.08);
       color: var(--teal);
       text-decoration: none;
-      font-size: 0.82rem;
+      font-size: 0.75rem;
       font-weight: 700;
       white-space: nowrap;
       line-height: 1.2;
@@ -105,21 +109,22 @@
       appearance: none;
       border: 1px solid var(--line);
       background: var(--panel);
-      border-radius: 10px;
-      width: 42px;
-      height: 42px;
+      border-radius: 8px;
+      width: 36px;
+      height: 36px;
       padding: 0;
       display: inline-flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 5px;
+      gap: 4px;
       cursor: pointer;
+      flex-shrink: 0;
     }
 
     .nav-toggle span {
       display: block;
-      width: 18px;
+      width: 15px;
       height: 2px;
       border-radius: 2px;
       background: var(--ink);
@@ -127,13 +132,13 @@
     }
 
     .topnav.is-open .nav-toggle span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
+      transform: translateY(6px) rotate(45deg);
     }
 
     .topnav.is-open .nav-toggle span:nth-child(2) { opacity: 0; }
 
     .topnav.is-open .nav-toggle span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
+      transform: translateY(-6px) rotate(-45deg);
     }
 
     .nav-links {
@@ -348,6 +353,11 @@
 
     @media (max-width: 560px) {
       .stats { grid-template-columns: 1fr; }
+
+      .brand { font-size: 0.84rem; }
+      .brand em { display: none; }
+      .nav-switch { padding: 5px 8px; font-size: 0.72rem; }
+      .nav-actions { gap: 6px; }
     }
   </style>
 </head>
@@ -356,7 +366,7 @@
     <div class="wrap">
       <a class="brand" href="index.html">IIT Tirupati · Waste bins<em>HS25M101</em></a>
       <div class="nav-actions">
-        <a class="nav-switch" href="q2/index.html">Switch to Question 2 →</a>
+        <a class="nav-switch" href="q2/index.html">Question 2</a>
         <button
           class="nav-toggle"
           id="nav-toggle"
