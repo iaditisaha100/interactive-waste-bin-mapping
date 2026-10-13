@@ -29,7 +29,7 @@
       margin: 0;
       color: var(--ink);
       font-family: "Manrope", sans-serif;
-      line-height: 1.55;
+      line-height: 1.5;
       background:
         radial-gradient(900px 480px at 12% -8%, rgba(20, 122, 127, 0.28), transparent 55%),
         radial-gradient(700px 420px at 92% 4%, rgba(231, 111, 81, 0.18), transparent 50%),
@@ -39,7 +39,7 @@
     a { color: var(--teal); font-weight: 600; }
 
     .wrap {
-      max-width: 1140px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -54,7 +54,7 @@
     }
 
     .topnav .wrap {
-      min-height: 56px;
+      min-height: 54px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -96,41 +96,38 @@
       color: #fff;
     }
 
-    .hero {
-      padding: 36px 0 20px;
-    }
+    .hero { padding: 28px 0 14px; }
 
     .eyebrow {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       color: var(--teal);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
     .hero h1 {
-      margin: 0 0 14px;
-      max-width: 22ch;
+      margin: 0 0 10px;
+      max-width: 20ch;
       font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(2.2rem, 5.2vw, 3.4rem);
+      font-size: clamp(2rem, 4.8vw, 3rem);
       line-height: 1.06;
       letter-spacing: -0.03em;
       color: #fff;
-      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
     }
 
     .hero-lead {
-      margin: 0 0 18px;
+      margin: 0 0 14px;
       color: var(--soft);
-      font-size: 1.05rem;
-      max-width: 56ch;
+      font-size: 0.98rem;
+      max-width: 52ch;
     }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      gap: 8px;
     }
 
     .stat {
@@ -161,15 +158,15 @@
 
     .stat span {
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 500;
     }
 
     .stat.accent strong { color: var(--hot); }
 
     .legend-bar {
-      width: min(220px, 100%);
-      height: 10px;
+      width: min(180px, 100%);
+      height: 9px;
       border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.12);
       background: linear-gradient(
@@ -182,32 +179,25 @@
       margin: 0 6px;
     }
 
-    section {
-      padding: 18px 0 6px;
-    }
+    section { padding: 14px 0 4px; }
 
     section h2 {
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
       font-weight: 700;
       color: #fff;
-      letter-spacing: -0.02em;
     }
 
-    section p {
+    .one-line {
       margin: 0 0 10px;
-      color: var(--soft);
-      font-size: 0.95rem;
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
     .panel,
     .map-card,
-    .figure,
-    .callout,
-    .limit,
-    .readbox,
-    .takeaway {
+    .figure {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 16px;
@@ -218,75 +208,32 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 10px 0 12px;
+      margin: 0 0 10px;
     }
 
     .chip {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      padding: 6px 10px;
+      padding: 5px 10px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--line);
       color: var(--soft);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
     }
 
-    .chip b { color: #fff; font-weight: 800; }
+    .chip b { color: #fff; }
     .chip.hot { background: rgba(255, 107, 107, 0.12); border-color: rgba(255, 107, 107, 0.35); color: #ffb4b4; }
     .chip.line i { width: 14px; height: 2px; background: #fff; display: inline-block; }
     .chip.hot i { width: 10px; height: 10px; border-radius: 2px; background: var(--hot); display: inline-block; }
 
-    .season {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin: 10px 0 12px;
-    }
-
-    .season article {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
-    }
-
-    .season h3 {
-      margin: 0 0 4px;
-      font-size: 0.78rem;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .season strong {
-      display: block;
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 2px;
-    }
-
-    .season span {
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-
+    .maps-row,
     .two {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      align-items: stretch;
-    }
-
-    .maps-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      align-items: stretch;
     }
 
     .map-card,
@@ -300,90 +247,77 @@
     .figure img {
       display: block;
       width: 100%;
-      height: 380px;
+      height: 340px;
       object-fit: contain;
-      object-position: center center;
       background: #070d14;
-      padding: 8px;
+      padding: 6px;
     }
 
     .figure.gif-frame img {
       height: auto;
-      max-height: 520px;
-      object-fit: contain;
-      object-position: top right;
+      max-height: 460px;
       padding: 0;
     }
 
-    .map-card .cap,
-    .figure .cap {
-      padding: 12px 14px 14px;
+    .cap {
+      padding: 8px 12px 10px;
       border-top: 1px solid var(--line);
-      color: var(--soft);
-      font-size: 0.86rem;
-    }
-
-    .map-card .cap strong {
-      display: block;
-      color: #fff;
-      margin-bottom: 4px;
-      font-size: 0.95rem;
-    }
-
-    .map-card .cap p {
-      margin: 0;
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
+      font-weight: 600;
     }
 
-    .readbox,
-    .takeaway,
-    .callout {
-      padding: 14px;
-    }
-
-    .readbox h3,
-    .takeaway h3,
-    .callout h3 {
-      margin: 0 0 8px;
-      color: var(--gold);
-      font-size: 0.92rem;
-    }
-
-    .readbox ul {
-      margin: 0;
-      padding-left: 1.1rem;
+    .note {
+      margin: 8px 0 0;
       color: var(--soft);
       font-size: 0.88rem;
     }
 
-    .readbox li { margin-bottom: 6px; }
+    .note b { color: var(--gold); }
 
-    .takeaway {
-      background: linear-gradient(160deg, rgba(80, 34, 28, 0.55), rgba(18, 28, 42, 0.92));
-      border-color: rgba(231, 111, 81, 0.3);
+    .season {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 0 0 10px;
     }
 
-    .takeaway .big {
+    .season article {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+    }
+
+    .season h3 {
+      margin: 0 0 3px;
+      font-size: 0.72rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .season strong {
+      display: block;
       font-family: "Fraunces", Georgia, serif;
-      font-size: 2rem;
-      color: var(--hot);
-      line-height: 1.1;
-      margin: 4px 0 8px;
+      font-size: 1.05rem;
+      color: #fff;
     }
 
-    .callout + .callout { margin-top: 10px; }
-    .callout p { margin: 0; font-size: 0.88rem; }
+    .season span {
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
 
     .bars {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 6px;
+      gap: 5px;
       align-items: end;
-      height: 120px;
-      margin: 8px 0 6px;
-      padding: 12px;
-      border-radius: 14px;
+      height: 100px;
+      margin: 0 0 10px;
+      padding: 10px;
+      border-radius: 12px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--line);
     }
@@ -394,13 +328,13 @@
       flex-direction: column;
       justify-content: flex-end;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
     }
 
     .bar {
       width: 100%;
       min-height: 4px;
-      border-radius: 7px 7px 3px 3px;
+      border-radius: 6px 6px 2px 2px;
       background: linear-gradient(180deg, var(--gold), var(--coral));
     }
 
@@ -408,7 +342,7 @@
     .bar.low { background: linear-gradient(180deg, var(--teal), #147a7f); }
 
     .bar-label {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 800;
       color: var(--soft);
     }
@@ -417,8 +351,7 @@
 
     iframe.slider {
       width: 100%;
-      min-height: 560px;
-      height: 560px;
+      height: 520px;
       border: 0;
       display: block;
       background: #070d14;
@@ -432,11 +365,12 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       overflow: hidden;
+      margin-top: 8px;
     }
 
     th, td {
       text-align: left;
-      padding: 9px 11px;
+      padding: 8px 10px;
       border-bottom: 1px solid var(--line);
       color: var(--soft);
     }
@@ -449,53 +383,95 @@
 
     tr:last-child td { border-bottom: 0; }
 
-    .table-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 12px;
+    details.fold {
       margin-top: 10px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 14px;
+    }
+
+    details.fold > summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--gold);
+      list-style: none;
+    }
+
+    details.fold > summary::-webkit-details-marker { display: none; }
+
+    details.fold > summary::after {
+      content: " ▾";
+      color: var(--muted);
+    }
+
+    details.fold[open] > summary::after { content: " ▴"; }
+
+    details.fold .fold-body {
+      margin-top: 10px;
+      color: var(--soft);
+      font-size: 0.88rem;
     }
 
     .limits {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 10px;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
     }
 
-    .limit { padding: 13px; }
+    .limit {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+    }
 
     .limit strong {
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       color: var(--gold);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .limit p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.86rem;
+      font-size: 0.82rem;
     }
 
-    .compare {
-      margin: 10px 0 0;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(240, 199, 94, 0.28);
-      background: rgba(240, 199, 94, 0.08);
+    .discuss {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .discuss article {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .discuss h3 {
+      margin: 0 0 4px;
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+
+    .discuss p {
+      margin: 0;
       color: var(--soft);
-      font-size: 0.9rem;
+      font-size: 0.84rem;
     }
-
-    .compare b { color: var(--gold); }
 
     .footer {
-      margin-top: 22px;
-      padding: 16px 0 32px;
+      margin-top: 18px;
+      padding: 14px 0 28px;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -503,12 +479,12 @@
     }
 
     @media (max-width: 920px) {
-      .two,
+      .stats,
       .maps-row,
+      .two,
       .season,
-      .table-grid,
       .limits,
-      .stats {
+      .discuss {
         grid-template-columns: 1fr;
       }
 
@@ -516,13 +492,10 @@
 
       .map-card img,
       .figure img {
-        height: 300px;
+        height: 280px;
       }
 
-      iframe.slider {
-        min-height: 480px;
-        height: 480px;
-      }
+      iframe.slider { height: 460px; }
     }
   </style>
 </head>
@@ -543,28 +516,28 @@
 
   <header class="hero">
     <div class="wrap">
-      <p class="eyebrow">Question 2 · Google Earth Engine urban analysis</p>
+      <p class="eyebrow">Question 2 · Google Earth Engine</p>
       <h1>About one in three Mumbai residents aged 65+ live in the city’s highest-NO₂ quartile.</h1>
       <p class="hero-lead">
-        2020 tropospheric NO₂ from Sentinel-5P and WorldPop age–sex for Greater Mumbai.
-        Maps share one fixed colour scale. “Relatively high” NO₂ = city-wide upper quartile (P75).
+        2020 Sentinel-5P tropospheric NO₂ + WorldPop age–sex for Greater Mumbai.
+        “Relatively high” = city P75. Values shown as µmol/m² for readability.
       </p>
       <div class="stats">
         <div class="stat">
           <strong id="stat-mean">86.1</strong>
-          <span>city-wide mean NO₂ (µmol/m²)</span>
+          <span>mean NO₂ (µmol/m²)</span>
         </div>
         <div class="stat">
           <strong id="stat-p75">104.2</strong>
-          <span>highest-quartile threshold P75 (µmol/m²)</span>
+          <span>P75 threshold (µmol/m²)</span>
         </div>
         <div class="stat">
           <strong id="stat-pop65">7.32 lakh</strong>
-          <span>WorldPop residents aged 65+</span>
+          <span>residents aged 65+</span>
         </div>
         <div class="stat accent">
           <strong id="stat-share">32.6%</strong>
-          <span>of 65+ in highest-NO₂ quartile</span>
+          <span>of 65+ in high-NO₂ zone</span>
         </div>
       </div>
     </div>
@@ -573,253 +546,169 @@
   <main>
     <section id="maps">
       <div class="wrap">
-        <h2>Where NO₂ is highest in 2020</h2>
-        <p>
-          Annual mean and exposure panels use the same teal → gold → coral scale.
-          Coral marks the highest-NO₂ quartile (P75+). The white outline is the city boundary.
-        </p>
+        <h2>2020 maps</h2>
         <div class="chips">
-          <span class="chip">Low → High NO₂ <span class="legend-bar"></span> <b>0–200 µmol/m²</b></span>
-          <span class="chip hot"><i></i> Highest-NO₂ quartile (P75+)</span>
+          <span class="chip">NO₂ scale <span class="legend-bar"></span> <b>0–200 µmol/m²</b></span>
+          <span class="chip hot"><i></i> P75+ high zone</span>
           <span class="chip line"><i></i> City boundary</span>
         </div>
-
         <div class="maps-row">
           <article class="map-card">
             <img src="outputs/mumbai_2020_mean_no2.png" alt="Annual mean tropospheric NO2 map">
-            <div class="cap">
-              <strong>Figure 1 · Annual mean tropospheric NO₂ (2020)</strong>
-              <p>
-                Cloud-masked Sentinel-5P OFFL L3 column density.
-                Shown in µmol/m² (1 µmol/m² = 0.000001 mol/m²). White outline = Greater Mumbai ULB.
-              </p>
-            </div>
+            <div class="cap">Figure 1 · Annual mean tropospheric NO₂ (2020)</div>
           </article>
           <article class="map-card">
             <img src="outputs/mumbai_2020_no2_65plus_exposure.png" alt="Highest NO2 quartile exposure map">
-            <div class="cap">
-              <strong>Figure 3 · Highest-NO₂ quartile (P75+) zone</strong>
-              <p>
-                Coral overlay marks pixels at or above the city 75th percentile —
-                the area used to count WorldPop residents aged 65+.
-              </p>
-            </div>
+            <div class="cap">Figure 3 · Highest-NO₂ quartile used for 65+ count</div>
           </article>
         </div>
-
-        <aside class="takeaway" style="margin-top:12px">
-          <h3>Key exposure takeaway</h3>
-          <div class="big">32.6%</div>
-          <p>
-            About <b style="color:#fff">2.38 lakh</b> of <b style="color:#fff">7.32 lakh</b>
-            residents aged 65+ live in pixels at or above the city P75 of 2020 mean
-            tropospheric NO₂. That is a transparent, city-specific definition of
-            “relatively high” satellite-observed NO₂ — not personal or ground-level exposure.
-          </p>
-        </aside>
+        <p class="note">
+          <b>2.38 lakh</b> of <b>7.32 lakh</b> residents aged 65+ live in the P75+ zone (32.6%).
+          Satellite column NO₂ — not personal or ground-level exposure.
+        </p>
       </div>
     </section>
 
     <section id="animation">
       <div class="wrap">
-        <h2>Twelve months on one scale</h2>
-        <p>
-          Every monthly frame keeps the same extent and colour range (GIF + time slider),
-          so seasonal change is comparable.
-        </p>
+        <h2>Monthly 2020</h2>
+        <p class="one-line">Same colour scale every month · Dec ≈ 6.6× May · monsoon dips partly reflect cloud gaps.</p>
 
-        <div class="season" id="season-strip">
+        <div class="season">
           <article>
             <h3>Winter</h3>
             <strong id="s-winter">—</strong>
-            <span>Dec–Feb mean (µmol/m²)</span>
+            <span>µmol/m²</span>
           </article>
           <article>
             <h3>Pre-monsoon</h3>
             <strong id="s-pre">—</strong>
-            <span>Mar–May mean (µmol/m²)</span>
+            <span>µmol/m²</span>
           </article>
           <article>
             <h3>Monsoon</h3>
             <strong id="s-mon">—</strong>
-            <span>Jun–Aug mean (µmol/m²)</span>
+            <span>µmol/m²</span>
           </article>
           <article>
             <h3>Post-monsoon</h3>
             <strong id="s-post">—</strong>
-            <span>Sep–Nov mean (µmol/m²)</span>
+            <span>µmol/m²</span>
           </article>
         </div>
 
-        <div class="compare" id="compare-line">
-          December mean NO₂ is about <b>6.6×</b> the May mean under the same cloud mask and colour scale.
-        </div>
-
         <div class="bars" id="month-bars" aria-label="Monthly mean NO2 bar chart"></div>
-        <p style="color:var(--soft);font-size:0.9rem;font-weight:800;margin-bottom:8px">
-          City-wide monthly means · gold/coral = higher · teal = lowest month
-        </p>
 
         <div class="two">
           <article class="figure gif-frame">
             <img src="outputs/mumbai_2020_monthly_no2.gif" alt="Animated monthly NO2 maps for Greater Mumbai 2020">
-            <div class="cap">Figure 2 · Monthly GIF for 2020 (dynamic output). Fixed 0–200 µmol/m² colour scale.</div>
+            <div class="cap">Figure 2 · Monthly GIF (dynamic output)</div>
           </article>
-          <div>
-            <div class="callout">
-              <h3>Temporal result</h3>
-              <p>
-                Means peak in December–February and fall from April through August.
-                December is highest (~168 µmol/m²); May is lowest (~25 µmol/m²).
-              </p>
-            </div>
-            <div class="callout" style="margin-top:10px">
-              <h3>Reading tip</h3>
-              <p>
-                Lower monsoon values partly reflect fewer clear scenes after
-                <code>cloud_fraction ≤ 0.2</code> masking, not only cleaner air.
-              </p>
-            </div>
-            <div class="readbox" style="margin-top:10px">
-              <h3>How to read this page</h3>
-              <ul>
-                <li>NO₂ here is a tropospheric <b style="color:#fff">column</b>, not roadside personal exposure.</li>
-                <li>P75 = top quarter of city pixels — a transparent “relatively high” rule.</li>
-                <li>Winter highs vs monsoon lows should be read with data availability in mind.</li>
-              </ul>
-            </div>
+          <div class="panel">
+            <iframe
+              class="slider"
+              title="Mumbai 2020 monthly NO2 time slider"
+              src="outputs/mumbai_2020_no2_timeslider.html"
+            ></iframe>
           </div>
         </div>
-
-        <div class="panel">
-          <iframe
-            class="slider"
-            title="Mumbai 2020 monthly NO2 time slider"
-            src="outputs/mumbai_2020_no2_timeslider.html"
-          ></iframe>
-        </div>
-        <p style="color:var(--muted);font-size:0.82rem;margin-top:8px">
-          Interactive time slider (required dynamic output) ·
-          <a href="outputs/mumbai_2020_no2_timeslider.html" target="_blank" rel="noopener">open full screen</a>
+        <p class="one-line" style="margin-top:8px">
+          Time slider · <a href="outputs/mumbai_2020_no2_timeslider.html" target="_blank" rel="noopener">open full screen</a>
         </p>
       </div>
     </section>
 
     <section id="exposure">
       <div class="wrap">
-        <h2>Residents aged 65+ in high-NO₂ areas</h2>
-        <p>
-          WorldPop age bands from 65+ are summed inside Greater Mumbai, then restricted
-          to the highest-NO₂ quartile (P75+).
-        </p>
+        <h2>65+ exposure summary</h2>
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>Value</th></tr>
+          </thead>
+          <tbody id="summary-table">
+            <tr><td>City-wide mean NO₂</td><td>86.1 µmol/m²</td></tr>
+            <tr><td>P75 threshold</td><td>104.2 µmol/m²</td></tr>
+            <tr><td>Residents aged 65+</td><td>7,31,666</td></tr>
+            <tr><td>65+ in highest-NO₂ quartile</td><td>2,38,328</td></tr>
+            <tr><td>Share of 65+ in high-NO₂ zone</td><td>32.57%</td></tr>
+          </tbody>
+        </table>
 
-        <div class="table-grid">
-          <table>
-            <thead>
-              <tr><th>Exposure summary</th><th>Value</th></tr>
-            </thead>
-            <tbody id="summary-table">
-              <tr><td>City-wide mean tropospheric NO₂</td><td>86.1 µmol/m²</td></tr>
-              <tr><td>Highest-quartile threshold (P75)</td><td>104.2 µmol/m²</td></tr>
-              <tr><td>Residents aged 65+ (city total)</td><td>7,31,666</td></tr>
-              <tr><td>Residents aged 65+ in highest-NO₂ quartile</td><td>2,38,328</td></tr>
-              <tr><td>Share of 65+ in highest-NO₂ quartile</td><td>32.57%</td></tr>
-            </tbody>
-          </table>
-
-          <table>
-            <thead>
-              <tr><th>Month</th><th>Mean NO₂ (µmol/m²)</th><th>vs annual</th></tr>
-            </thead>
-            <tbody id="month-table"></tbody>
-          </table>
-        </div>
-        <p style="color:var(--muted);font-size:0.82rem;margin-top:8px">
-          Result = population residing in areas with relatively high satellite-observed column NO₂.
-        </p>
+        <details class="fold">
+          <summary>Monthly NO₂ table</summary>
+          <div class="fold-body">
+            <table>
+              <thead>
+                <tr><th>Month</th><th>Mean NO₂ (µmol/m²)</th><th>vs annual</th></tr>
+              </thead>
+              <tbody id="month-table"></tbody>
+            </table>
+          </div>
+        </details>
       </div>
     </section>
 
     <section id="discussion">
       <div class="wrap">
-        <h2>Spatial pattern and interpretation</h2>
-        <div class="two">
-          <div class="callout">
-            <h3>Spatial result</h3>
-            <p>
-              Higher 2020 mean tropospheric NO₂ concentrates over denser built-up /
-              traffic-intensive parts of Greater Mumbai. On Sentinel-5P’s coarse
-              ~3.5–7 km grid, the P75 mask forms a contiguous “relatively high” core
-              rather than street-level hotspots.
-            </p>
-          </div>
-          <div class="callout">
-            <h3>Exposure result</h3>
-            <p>
-              Roughly one-third of modelled residents aged 65+ fall inside that
-              high-NO₂ zone. Because WorldPop is a residential surface, the share
-              reflects where older residents are estimated to live relative to the
-              annual NO₂ field, not individual exposure histories.
-            </p>
-          </div>
-        </div>
-        <div class="callout" style="margin-top:10px">
-          <h3>Temporal result</h3>
-          <p>
-            The monthly series shows a clear winter peak and monsoon trough under a
-            fixed colour scale. Treat monsoon dips cautiously: cloud filtering reduces
-            usable observations in those months.
-          </p>
+        <h2>Discussion</h2>
+        <div class="discuss">
+          <article>
+            <h3>Spatial</h3>
+            <p>Higher NO₂ over denser built-up/traffic areas; P75 forms a coarse high core (~3.5–7 km pixels).</p>
+          </article>
+          <article>
+            <h3>Exposure</h3>
+            <p>~1/3 of modelled 65+ residents live in the high-NO₂ zone — residential location, not personal exposure.</p>
+          </article>
+          <article>
+            <h3>Temporal</h3>
+            <p>Winter peak, monsoon trough on a fixed scale; cloud masking reduces usable monsoon scenes.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="methods">
       <div class="wrap">
-        <h2>Method, sources and limitations</h2>
-        <p>
-          Uses <code>tropospheric_NO2_column_number_density</code> from
-          <code>COPERNICUS/S5P/OFFL/L3_NO2</code> (2020), masks
-          <code>cloud_fraction &gt; 0.2</code>, and averages annually/monthly inside one
-          Greater Mumbai ULB boundary. WorldPop
-          <code>pop_age_sex_cons_unadj</code> (India, 2020) age bands ≥ 65 are summed;
-          high-NO₂ pixels are ≥ city-wide 75th percentile.
-        </p>
-
-        <div class="limits">
-          <div class="limit">
-            <strong>Spatial resolution</strong>
-            <p>Sentinel-5P pixels (~3.5–7 km) cannot resolve neighbourhood or roadside differences.</p>
+        <details class="fold" open>
+          <summary>Methods, sources &amp; limitations</summary>
+          <div class="fold-body">
+            <p style="margin:0 0 8px">
+              S5P OFFL L3 NO₂ (2020), cloud_fraction ≤ 0.2, Greater Mumbai ULB boundary.
+              WorldPop India 2020 age bands ≥ 65; high zone = city P75.
+            </p>
+            <div class="limits">
+              <div class="limit">
+                <strong>Resolution</strong>
+                <p>~3.5–7 km S5P pixels — not neighbourhood detail.</p>
+              </div>
+              <div class="limit">
+                <strong>Column ≠ personal exposure</strong>
+                <p>Tropospheric column density, not ground/personal exposure.</p>
+              </div>
+              <div class="limit">
+                <strong>Cloud gaps</strong>
+                <p>Monsoon months have fewer clear scenes after masking.</p>
+              </div>
+              <div class="limit">
+                <strong>Modelled population</strong>
+                <p>WorldPop ~100 m residential estimates, not census microdata.</p>
+              </div>
+            </div>
+            <p style="margin:10px 0 0;color:var(--muted);font-size:0.82rem">
+              Boundary: <code>dataset/Mumbai_boundary.geojson</code> (GREATER MUMBAI / 802794) from the
+              <a href="https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/urban" target="_blank" rel="noopener">urban ULB release</a>.
+              Notebook: <code>question2/trial.ipynb</code>.
+            </p>
           </div>
-          <div class="limit">
-            <strong>Column, not personal exposure</strong>
-            <p>NO₂ here is a tropospheric column density, not ground concentration or individual exposure.</p>
-          </div>
-          <div class="limit">
-            <strong>Cloud / monsoon gaps</strong>
-            <p>Cloud masking and monsoon cover reduce valid observations, especially June–August.</p>
-          </div>
-          <div class="limit">
-            <strong>Modelled population</strong>
-            <p>WorldPop age–sex counts are modelled residential estimates at ~100 m, not census microdata.</p>
-          </div>
-        </div>
-
-        <p style="margin-top:12px;color:var(--muted);font-size:0.86rem">
-          <strong style="color:var(--soft)">Boundary:</strong>
-          Greater Mumbai ULB (<code>dataset/Mumbai_boundary.geojson</code>, code 802794) from the
-          <a href="https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/urban" target="_blank" rel="noopener">Indian urban-boundary release</a>.
-          <strong style="color:var(--soft)">Raster:</strong>
-          Copernicus Sentinel-5P NO₂ + WorldPop age–sex (Earth Engine).
-          Notebook: <code>question2/trial.ipynb</code>.
-        </p>
+        </details>
       </div>
     </section>
   </main>
 
   <footer class="wrap footer">
-    <div>Question 2 · GEE urban analysis · Mumbai · maps · GIF/slider · 65+ exposure · discussion</div>
-    <div>Aditi Saha · HS25M101 · IIT Tirupati</div>
+    <div>Question 2 · Mumbai NO₂ · 65+ exposure · HS25M101</div>
+    <div>Aditi Saha · IIT Tirupati</div>
   </footer>
 
   <script>
@@ -841,24 +730,12 @@
     const maxM = Math.max(...monthly.map((d) => d[1]));
     const minM = Math.min(...monthly.map((d) => d[1]));
     const avg = (idxs) => idxs.reduce((s, i) => s + monthly[i][1], 0) / idxs.length;
+    const fmtUmol = (v) => (Number(v) * 1e6).toFixed(1);
 
-    const winter = avg([11, 0, 1]);
-    const pre = avg([2, 3, 4]);
-    const mon = avg([5, 6, 7]);
-    const post = avg([8, 9, 10]);
-    // Show NO2 as µmol/m² so values are easy to read (×1,000,000 from mol/m²)
-    const toUmol = (v) => Number(v) * 1e6;
-    const fmtUmol = (v) => toUmol(v).toFixed(1);
-
-    document.getElementById("s-winter").textContent = fmtUmol(winter);
-    document.getElementById("s-pre").textContent = fmtUmol(pre);
-    document.getElementById("s-mon").textContent = fmtUmol(mon);
-    document.getElementById("s-post").textContent = fmtUmol(post);
-
-    const dec = monthly[11][1];
-    const may = monthly[4][1];
-    document.getElementById("compare-line").innerHTML =
-      `December mean NO₂ (~${fmtUmol(dec)} µmol/m²) is about <b>${(dec / may).toFixed(1)}×</b> the May mean (~${fmtUmol(may)} µmol/m²) under the same cloud mask and colour scale.`;
+    document.getElementById("s-winter").textContent = fmtUmol(avg([11, 0, 1]));
+    document.getElementById("s-pre").textContent = fmtUmol(avg([2, 3, 4]));
+    document.getElementById("s-mon").textContent = fmtUmol(avg([5, 6, 7]));
+    document.getElementById("s-post").textContent = fmtUmol(avg([8, 9, 10]));
 
     document.getElementById("month-bars").innerHTML = monthly.map(([label, v]) => {
       const h = Math.max(6, Math.round((v / maxM) * 100));
@@ -874,32 +751,25 @@
     document.getElementById("month-table").innerHTML = monthly.map(([label, v]) => {
       const rel = ((v / annual - 1) * 100);
       const sign = rel >= 0 ? "+" : "";
-      return `<tr>
-        <td><b>${label}</b></td>
-        <td>${fmtUmol(v)}</td>
-        <td>${sign}${rel.toFixed(0)}%</td>
-      </tr>`;
+      return `<tr><td><b>${label}</b></td><td>${fmtUmol(v)}</td><td>${sign}${rel.toFixed(0)}%</td></tr>`;
     }).join("");
 
     fetch("outputs/mumbai_2020_no2_exposure_summary.json")
       .then((r) => r.ok ? r.json() : Promise.reject())
       .then((data) => {
-        document.getElementById("stat-mean").textContent =
-          fmtUmol(data.no2_city_mean_mol_m2);
-        document.getElementById("stat-p75").textContent =
-          fmtUmol(data.no2_p75_mol_m2);
+        document.getElementById("stat-mean").textContent = fmtUmol(data.no2_city_mean_mol_m2);
+        document.getElementById("stat-p75").textContent = fmtUmol(data.no2_p75_mol_m2);
         document.getElementById("stat-pop65").textContent =
           (Math.round(data.pop65_total) / 100000).toFixed(2) + " lakh";
         document.getElementById("stat-share").textContent =
           Number(data.share_pop65_in_highest_no2_quartile_percent).toFixed(1) + "%";
 
         document.getElementById("summary-table").innerHTML = `
-          <tr><td>City-wide mean tropospheric NO₂</td><td>${fmtUmol(data.no2_city_mean_mol_m2)} µmol/m²</td></tr>
-          <tr><td>Highest-quartile threshold (P75)</td><td>${fmtUmol(data.no2_p75_mol_m2)} µmol/m²</td></tr>
-          <tr><td>Residents aged 65+ (city total)</td><td>${Math.round(data.pop65_total).toLocaleString("en-IN")}</td></tr>
-          <tr><td>Residents aged 65+ in highest-NO₂ quartile</td><td>${Math.round(data.pop65_in_highest_no2_quartile).toLocaleString("en-IN")}</td></tr>
-          <tr><td>Share of 65+ in highest-NO₂ quartile</td><td>${Number(data.share_pop65_in_highest_no2_quartile_percent).toFixed(2)}%</td></tr>
-          <tr><td>Unit note</td><td>1 µmol/m² = 0.000001 mol/m² (same satellite column, easier numbers)</td></tr>
+          <tr><td>City-wide mean NO₂</td><td>${fmtUmol(data.no2_city_mean_mol_m2)} µmol/m²</td></tr>
+          <tr><td>P75 threshold</td><td>${fmtUmol(data.no2_p75_mol_m2)} µmol/m²</td></tr>
+          <tr><td>Residents aged 65+</td><td>${Math.round(data.pop65_total).toLocaleString("en-IN")}</td></tr>
+          <tr><td>65+ in highest-NO₂ quartile</td><td>${Math.round(data.pop65_in_highest_no2_quartile).toLocaleString("en-IN")}</td></tr>
+          <tr><td>Share of 65+ in high-NO₂ zone</td><td>${Number(data.share_pop65_in_highest_no2_quartile_percent).toFixed(2)}%</td></tr>
         `;
       })
       .catch(() => {});
