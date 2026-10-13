@@ -1,7 +1,7 @@
 # Question 2 — Mumbai 2020 NO₂ and residents aged 65+
 
 **Student:** Aditi Saha · HS25M101  
-**Notebook to submit:** `HS25M101_Q2_Mumbai_NO2_Exposure.ipynb`
+**Notebook to open / run:** `HS25M101_Q2_TEST_2.ipynb`
 
 ## Task
 Map 2020 mean tropospheric NO₂ for Greater Mumbai; estimate number/share of residents aged 65+ in the city’s highest-NO₂ quartile (P75).
@@ -10,26 +10,20 @@ Map 2020 mean tropospheric NO₂ for Greater Mumbai; estimate number/share of re
 
 | Path | Role |
 |------|------|
-| `HS25M101_Q2_Mumbai_NO2_Exposure.ipynb` | **Your Question 2 notebook** (run in Jupyter) |
-| `export_from_trial.py` | Optional: re-export maps/GIF/JSON without Map widgets |
-| `../dataset/Mumbai_boundary.geojson` | Greater Mumbai ULB boundary |
+| `HS25M101_Q2_TEST_2.ipynb` | **Your Question 2 notebook** (run this in Jupyter) |
+| `../dataset/Mumbai_boundary.geojson` or `data/mumbai_ulb_boundary.geojson` | Greater Mumbai ULB boundary |
 | `../web/q2/index.html` | Hosted results page |
 | `../web/q2/outputs/` | Maps, GIF, time slider, summary JSON/CSV |
 
-## Boundary source
-Greater Mumbai ULB (**GREATER MUMBAI**, code **802794**) from the [Indian urban-boundary release](https://github.com/ramSeraph/indian_admin_boundaries/releases/tag/urban).
+## Ignore these (old / leftover)
+- `HS25M101_Q2_Mumbai_NO2_Exposure_old.ipynb`
+- `Q2.ipynb`
+- `Untitled.ipynb`
 
 ## How to run
-1. Open `HS25M101_Q2_Mumbai_NO2_Exposure.ipynb`.
-2. Run all cells (`ee.Initialize` uses project `solar-grail-510708-p8`).
-3. Exports go to `web/q2/outputs/` and the page `web/q2/index.html` reads them.
-
-## Latest computed results (2020)
-- City-wide mean NO₂ ≈ `8.61e-05` mol/m²  
-- P75 threshold ≈ `1.04e-04` mol/m²  
-- Residents aged 65+ ≈ **731,666**  
-- 65+ in highest-NO₂ quartile ≈ **238,328**  
-- Share ≈ **32.6%**
+1. Open `HS25M101_Q2_TEST_2.ipynb`.
+2. Restart kernel → Run All (`ee.Initialize` uses project `solar-grail-510708-p8`).
+3. Exports go to `web/q2/outputs/`.
 
 ## Live page
 https://interactive-waste-bin-mapping.vercel.app/q2/
