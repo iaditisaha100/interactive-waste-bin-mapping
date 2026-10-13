@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Locations of the recorded waste bins · Aditi Saha · HS25M101</title>
+  <title>Mapping Waste. Understanding Spaces. · Aditi Saha · HS25M101</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,560;9..144,700&display=swap" rel="stylesheet">
@@ -341,7 +341,9 @@
       <div class="nav-links" id="nav-links">
         <a href="#about">About</a>
         <a href="#project">Project</a>
+        <a href="#objective">Objective</a>
         <a href="#map">Map</a>
+        <a href="#takeaway">Takeaway</a>
         <a href="#future">Future scope</a>
         <a href="q2/index.html">Question 2</a>
       </div>
@@ -351,11 +353,10 @@
   <header class="hero">
     <div class="wrap">
       <p class="eyebrow">Question 1 · Urban Informatics and Spatial Analytics</p>
-      <h1>Locations of the recorded waste bins</h1>
+      <h1>Mapping Waste. Understanding Spaces.</h1>
       <p class="hero-lead">
-        Field survey of waste-bin points on the IIT Tirupati campus, collected with
-        QField and mapped interactively with Folium. Each point keeps its place name,
-        segregation note, time, collector, and photograph.
+        Exploring waste-bin infrastructure across the IIT Tirupati campus through
+        geospatial data and interactive mapping.
       </p>
       <div class="stats">
         <div class="stat">
@@ -381,57 +382,65 @@
   <main>
     <section id="about">
       <div class="wrap">
-        <h2>About me</h2>
         <p class="lead">
-          I am <b>Aditi Saha</b>, studying for a <b>Master of Public Policy</b> at
-          <b>IIT Tirupati</b>. This page presents my coursework for
-          <b>Urban Informatics and Spatial Analytics</b>.
-        </p>
-        <p class="result">
-          I am interested in how spatial data can support everyday campus and city
-          planning questions, starting with something visible on the ground: where
-          waste bins are placed and how they are used.
+          I'm Aditi Saha, a Master of Public Policy student at IIT Tirupati,
+          interested in geospatial analytics, urban planning, and data-driven
+          policymaking. I enjoy exploring how spatial data can reveal real-world
+          patterns and support smarter, more sustainable decisions.
         </p>
       </div>
     </section>
 
     <section id="project">
       <div class="wrap">
-        <h2>About the project</h2>
+        <h2>About the Project</h2>
         <p class="lead">
-          This assignment builds an interactive web map of waste-bin observations
-          collected on the <b>IIT Tirupati campus</b> using the <b>QField</b> app.
-          Each observation is a point with a location, field note, time, and photograph.
+          How can spatial data help us understand everyday campus infrastructure?
         </p>
         <p class="result">
-          The final map is made with <b>Folium</b> and hosted online so anyone can
-          explore the points in a browser. Photographs are stored with the website,
-          so they remain visible after hosting and not only on a local computer.
+          This project explores the spatial distribution of waste-bin observations
+          across the IIT Tirupati campus. Using QField, I collected 47 geotagged
+          observations, documenting locations, field notes, timestamps, and
+          photographs wherever available.
+        </p>
+        <p class="result">
+          The collected data was organised and visualised using Folium to create an
+          interactive web map that allows users to explore individual observations
+          and their spatial distribution.
         </p>
       </div>
     </section>
 
-    <section id="work">
+    <section id="objective">
       <div class="wrap">
-        <h2>What I did</h2>
-        <ul class="work-list">
-          <li>Collected waste-bin points around campus with QField.</li>
-          <li>Read the GeoPackage in Python with GeoPandas and checked the CRS.</li>
-          <li>Joined each point to its photograph using the QField attachment names.</li>
-          <li>Built an interactive Folium map with tooltips, popups, Streets and Satellite layers, a legend, scale bar, and north arrow.</li>
-          <li>Coloured points by segregation status (dry, wet, not segregated, and other) to show patterns across hostels and academic areas.</li>
-          <li>Named myself as the collector on every popup and hosted the map on this webpage.</li>
-        </ul>
+        <h2>The Objective</h2>
+        <p class="lead">
+          To explore how geospatial technologies can help document everyday
+          infrastructure, visualise spatial patterns, and support evidence-informed
+          campus planning.
+        </p>
+      </div>
+    </section>
+
+    <section id="fieldwork">
+      <div class="wrap">
+        <h2>From Fieldwork to Data</h2>
+        <p class="lead">
+          Field observations were collected using QField, capturing geographical
+          coordinates and supporting information for mapped locations. This process
+          connected on-ground observations with a structured spatial dataset for
+          further exploration.
+        </p>
       </div>
     </section>
 
     <section id="map">
       <div class="wrap">
-        <h2>Interactive map</h2>
+        <h2>Exploring the Spatial Data</h2>
         <p class="lead">
-          Points are coloured by segregation status. Hover for the place name and category.
-          Click for the field note, collector name, time, and photograph. Use the layer
-          control to switch basemaps or turn categories on and off.
+          The collected observations were transformed into an interactive web map
+          using Folium. The map enables users to explore recorded locations and view
+          associated information, making the field data easier to navigate and interpret.
         </p>
         <div class="legend-row" aria-label="Map legend">
           <span><i class="swatch" style="background:#e67e22"></i> Not segregated</span>
@@ -454,20 +463,26 @@
       </div>
     </section>
 
+    <section id="takeaway">
+      <div class="wrap">
+        <h2>What This Project Explores</h2>
+        <p class="lead">
+          Mapping everyday infrastructure provides a starting point for understanding
+          how facilities are distributed across a campus. Combining field observations
+          with geospatial visualisation demonstrates how location-based data can support
+          further investigation into waste management and campus planning.
+        </p>
+      </div>
+    </section>
+
     <section id="future">
       <div class="wrap">
-        <h2>Future scope</h2>
-        <p class="result">
-          <strong>More observers.</strong>
-          Add observations collected by classmates, with clear acknowledgement of who recorded each point.
-        </p>
-        <p class="result">
-          <strong>Coverage.</strong>
-          Compare bin coverage between residential and academic zones.
-        </p>
-        <p class="result">
-          <strong>Repeat survey.</strong>
-          Repeat later in the semester to see whether bins are added, moved, or better maintained.
+        <h2>Where Could This Go Next?</h2>
+        <p class="lead">
+          Future work could examine waste-bin accessibility, segregation practices,
+          and the relationship between infrastructure placement and campus usage.
+          Additional observations and spatial analysis could help investigate these
+          questions and identify opportunities for more effective campus waste management.
         </p>
       </div>
     </section>
