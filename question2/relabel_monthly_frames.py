@@ -1,4 +1,4 @@
-"""Build wide GIF frames with month/year pinned to the top-RIGHT corner."""
+"""Build wide GIF frames: centered map + clear month label + readable NO2 units."""
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -9,7 +9,8 @@ MONTHS = [
     "JAN", "FEB", "MAR", "APR", "MAY", "JUN",
     "JUL", "AUG", "SEP", "OCT", "NOV", "DEC",
 ]
-MEANS = [
+# mol/m2 -> display as umol/m2 (* 1e6)
+MEANS_MOL = [
     0.00012122771002100347,
     0.0001344614113413094,
     6.880824049356434e-05,
@@ -24,7 +25,6 @@ MEANS = [
     0.0001679684995766481,
 ]
 
-# Wide canvas so the label sits at the card's top-right, not mid-frame
 CANVAS_W = 920
 CANVAS_H = 620
 BG = (7, 13, 20)
@@ -57,39 +57,40 @@ def draw_text_topleft(draw, x, y, text, font, fill):
 
 def label_frame(src: Path, month_idx: int) -> Image.Image:
     im = Image.open(src).convert("RGBA")
-
     canvas = Image.new("RGB", (CANVAS_W, CANVAS_H), BG)
     draw = ImageDraw.Draw(canvas)
 
-    # Top bar across the FULL width
     bar_h = 88
     draw.rectangle([0, 0, CANVAS_W, bar_h], fill=(10, 18, 28))
     draw.line([(0, bar_h - 3), (CANVAS_W, bar_h - 3)], fill=(240, 199, 94), width=3)
 
     month = MONTHS[month_idx]
-    year = "2020"
-    title = f"{month}  {year}"
-    mean_txt = f"{MEANS[month_idx]:.6f}"
+    title = f"{month}  2020"
+    mean_umol = MEANS_MOL[month_idx] * 1e6
+    mean_txt = f"{mean_umol:.1f}"
 
     font_title = get_font(48)
-    font_mean = get_font(20)
-    font_unit = get_font(16)
+    font_mean = get_font(28)
+    font_unit = get_font(15)
 
-    # Left: mean
-    draw_text_topleft(draw, 20, 18, mean_txt, font_mean, (61, 187, 154))
-    draw_text_topleft(draw, 20, 48, "mean NO2 (mol/m2)", font_unit, (200, 210, 220))
+    # Left: readable mean in umol/m2
+    draw_text_topleft(draw, 20, 14, mean_txt, font_mean, (61, 187, 154))
+    draw_text_topleft(draw, 20, 50, "mean NO2 (umol/m2)", font_unit, (200, 210, 220))
 
-    # RIGHT corner: month + year (pinned to canvas right edge)
+    # Top-right month/year
     tw, th, _ = text_size(draw, title, font_title)
-    title_x = CANVAS_W - 20 - tw
-    title_y = (bar_h - 6 - th) // 2
-    draw_text_topleft(draw, title_x, title_y, title, font_title, (240, 199, 94))
+    draw_text_topleft(
+        draw,
+        CANVAS_W - 20 - tw,
+        (bar_h - 6 - th) // 2,
+        title,
+        font_title,
+        (240, 199, 94),
+    )
 
-    # Map area below bar — fit map on the left/center of the wide panel
-    map_area_h = CANVAS_H - bar_h - 16
+    # Centered map below the bar
+    map_area_h = CANVAS_H - bar_h - 12
     map_area_w = CANVAS_W - 40
-
-    # scale map to fit height, keep aspect
     scale = min(map_area_w / im.width, map_area_h / im.height)
     new_w = max(1, int(im.width * scale))
     new_h = max(1, int(im.height * scale))
@@ -98,11 +99,9 @@ def label_frame(src: Path, month_idx: int) -> Image.Image:
     map_bg = Image.new("RGBA", (new_w, new_h), (*BG, 255))
     map_bg.alpha_composite(resized)
 
-    # place map toward left-center so right side stays clear under the title
-    paste_x = 20
-    paste_y = bar_h + (map_area_h - new_h) // 2 + 8
+    paste_x = (CANVAS_W - new_w) // 2
+    paste_y = bar_h + (map_area_h - new_h) // 2
     canvas.paste(map_bg.convert("RGB"), (paste_x, paste_y))
-
     return canvas
 
 
@@ -114,7 +113,7 @@ def main():
         out = FRAMES / f"labeled_{i:02d}.png"
         labeled.save(out)
         frame_paths.append(out)
-        print("Labeled", out.name)
+        print("Labeled", out.name, f"{MEANS_MOL[i-1]*1e6:.1f} umol/m2")
 
     frames = [Image.open(p).convert("RGB") for p in frame_paths]
     gif = OUT / "mumbai_2020_monthly_no2.gif"
@@ -125,7 +124,7 @@ def main():
         duration=800,
         loop=0,
     )
-    print("Saved", gif, frames[0].size)
+    print("Saved", gif)
 
 
 if __name__ == "__main__":

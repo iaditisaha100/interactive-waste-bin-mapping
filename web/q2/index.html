@@ -551,12 +551,12 @@
       </p>
       <div class="stats">
         <div class="stat">
-          <strong id="stat-mean">0.000086</strong>
-          <span>city-wide mean NO₂ (mol/m²)</span>
+          <strong id="stat-mean">86.1</strong>
+          <span>city-wide mean NO₂ (µmol/m²)</span>
         </div>
         <div class="stat">
-          <strong id="stat-p75">0.000104</strong>
-          <span>highest-quartile threshold (P75)</span>
+          <strong id="stat-p75">104.2</strong>
+          <span>highest-quartile threshold P75 (µmol/m²)</span>
         </div>
         <div class="stat">
           <strong id="stat-pop65">7.32 lakh</strong>
@@ -579,7 +579,7 @@
           Coral marks the highest-NO₂ quartile (P75+). The white outline is the city boundary.
         </p>
         <div class="chips">
-          <span class="chip">Low → High NO₂ <span class="legend-bar"></span> <b>0–0.0002 mol/m²</b></span>
+          <span class="chip">Low → High NO₂ <span class="legend-bar"></span> <b>0–200 µmol/m²</b></span>
           <span class="chip hot"><i></i> Highest-NO₂ quartile (P75+)</span>
           <span class="chip line"><i></i> City boundary</span>
         </div>
@@ -590,8 +590,8 @@
             <div class="cap">
               <strong>Figure 1 · Annual mean tropospheric NO₂ (2020)</strong>
               <p>
-                Cloud-masked Sentinel-5P OFFL L3 column density (mol/m²).
-                Warmer colours = higher city-mean NO₂. White outline = Greater Mumbai ULB.
+                Cloud-masked Sentinel-5P OFFL L3 column density.
+                Shown in µmol/m² (1 µmol/m² = 0.000001 mol/m²). White outline = Greater Mumbai ULB.
               </p>
             </div>
           </article>
@@ -632,22 +632,22 @@
           <article>
             <h3>Winter</h3>
             <strong id="s-winter">—</strong>
-            <span>Dec–Feb mean</span>
+            <span>Dec–Feb mean (µmol/m²)</span>
           </article>
           <article>
             <h3>Pre-monsoon</h3>
             <strong id="s-pre">—</strong>
-            <span>Mar–May mean</span>
+            <span>Mar–May mean (µmol/m²)</span>
           </article>
           <article>
             <h3>Monsoon</h3>
             <strong id="s-mon">—</strong>
-            <span>Jun–Aug mean</span>
+            <span>Jun–Aug mean (µmol/m²)</span>
           </article>
           <article>
             <h3>Post-monsoon</h3>
             <strong id="s-post">—</strong>
-            <span>Sep–Nov mean</span>
+            <span>Sep–Nov mean (µmol/m²)</span>
           </article>
         </div>
 
@@ -663,14 +663,14 @@
         <div class="two">
           <article class="figure gif-frame">
             <img src="outputs/mumbai_2020_monthly_no2.gif" alt="Animated monthly NO2 maps for Greater Mumbai 2020">
-            <div class="cap">Figure 2 · Monthly GIF for 2020 (dynamic output). Fixed 0–0.0002 mol/m² scale.</div>
+            <div class="cap">Figure 2 · Monthly GIF for 2020 (dynamic output). Fixed 0–200 µmol/m² colour scale.</div>
           </article>
           <div>
             <div class="callout">
               <h3>Temporal result</h3>
               <p>
                 Means peak in December–February and fall from April through August.
-                December is highest (~0.000168 mol/m²); May is lowest (~0.000025 mol/m²).
+                December is highest (~168 µmol/m²); May is lowest (~25 µmol/m²).
               </p>
             </div>
             <div class="callout" style="margin-top:10px">
@@ -719,8 +719,8 @@
               <tr><th>Exposure summary</th><th>Value</th></tr>
             </thead>
             <tbody id="summary-table">
-              <tr><td>City-wide mean tropospheric NO₂</td><td>0.000086 mol/m²</td></tr>
-              <tr><td>Highest-quartile threshold (P75)</td><td>0.000104 mol/m²</td></tr>
+              <tr><td>City-wide mean tropospheric NO₂</td><td>86.1 µmol/m²</td></tr>
+              <tr><td>Highest-quartile threshold (P75)</td><td>104.2 µmol/m²</td></tr>
               <tr><td>Residents aged 65+ (city total)</td><td>7,31,666</td></tr>
               <tr><td>Residents aged 65+ in highest-NO₂ quartile</td><td>2,38,328</td></tr>
               <tr><td>Share of 65+ in highest-NO₂ quartile</td><td>32.57%</td></tr>
@@ -729,7 +729,7 @@
 
           <table>
             <thead>
-              <tr><th>Month</th><th>Mean NO₂</th><th>vs annual</th></tr>
+              <tr><th>Month</th><th>Mean NO₂ (µmol/m²)</th><th>vs annual</th></tr>
             </thead>
             <tbody id="month-table"></tbody>
           </table>
@@ -846,24 +846,26 @@
     const pre = avg([2, 3, 4]);
     const mon = avg([5, 6, 7]);
     const post = avg([8, 9, 10]);
-    const fmt = (v) => Number(v).toFixed(6);
+    // Show NO2 as µmol/m² so values are easy to read (×1,000,000 from mol/m²)
+    const toUmol = (v) => Number(v) * 1e6;
+    const fmtUmol = (v) => toUmol(v).toFixed(1);
 
-    document.getElementById("s-winter").textContent = fmt(winter);
-    document.getElementById("s-pre").textContent = fmt(pre);
-    document.getElementById("s-mon").textContent = fmt(mon);
-    document.getElementById("s-post").textContent = fmt(post);
+    document.getElementById("s-winter").textContent = fmtUmol(winter);
+    document.getElementById("s-pre").textContent = fmtUmol(pre);
+    document.getElementById("s-mon").textContent = fmtUmol(mon);
+    document.getElementById("s-post").textContent = fmtUmol(post);
 
     const dec = monthly[11][1];
     const may = monthly[4][1];
     document.getElementById("compare-line").innerHTML =
-      `December mean NO₂ is about <b>${(dec / may).toFixed(1)}×</b> the May mean under the same cloud mask and colour scale.`;
+      `December mean NO₂ (~${fmtUmol(dec)} µmol/m²) is about <b>${(dec / may).toFixed(1)}×</b> the May mean (~${fmtUmol(may)} µmol/m²) under the same cloud mask and colour scale.`;
 
     document.getElementById("month-bars").innerHTML = monthly.map(([label, v]) => {
       const h = Math.max(6, Math.round((v / maxM) * 100));
       let cls = "bar";
       if (v === maxM) cls += " peak";
       if (v === minM) cls += " low";
-      return `<div class="bar-wrap" title="${label}: ${fmt(v)} mol/m²">
+      return `<div class="bar-wrap" title="${label}: ${fmtUmol(v)} µmol/m²">
         <div class="${cls}" style="height:${h}%"></div>
         <div class="bar-label">${label}</div>
       </div>`;
@@ -874,7 +876,7 @@
       const sign = rel >= 0 ? "+" : "";
       return `<tr>
         <td><b>${label}</b></td>
-        <td>${fmt(v)}</td>
+        <td>${fmtUmol(v)}</td>
         <td>${sign}${rel.toFixed(0)}%</td>
       </tr>`;
     }).join("");
@@ -883,20 +885,21 @@
       .then((r) => r.ok ? r.json() : Promise.reject())
       .then((data) => {
         document.getElementById("stat-mean").textContent =
-          fmt(data.no2_city_mean_mol_m2);
+          fmtUmol(data.no2_city_mean_mol_m2);
         document.getElementById("stat-p75").textContent =
-          fmt(data.no2_p75_mol_m2);
+          fmtUmol(data.no2_p75_mol_m2);
         document.getElementById("stat-pop65").textContent =
           (Math.round(data.pop65_total) / 100000).toFixed(2) + " lakh";
         document.getElementById("stat-share").textContent =
           Number(data.share_pop65_in_highest_no2_quartile_percent).toFixed(1) + "%";
 
         document.getElementById("summary-table").innerHTML = `
-          <tr><td>City-wide mean tropospheric NO₂</td><td>${fmt(data.no2_city_mean_mol_m2)} mol/m²</td></tr>
-          <tr><td>Highest-quartile threshold (P75)</td><td>${fmt(data.no2_p75_mol_m2)} mol/m²</td></tr>
+          <tr><td>City-wide mean tropospheric NO₂</td><td>${fmtUmol(data.no2_city_mean_mol_m2)} µmol/m²</td></tr>
+          <tr><td>Highest-quartile threshold (P75)</td><td>${fmtUmol(data.no2_p75_mol_m2)} µmol/m²</td></tr>
           <tr><td>Residents aged 65+ (city total)</td><td>${Math.round(data.pop65_total).toLocaleString("en-IN")}</td></tr>
           <tr><td>Residents aged 65+ in highest-NO₂ quartile</td><td>${Math.round(data.pop65_in_highest_no2_quartile).toLocaleString("en-IN")}</td></tr>
           <tr><td>Share of 65+ in highest-NO₂ quartile</td><td>${Number(data.share_pop65_in_highest_no2_quartile_percent).toFixed(2)}%</td></tr>
+          <tr><td>Unit note</td><td>1 µmol/m² = 0.000001 mol/m² (same satellite column, easier numbers)</td></tr>
         `;
       })
       .catch(() => {});
