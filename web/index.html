@@ -3,374 +3,506 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aditi Saha · Locations of the recorded waste bins · IIT Tirupati</title>
+  <title>Locations of the recorded waste bins · Aditi Saha · HS25M101</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,560;9..144,700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #e7eef2;
-      --ink: #10262f;
-      --muted: #4d6670;
-      --deep: #0b3d4a;
-      --teal: #147a7f;
-      --teal-soft: #1f9398;
-      --sand: #f3ebe0;
-      --card: #ffffff;
-      --line: #c9d6dc;
-      --accent: #e09f3e;
+      --bg: #0a1018;
+      --panel: #121a24;
+      --ink: #f3f7fb;
+      --soft: #c5d0dc;
+      --muted: #8b9aab;
+      --line: rgba(255, 255, 255, 0.1);
+      --teal: #3dbb9a;
+      --gold: #f0c75e;
+      --coral: #e76f51;
+      --hot: #ff6b6b;
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 12% 0%, rgba(20, 122, 127, 0.16), transparent 32%),
-        radial-gradient(circle at 88% 8%, rgba(224, 159, 62, 0.14), transparent 28%),
-        linear-gradient(180deg, #dfe9ee 0%, var(--bg) 42%, #dde8ec 100%);
-      font-family: "Outfit", sans-serif;
-      line-height: 1.6;
+      font-family: "Manrope", sans-serif;
+      line-height: 1.55;
+      background: var(--bg);
     }
 
-    a { color: var(--teal); font-weight: 500; }
+    a { color: var(--teal); font-weight: 600; }
 
     .wrap {
-      max-width: 980px;
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 22px;
     }
 
-    header {
-      background:
-        linear-gradient(135deg, rgba(11, 61, 74, 0.94), rgba(20, 122, 127, 0.88)),
-        linear-gradient(120deg, var(--deep), var(--teal));
-      color: #f4fbfb;
-      padding: 46px 0 38px;
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: rgba(10, 16, 24, 0.9);
+      border-bottom: 1px solid var(--line);
     }
 
-    header .eyebrow {
-      margin: 0 0 12px;
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: #c9ecee;
-    }
-
-    header h1 {
-      margin: 0 0 12px;
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(1.9rem, 4.2vw, 2.55rem);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-    }
-
-    header .byline {
-      margin: 0;
-      max-width: 40rem;
-      font-size: 1.05rem;
-      font-weight: 400;
-      color: #e4f4f5;
-    }
-
-    .actions {
+    .topnav .wrap {
+      position: relative;
+      min-height: 56px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 11px 18px;
-      border-radius: 10px;
+    .brand {
+      color: var(--ink);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .brand em {
+      font-style: normal;
+      color: var(--muted);
+      margin-left: 8px;
       font-weight: 600;
-      border: 1px solid transparent;
-      transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+      font-size: 0.86rem;
     }
 
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn-primary {
-      background: var(--sand);
-      color: var(--deep);
+    .nav-toggle {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
     }
 
-    .btn-primary:hover { background: #fff8ef; }
-
-    .btn-secondary {
-      background: transparent;
-      color: #f4fbfb;
-      border-color: rgba(244, 251, 251, 0.4);
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--ink);
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
-    .btn-secondary:hover { background: rgba(255, 255, 255, 0.08); }
+    .topnav.is-open .nav-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .topnav.is-open .nav-toggle span:nth-child(2) { opacity: 0; }
+
+    .topnav.is-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 22px;
+      min-width: 200px;
+      padding: 8px;
+      flex-direction: column;
+      gap: 2px;
+      background: #0f1722;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .topnav.is-open .nav-links { display: flex; }
+
+    .nav-links a {
+      color: var(--soft);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 10px;
+    }
+
+    .nav-links a:hover {
+      background: rgba(61, 187, 154, 0.12);
+      color: #fff;
+    }
+
+    .hero { padding: 40px 0 28px; }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--teal);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      max-width: 16ch;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2.1rem, 5vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+
+    .hero-lead {
+      margin: 0 0 28px;
+      color: var(--soft);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 60ch;
+    }
 
     .stats {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin: -22px auto 28px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .stat {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 16px 14px;
-      text-align: center;
-      box-shadow: 0 10px 28px rgba(16, 38, 47, 0.07);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px 24px;
+      padding-top: 4px;
+      border-top: 1px solid var(--line);
     }
 
     .stat strong {
       display: block;
-      font-size: 1.55rem;
-      color: var(--deep);
       font-family: "Fraunces", Georgia, serif;
-      font-weight: 700;
+      font-size: 1.45rem;
+      color: #fff;
+      margin-bottom: 4px;
+      line-height: 1.15;
     }
 
     .stat span {
       color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 0.82rem;
     }
 
-    main { padding-bottom: 56px; }
+    .stat.accent strong { color: var(--gold); }
 
-    section {
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 24px 24px 22px;
-      margin-bottom: 18px;
-      box-shadow: 0 10px 28px rgba(16, 38, 47, 0.05);
-    }
+    section { padding: 36px 0 8px; }
 
     section h2 {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       font-family: "Fraunces", Georgia, serif;
-      font-size: 1.45rem;
+      font-size: clamp(1.35rem, 2.6vw, 1.8rem);
       font-weight: 700;
-      color: var(--deep);
-      letter-spacing: -0.01em;
+      color: #fff;
     }
 
-    section h2::after {
+    .lead {
+      margin: 0 0 14px;
+      color: var(--soft);
+      font-size: 0.98rem;
+      max-width: 68ch;
+    }
+
+    .lead b { color: #fff; font-weight: 700; }
+
+    .result {
+      margin: 0 0 14px;
+      color: var(--soft);
+      font-size: 0.98rem;
+      max-width: 70ch;
+    }
+
+    .result strong {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .result:last-child { margin-bottom: 0; }
+
+    .work-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      max-width: 70ch;
+    }
+
+    .work-list li {
+      position: relative;
+      padding-left: 16px;
+      color: var(--soft);
+      font-size: 0.95rem;
+    }
+
+    .work-list li::before {
       content: "";
-      display: block;
-      width: 42px;
-      height: 3px;
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .map-frame-wrap {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #070d14;
       margin-top: 8px;
-      border-radius: 2px;
-      background: linear-gradient(90deg, var(--teal), var(--accent));
     }
-
-    section p { margin: 0 0 10px; color: var(--ink); }
-
-    section p:last-child,
-    section ul:last-child { margin-bottom: 0; }
-
-    ul {
-      margin: 8px 0 0;
-      padding-left: 1.15rem;
-    }
-
-    li { margin-bottom: 7px; }
 
     .map-frame {
       width: 100%;
       height: 72vh;
       min-height: 520px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
+      border: 0;
+      display: block;
       background: #fff;
-      margin-top: 12px;
     }
 
-    .map-note {
-      margin-top: 10px;
+    .cap {
+      margin: 10px 0 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      max-width: 70ch;
     }
 
-    footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 500;
-      padding: 8px 20px 36px;
-    }
-
-    .site-nav {
-      background: rgba(11, 61, 74, 0.96);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      position: sticky;
-      top: 0;
-      z-index: 10000;
-    }
-
-    .site-nav .wrap {
+    .legend-row {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding-top: 12px;
-      padding-bottom: 12px;
-    }
-
-    .site-nav .brand {
-      color: #f4fbfb;
+      gap: 10px 16px;
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.82rem;
       font-weight: 600;
-      text-decoration: none;
-      font-size: 0.95rem;
     }
 
-    .site-nav .links {
+    .legend-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding: 18px 0 36px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.84rem;
       display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       gap: 8px;
     }
 
-    .site-nav .links a {
-      text-decoration: none;
-      color: #d7ecee;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.92rem;
-      border: 1px solid transparent;
-    }
-
-    .site-nav .links a:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-    }
-
-    .site-nav .links a.active {
-      background: var(--sand);
-      color: var(--deep);
-    }
-
-    @media (max-width: 700px) {
-      .stats { grid-template-columns: 1fr; margin-top: 18px; }
+    @media (max-width: 920px) {
+      .stats { grid-template-columns: 1fr 1fr; }
+      .hero h1 { max-width: none; }
       .map-frame { height: 65vh; min-height: 420px; }
+    }
+
+    @media (max-width: 560px) {
+      .stats { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <nav class="site-nav">
+  <nav class="topnav" id="topnav">
     <div class="wrap">
-      <a class="brand" href="index.html">Aditi Saha · HS25M101</a>
-      <div class="links">
-        <a class="active" href="index.html">Question 1</a>
+      <a class="brand" href="index.html">IIT Tirupati · Waste bins<em>HS25M101</em></a>
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#project">Project</a>
+        <a href="#map">Map</a>
+        <a href="#future">Future scope</a>
         <a href="q2/index.html">Question 2</a>
       </div>
     </div>
   </nav>
-  <header>
+
+  <header class="hero">
     <div class="wrap">
-      <p class="eyebrow">Urban Informatics and Spatial Analytics</p>
+      <p class="eyebrow">Question 1 · Urban Informatics and Spatial Analytics</p>
       <h1>Locations of the recorded waste bins</h1>
-      <p class="byline">
-        Aditi Saha · Master of Public Policy · IIT Tirupati.
-        Coursework project using QField field data and an interactive Folium web map.
+      <p class="hero-lead">
+        Field survey of waste-bin points on the IIT Tirupati campus, collected with
+        QField and mapped interactively with Folium. Each point keeps its place name,
+        segregation note, time, collector, and photograph.
       </p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#map">Explore the map</a>
-        <a class="btn btn-secondary" href="waste-bins.html">Open full map</a>
+      <div class="stats">
+        <div class="stat">
+          <strong>47</strong>
+          <span>waste-bin points</span>
+        </div>
+        <div class="stat">
+          <strong>1</strong>
+          <span>campus survey walk</span>
+        </div>
+        <div class="stat">
+          <strong>QField</strong>
+          <span>field data collection</span>
+        </div>
+        <div class="stat accent">
+          <strong>Folium</strong>
+          <span>interactive web map</span>
+        </div>
       </div>
     </div>
   </header>
 
-  <div class="wrap">
-    <div class="stats">
-      <div class="stat"><strong>47</strong><span>waste-bin points</span></div>
-      <div class="stat"><strong>1</strong><span>campus survey walk</span></div>
-    </div>
-  </div>
-
-  <main class="wrap">
+  <main>
     <section id="about">
-      <h2>About me</h2>
-      <p>
-        I am <strong>Aditi Saha</strong>, studying for a <strong>Master of Public Policy</strong>
-        at <strong>IIT Tirupati</strong>. This page presents my coursework for
-        <strong>Urban Informatics and Spatial Analytics</strong>.
-      </p>
-      <p>
-        I am interested in how spatial data can support everyday campus and city
-        planning questions, starting with something visible on the ground: where
-        waste bins are placed and how they are used.
-      </p>
+      <div class="wrap">
+        <h2>About me</h2>
+        <p class="lead">
+          I am <b>Aditi Saha</b>, studying for a <b>Master of Public Policy</b> at
+          <b>IIT Tirupati</b>. This page presents my coursework for
+          <b>Urban Informatics and Spatial Analytics</b>.
+        </p>
+        <p class="result">
+          I am interested in how spatial data can support everyday campus and city
+          planning questions, starting with something visible on the ground: where
+          waste bins are placed and how they are used.
+        </p>
+      </div>
     </section>
 
     <section id="project">
-      <h2>About the project</h2>
-      <p>
-        This assignment builds an interactive web map of waste-bin observations
-        collected on the <strong>IIT Tirupati campus</strong> using the
-        <strong>QField</strong> app, showing the locations of the recorded waste bins.
-        Each observation is a point with a location, field note, time, and photograph.
-      </p>
-      <p>
-        The final map is made with <strong>Folium</strong> and hosted online so
-        anyone can explore the points in a browser. The photographs are stored
-        with the website, so they remain visible after hosting and not only on
-        my local computer.
-      </p>
+      <div class="wrap">
+        <h2>About the project</h2>
+        <p class="lead">
+          This assignment builds an interactive web map of waste-bin observations
+          collected on the <b>IIT Tirupati campus</b> using the <b>QField</b> app.
+          Each observation is a point with a location, field note, time, and photograph.
+        </p>
+        <p class="result">
+          The final map is made with <b>Folium</b> and hosted online so anyone can
+          explore the points in a browser. Photographs are stored with the website,
+          so they remain visible after hosting and not only on a local computer.
+        </p>
+      </div>
     </section>
 
     <section id="work">
-      <h2>What I did</h2>
-      <ul>
-        <li>Collected waste-bin points around campus with QField.</li>
-        <li>Read the GeoPackage in Python with GeoPandas and checked the CRS.</li>
-        <li>Joined each point to its photograph using the QField attachment names.</li>
-        <li>Built an interactive Folium map with tooltips, popups, Streets and Satellite layers, a legend, scale bar, and north arrow.</li>
-        <li>Coloured points by segregation status (dry, wet, not segregated, and other) to show patterns across hostels and academic areas.</li>
-        <li>Named myself as the collector on every popup and hosted the map on this webpage.</li>
-      </ul>
+      <div class="wrap">
+        <h2>What I did</h2>
+        <ul class="work-list">
+          <li>Collected waste-bin points around campus with QField.</li>
+          <li>Read the GeoPackage in Python with GeoPandas and checked the CRS.</li>
+          <li>Joined each point to its photograph using the QField attachment names.</li>
+          <li>Built an interactive Folium map with tooltips, popups, Streets and Satellite layers, a legend, scale bar, and north arrow.</li>
+          <li>Coloured points by segregation status (dry, wet, not segregated, and other) to show patterns across hostels and academic areas.</li>
+          <li>Named myself as the collector on every popup and hosted the map on this webpage.</li>
+        </ul>
+      </div>
     </section>
 
     <section id="map">
-      <h2>Interactive map</h2>
-      <p>
-        The map shows the locations of the recorded waste bins at IIT Tirupati.
-        Points are coloured by segregation status. Hover for the place name and category.
-        Click for the field note, collector name, time, and photograph. Use the layer control
-        to switch basemaps or turn categories on and off.
-      </p>
-      <p><a href="waste-bins.html">Open the map on its own page</a></p>
-      <iframe
-        class="map-frame"
-        src="waste-bins.html"
-        title="Locations of the recorded waste bins at IIT Tirupati"
-      ></iframe>
-      <p class="map-note">
-        Tip: open the full map if you want more screen space for exploring the campus.
-      </p>
+      <div class="wrap">
+        <h2>Interactive map</h2>
+        <p class="lead">
+          Points are coloured by segregation status. Hover for the place name and category.
+          Click for the field note, collector name, time, and photograph. Use the layer
+          control to switch basemaps or turn categories on and off.
+        </p>
+        <div class="legend-row" aria-label="Map legend">
+          <span><i class="swatch" style="background:#e67e22"></i> Not segregated</span>
+          <span><i class="swatch" style="background:#1f78b4"></i> Dry waste</span>
+          <span><i class="swatch" style="background:#33a02c"></i> Wet waste</span>
+          <span><i class="swatch" style="background:#6a3d9a"></i> Segregated</span>
+          <span><i class="swatch" style="background:#7f7f7f"></i> Other</span>
+        </div>
+        <div class="map-frame-wrap">
+          <iframe
+            class="map-frame"
+            src="waste-bins.html"
+            title="Locations of the recorded waste bins at IIT Tirupati"
+          ></iframe>
+        </div>
+        <p class="cap">
+          Locations of the recorded waste bins at IIT Tirupati ·
+          <a href="waste-bins.html" target="_blank" rel="noopener">open full screen</a>
+        </p>
+      </div>
     </section>
 
     <section id="future">
-      <h2>Future scope</h2>
-      <ul>
-        <li>Add observations collected by classmates, with clear acknowledgement of who recorded each point.</li>
-        <li>Compare bin coverage between residential and academic zones.</li>
-        <li>Repeat the survey later in the semester to see whether bins are added, moved, or better maintained.</li>
-      </ul>
+      <div class="wrap">
+        <h2>Future scope</h2>
+        <p class="result">
+          <strong>More observers.</strong>
+          Add observations collected by classmates, with clear acknowledgement of who recorded each point.
+        </p>
+        <p class="result">
+          <strong>Coverage.</strong>
+          Compare bin coverage between residential and academic zones.
+        </p>
+        <p class="result">
+          <strong>Repeat survey.</strong>
+          Repeat later in the semester to see whether bins are added, moved, or better maintained.
+        </p>
+      </div>
     </section>
   </main>
 
-  <footer>
-    Aditi Saha · HS25M101 · Urban Informatics and Spatial Analytics · IIT Tirupati
+  <footer class="wrap footer">
+    <div>Question 1 · Waste bins · HS25M101</div>
+    <div>Aditi Saha · IIT Tirupati</div>
   </footer>
+
+  <script>
+    const topnav = document.getElementById("topnav");
+    const navToggle = document.getElementById("nav-toggle");
+    const setNavOpen = (open) => {
+      topnav.classList.toggle("is-open", open);
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+
+    navToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setNavOpen(!topnav.classList.contains("is-open"));
+    });
+
+    document.getElementById("nav-links").addEventListener("click", (e) => {
+      if (e.target.closest("a")) setNavOpen(false);
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!topnav.contains(e.target)) setNavOpen(false);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setNavOpen(false);
+    });
+  </script>
 </body>
 </html>
