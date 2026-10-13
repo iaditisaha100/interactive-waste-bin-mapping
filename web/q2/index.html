@@ -286,6 +286,64 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      align-items: stretch;
+    }
+
+    .obs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .obs h3 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .obs ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .obs li {
+      position: relative;
+      padding-left: 14px;
+      color: var(--soft);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .obs li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .obs li b { color: #fff; }
+
+    .slider-block {
+      margin-top: 12px;
+    }
+
+    .slider-block .panel {
+      padding: 0;
+      overflow: hidden;
     }
 
     .map-card,
@@ -403,7 +461,7 @@
 
     iframe.slider {
       width: 100%;
-      height: 520px;
+      height: 560px;
       border: 0;
       display: block;
       background: #070d14;
@@ -540,6 +598,8 @@
         grid-template-columns: 1fr;
       }
 
+      .obs { min-height: 0; }
+
       .hero h1 { max-width: none; }
 
       .map-card img,
@@ -580,7 +640,7 @@
 
   <header class="hero">
     <div class="wrap">
-      <p class="eyebrow">Question 2 · Google Earth Engine</p>
+      <p class="eyebrow">Question 2 · Google Earth Engine urban analysis</p>
       <h1>About one in three Mumbai residents aged 65+ live in the city’s highest-NO₂ quartile.</h1>
       <p class="hero-lead">
         2020 Sentinel-5P tropospheric NO₂ + WorldPop age–sex for Greater Mumbai.
@@ -610,7 +670,7 @@
   <main>
     <section id="maps">
       <div class="wrap">
-        <h2>2020 maps</h2>
+        <h2>Where NO₂ is highest in 2020</h2>
         <div class="chips">
           <span class="chip">NO₂ scale <span class="legend-bar"></span> <b>0–200 µmol/m²</b></span>
           <span class="chip hot"><i></i> P75+ high zone</span>
@@ -635,7 +695,7 @@
 
     <section id="animation">
       <div class="wrap">
-        <h2>Monthly 2020</h2>
+        <h2>Twelve months on one scale</h2>
         <p class="one-line">Same colour scale every month · Dec ≈ 6.6× May · monsoon dips partly reflect cloud gaps.</p>
 
         <div class="season">
@@ -666,8 +726,20 @@
         <div class="two">
           <article class="figure gif-frame">
             <img src="outputs/mumbai_2020_monthly_no2.gif" alt="Animated monthly NO2 maps for Greater Mumbai 2020">
-            <div class="cap">Figure 2 · Monthly GIF (dynamic output)</div>
+            <div class="cap">Figure 2 · Monthly GIF for 2020 (dynamic output). Fixed 0–200 µmol/m² colour scale.</div>
           </article>
+          <aside class="obs">
+            <h3>What the GIF shows</h3>
+            <ul>
+              <li><b>December peaks</b> (~168 µmol/m²) — winter trapping and traffic keep column NO₂ highest.</li>
+              <li><b>May is lowest</b> (~25 µmol/m²) — Dec is about <b>6.6×</b> the May mean on the same scale.</li>
+              <li><b>Monsoon trough</b> looks cleaner partly because cloud_fraction ≤ 0.2 removes many scenes.</li>
+              <li>Warm colours hug denser corridors; cooler blues sit toward less built-up edges of the city.</li>
+            </ul>
+          </aside>
+        </div>
+
+        <div class="slider-block">
           <div class="panel">
             <iframe
               class="slider"
@@ -675,16 +747,17 @@
               src="outputs/mumbai_2020_no2_timeslider.html"
             ></iframe>
           </div>
+          <p class="one-line" style="margin-top:8px">
+            Time slider · step month by month ·
+            <a href="outputs/mumbai_2020_no2_timeslider.html" target="_blank" rel="noopener">open full screen</a>
+          </p>
         </div>
-        <p class="one-line" style="margin-top:8px">
-          Time slider · <a href="outputs/mumbai_2020_no2_timeslider.html" target="_blank" rel="noopener">open full screen</a>
-        </p>
       </div>
     </section>
 
     <section id="exposure">
       <div class="wrap">
-        <h2>65+ exposure summary</h2>
+        <h2>Residents aged 65+ in high-NO₂ areas</h2>
         <table>
           <thead>
             <tr><th>Metric</th><th>Value</th></tr>
@@ -714,7 +787,7 @@
 
     <section id="discussion">
       <div class="wrap">
-        <h2>Discussion</h2>
+        <h2>Spatial pattern and interpretation</h2>
         <div class="discuss">
           <article>
             <h3>Spatial</h3>
@@ -735,7 +808,7 @@
     <section id="methods">
       <div class="wrap">
         <details class="fold" open>
-          <summary>Methods, sources &amp; limitations</summary>
+          <summary>Method, sources and limitations</summary>
           <div class="fold-body">
             <p style="margin:0 0 8px">
               S5P OFFL L3 NO₂ (2020), cloud_fraction ≤ 0.2, Greater Mumbai ULB boundary.
