@@ -54,6 +54,7 @@
     }
 
     .topnav .wrap {
+      position: relative;
       min-height: 54px;
       display: flex;
       align-items: center;
@@ -75,20 +76,71 @@
       font-size: 0.88rem;
     }
 
+    .nav-toggle {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: rgba(18, 28, 42, 0.9);
+      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--ink);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .topnav.is-open .nav-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .topnav.is-open .nav-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .topnav.is-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
     .nav-links {
-      display: flex;
-      flex-wrap: wrap;
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 20px;
+      min-width: 200px;
+      padding: 8px;
+      flex-direction: column;
       gap: 2px;
-      justify-content: flex-end;
+      background: rgba(12, 20, 32, 0.96);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(14px);
+    }
+
+    .topnav.is-open .nav-links {
+      display: flex;
     }
 
     .nav-links a {
       color: var(--soft);
       text-decoration: none;
-      font-size: 0.84rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      padding: 7px 10px;
-      border-radius: 999px;
+      padding: 10px 12px;
+      border-radius: 10px;
     }
 
     .nav-links a:hover {
@@ -500,10 +552,22 @@
   </style>
 </head>
 <body>
-  <nav class="topnav">
+  <nav class="topnav" id="topnav">
     <div class="wrap">
       <a class="brand" href="../index.html">Mumbai · NO₂<em>HS25M101</em></a>
-      <div class="nav-links">
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="#maps">Maps</a>
         <a href="#animation">Animation</a>
         <a href="#exposure">Exposure</a>
@@ -773,6 +837,31 @@
         `;
       })
       .catch(() => {});
+
+    const topnav = document.getElementById("topnav");
+    const navToggle = document.getElementById("nav-toggle");
+    const setNavOpen = (open) => {
+      topnav.classList.toggle("is-open", open);
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+
+    navToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setNavOpen(!topnav.classList.contains("is-open"));
+    });
+
+    document.getElementById("nav-links").addEventListener("click", (e) => {
+      if (e.target.closest("a")) setNavOpen(false);
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!topnav.contains(e.target)) setNavOpen(false);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setNavOpen(false);
+    });
   </script>
 </body>
 </html>
